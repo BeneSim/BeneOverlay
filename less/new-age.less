@@ -1,0 +1,628 @@
+@import "variables.less";
+@import "mixins.less";
+
+// Global Components
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    .body-font;
+}
+
+a {
+    .transition-all;
+    color: @theme-primary;
+    &:hover,
+    &:focus {
+        color: darken(@theme-primary, 10%);
+    }
+}
+
+hr {
+    max-width: 100px;
+    margin: 25px auto 0;
+    border-width: 1px;
+    border-color: fade(@gray-darker, 10%);
+}
+
+hr.light {
+    border-color: white;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    .heading-font;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+// Navigation
+
+.navbar-default {
+    background-color: white;
+    border-color: fade(@gray-darker, 5%);
+    .transition-all;
+    .heading-font;
+    .navbar-header .navbar-brand {
+        font-family: "Kaushan Script", cursive;
+        color: @theme-primary;
+        &:hover,
+        &:focus {
+            color: darken(@theme-primary, 10%);
+        }
+    }
+    .navbar-header .navbar-toggle {
+        font-size: 12px;
+        color: @gray-darker;
+        padding: 8px 10px;
+    }
+    .nav {
+        > li {
+            > a {
+                .alt-font;
+                font-size: 11px;
+            }
+            > a,
+            > a:focus {
+                color: @gray-darker;
+                &:hover {
+                    color: @theme-primary;
+                }
+            }
+            &.active {
+                > a,
+                > a:focus {
+                    color: @theme-primary !important;
+                    background-color: transparent;
+                    &:hover {
+                        background-color: transparent;
+                    }
+                }
+            }
+        }
+    }
+    @media (min-width: 768px) {
+        background-color: transparent;
+        border-color: transparent;
+        .navbar-header .navbar-brand {
+            color: fade(white, 70%);
+            &:hover,
+            &:focus {
+                color: white;
+            }
+        }
+        .nav > li > a,
+        .nav > li > a:focus {
+            color: fade(white, 70%);
+            &:hover {
+                color: white;
+            }
+        }
+        &.affix {
+            background-color: white;
+            border-color: fade(@gray-darker, 10%);
+            .navbar-header .navbar-brand {
+                color: @gray-darker;
+                &:hover,
+                &:focus {
+                    color: @theme-primary;
+                }
+            }
+            .nav > li > a,
+            .nav > li > a:focus {
+                color: @gray-darker;
+                &:hover {
+                    color: @theme-primary;
+                }
+            }
+        }
+    }
+}
+
+// Homepage Header
+
+header {
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    overflow-y: hidden;
+    color: white;
+    .background-cover;
+    background-image: url("../img/bg.jpg");
+    .overlay {
+        height: 100%;
+        width: 100%;
+        background-color: fade(black, 50%);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .header-content {
+        text-align: center;
+        padding: 150px 0 50px;
+        position: relative;
+        .header-content-inner {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+            h1 {
+                margin-top: 0;
+                margin-bottom: 30px;
+                font-size: 30px;
+            }
+            h2 {
+                margin-bottom: 30px;
+            }
+            .list-badges {
+                margin-bottom: 25px;
+                img {
+                    height: 50px;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+    .device-container {
+        max-width: 300px;
+        margin: 0 auto 100px;
+        .screen img {
+            border-radius: 3px;
+        }
+    }
+    @media (min-width: 768px) {
+        min-height: 100%;
+        .header-content {
+            padding: 0;
+            height: 100vh;
+            .header-content-inner {
+                max-width: none;
+                margin: 0;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                h1 {
+                    font-size: 35px;
+                }
+            }
+        }
+        .device-container {
+            max-width: none;
+            max-height: calc(100vh - 100px);
+            margin: 100px auto 0;
+        }
+    }
+    @media (min-width: 992px) {
+        .header-content .header-content-inner h1 {
+            font-size: 50px;
+        }
+    }
+}
+
+// Sections
+
+section {
+    padding: 100px 0;
+    h2 {
+        font-size: 50px;
+    }
+}
+
+section.legal {
+    h1 {
+        font-size: 50px;
+    }
+    h2 {
+        font-size: 30px;
+    }
+    p {
+        font-size: 14px;
+    }
+}
+
+section.download {
+    padding: 150px 0;
+    position: relative;
+    h2 {
+        margin-top: 0;
+        font-size: 50px;
+    }
+    .badges {
+        .badge-link {
+            display: block;
+            margin-bottom: 25px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            img {
+                height: 60px;
+            }
+            @media(min-width: 768px) {
+                display: inline-block;
+                margin-bottom: 0;
+            }
+        }
+    }
+    @media(min-width: 768px) {
+        h2 {
+            font-size: 70px;
+        }
+    }
+}
+
+section.features {
+    .section-heading {
+        h2 {
+            margin-top: 0;
+        }
+        p {
+            margin-bottom: 0;
+        }
+        margin-bottom: 100px;
+    }
+    .device-container,
+    .feature-item {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    .device-container {
+        margin-bottom: 100px;
+        @media(min-width: 992px) {
+            margin-bottom: 0;
+        }
+    }
+    .feature-item {
+        text-align: center;
+        margin-bottom: 100px;
+        h3 {
+            font-size: 30px;
+        }
+        i {
+            font-size: 80px;
+            background-color: @theme-primary;
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+        }
+    }
+    @media(min-width: 992px) {
+        .device-container,
+        .feature-item {
+            max-width: none;
+        }
+    }
+}
+
+section.cta {
+    position: relative;
+    .background-cover;
+    background-position: center;
+    background-image: url('../img/6.jpg');
+    padding: 250px 0;
+    .cta-content {
+        position: relative;
+        z-index: 1;
+        h2 {
+            margin-top: 0;
+            margin-bottom: 25px;
+            color: white;
+            max-width: 450px;
+            font-size: 50px;
+        }
+        h3 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 80px;
+            }
+        }
+    }
+    .overlay {
+        height: 100%;
+        width: 100%;
+        background-color: fade(black, 50%);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+section.about {
+    text-align: center;
+    h2 {
+        margin-top: 0;
+        margin-bottom: 25px;
+        i {
+            color: @theme-primary;
+        }
+    }
+    ul.list-social {
+        margin-bottom: 25px;
+        li {
+            a {
+                display: block;
+                height: 40px;
+                width: 40px;
+                line-height: 40px;
+                font-size: 20px;
+                border-radius: 100%;
+                color: white;
+            }
+            &.social-twitter {
+                a {
+                    background-color: @brand-twitter;
+                    &:hover {
+                        background-color: darken(@brand-twitter, 5%);
+                    }
+                }
+            }
+            &.social-github {
+                a {
+                    background-color: @brand-github;
+                    &:hover {
+                        background-color: darken(@brand-github, 5%);
+                    }
+                }
+            }
+            &.social-youtube {
+                a {
+                    background-color: @brand-youtube;
+                    &:hover {
+                        background-color: darken(@brand-youtube, 5%);
+                    }
+                }
+            }
+            &.social-discord {
+                a {
+                    background-color: @brand-discord;
+                    &:hover {
+                        background-color: darken(@brand-discord, 5%);
+                    }
+                }
+            }
+            &.social-twitch {
+                a {
+                    background-color: @brand-twitch;
+                    &:hover {
+                        background-color: darken(@brand-twitch, 5%);
+                    }
+                }
+            }
+            &.social-facebook {
+                a {
+                    background-color: @brand-facebook;
+                    &:hover {
+                        background-color: darken(@brand-facebook, 5%);
+                    }
+                }
+            }
+            &.social-google-plus {
+                a {
+                    background-color: @brand-google-plus;
+                    &:hover {
+                        background-color: darken(@brand-google-plus, 5%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+section.contact {
+    text-align: center;
+    h2 {
+        margin-top: 0;
+        margin-bottom: 25px;
+        i {
+            color: @theme-primary;
+        }
+    }
+    ul.list-social {
+        margin-bottom: 25px;
+        li {
+            a {
+                display: block;
+                height: 80px;
+                width: 80px;
+                line-height: 80px;
+                font-size: 40px;
+                border-radius: 100%;
+                color: white;
+            }
+            &.social-twitter {
+                a {
+                    background-color: @brand-twitter;
+                    &:hover {
+                        background-color: darken(@brand-twitter, 5%);
+                    }
+                }
+            }
+            &.social-youtube {
+                a {
+                    background-color: @brand-youtube;
+                    &:hover {
+                        background-color: darken(@brand-youtube, 5%);
+                    }
+                }
+            }
+            &.social-discord {
+                a {
+                    background-color: @brand-discord;
+                    &:hover {
+                        background-color: darken(@brand-discord, 5%);
+                    }
+                }
+            }
+            &.social-twitch {
+                a {
+                    background-color: @brand-twitch;
+                    &:hover {
+                        background-color: darken(@brand-twitch, 5%);
+                    }
+                }
+            }
+            &.social-github {
+                a {
+                    background-color: @brand-github;
+                    &:hover {
+                        background-color: darken(@brand-github, 5%);
+                    }
+                }
+            }
+            &.social-facebook {
+                a {
+                    background-color: @brand-facebook;
+                    &:hover {
+                        background-color: darken(@brand-facebook, 5%);
+                    }
+                }
+            }
+            &.social-google-plus {
+                a {
+                    background-color: @brand-google-plus;
+                    &:hover {
+                        background-color: darken(@brand-google-plus, 5%);
+                    }
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: @gray-darker;
+    padding: 25px 0;
+    color: fade(white, 30%);
+    text-align: center;
+    a {
+        font-size: 12px;
+        color: fade(white, 30%);
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            text-decoration: none;
+        }
+    }
+    p {
+        font-size: 12px;
+        margin: 0;
+    }
+    ul {
+        margin-bottom: 0;
+    }
+}
+
+// Bootstrap Overrides
+
+.bg-primary {
+    background: @theme-primary;
+    background: -webkit-linear-gradient(@theme-primary , darken(@theme-primary, 5%));
+    background: linear-gradient(@theme-primary , darken(@theme-primary, 5%));
+}
+
+.bg-secondary {
+    background: @theme-secondary;
+    background: -webkit-linear-gradient(@theme-secondary , darken(@theme-secondary, 5%));
+    background: linear-gradient(@theme-secondary , darken(@theme-secondary, 5%));
+}
+
+.bg-gray-light {
+    background: @gray-light;
+    background: -webkit-linear-gradient(@gray-light , darken(@gray-light, 5%));
+    background: linear-gradient(@gray-light , darken(@gray-light, 5%));
+}
+
+.bg-gray-lighter {
+    background: @gray-lighter;
+    background: -webkit-linear-gradient(@gray-lighter , darken(@gray-lighter, 5%));
+    background: linear-gradient(@gray-lighter , darken(@gray-lighter, 5%));
+}
+
+.bg-gray-lightest {
+    background: @gray-lightest;
+    background: -webkit-linear-gradient(@gray-lightest , darken(@gray-lightest, 5%));
+    background: linear-gradient(darken(@gray-lightest, 2%), @gray-lightest);
+}
+
+.text-primary {
+    color: @theme-primary;
+}
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+// Button Styles
+.btn-outline {
+    color: white;
+    border-color: white;
+    border: 1px solid;
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+        color: white;
+        background-color: @theme-primary;
+        border-color: @theme-primary;
+    }
+}
+
+.btn-inverse {
+    color: black;
+    border-color: black;
+}
+
+.btn {
+    .alt-font;
+    border-radius: 300px;
+}
+
+.btn-xl {
+    padding: 15px 45px;
+    font-size: 11px;
+}
+
+// Extras
+// -- Highlight Color Customization
+::-moz-selection {
+    color: white;
+    text-shadow: none;
+    background: @gray-darker;
+}
+
+::selection {
+    color: white;
+    text-shadow: none;
+    background: @gray-darker;
+}
+
+img::selection {
+    color: white;
+    background: transparent;
+}
+
+img::-moz-selection {
+    color: white;
+    background: transparent;
+}
+
+body {
+    webkit-tap-highlight-color: @gray-darker;
+}
+
+.overlay-font {
+    font-family: "Kaushan Script", cursive;
+}
