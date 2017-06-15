@@ -189,6 +189,27 @@ header .header-content .header-content-inner .list-badges img {
   height: 50px;
   margin-bottom: 25px;
 }
+header .icon {
+  height: 45px;
+}
+header .primary-fill {
+  fill: #fff;
+}
+header .secondary-fill {
+  fill: #fff;
+}
+header .primary-stroke {
+  stroke: #fff;
+}
+header .secondary-stroke {
+  stroke: #fff;
+}
+header .primary-color {
+  color: #fff;
+}
+header .secondary-color {
+  color: #fff;
+}
 header .device-container {
   max-width: 300px;
   margin: 0 auto 100px;
