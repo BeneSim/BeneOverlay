@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/altitude.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupAltitude(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="altitude" class="tabs">
+            <svg class="icon" viewBox="0 0 80 100">
+                <line x1="0" x2="80" y1="95" y2="95" stroke-width="5" class="secondary-stroke" />
+                <g transform="translate(0,-8) rotate(0,40,89)" id="airplane">
+                    <path d="M10,94 H65 C73,94 73,84 65,84 H50 L30,64 L25,66 L35,84 H15 L12,79 H5" class="primary-fill" />
+                    <g id="airplane-gear">
+                        <circle cx="45" cy="97.5" r="2.5" class="primary-fill" />
+                        <circle cx="39" cy="97.5" r="2.5" class="primary-fill" />
+                    </g>
+                </g>
+            </svg>
+            <table>
+                <tr>
+                    <td class="secondary-font secondary-color">ALT:&nbsp;</td>
+                    <td id="alt" class="primary-font primary-color five-digit right">4900</td>
+                    <td id="alt_unit" class="primary-font primary-color">ft</td>
+                </tr>
+                <tr>
+                    <td class="secondary-font secondary-color">V/S:&nbsp;</td>
+                    <td id="vs" class="primary-font primary-color five-digit right">1500</td>
+                    <td class="primary-font primary-color">ft/min</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

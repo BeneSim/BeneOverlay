@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/callsign.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupCallsign(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+    <div id="callsign" class="tabs">
+        <svg class="icon" viewBox="0 0 100 100">
+            <path
+                d="m10,50 a 40 45 0 0 1 80,0"
+                stroke-width="5"
+                fill="none"
+                class="primary-stroke"
+            />
+            <g id="earpad">
+                <ellipse cx="12" cy="50" rx="5" ry="15" class="primary-fill" />
+                <ellipse cx="22" cy="52" rx="10" ry="20" class="primary-fill" />
+            </g>
+            <use xlink:href="#earpad" x="0" y="0" transform="translate(100) scale(-1 1)" />
+            <path
+                d="m90,50 a 30 30 0 0 1 -20 40"
+                stroke-width="3"
+                fill="none"
+                class="primary-stroke"
+            />
+            <ellipse class="secondary-fill" cx="70" cy="90" rx="6" ry="10" transform="rotate(65,70,90)" />
+        </svg>
+        <table>
+            <tr>
+                <td>
+                    <span id="airline_icao" class="secondary-font secondary-color">GLW</span>
+                    <span id="flight_number" class="secondary-font primary-color">555</span>
+                </td>
+            </tr>
+            <td id="airline" class="primary-font primary-color">Global Wings</td>
+            <tr>
+
+            </tr>
+        </table>
+    </div>
+    </body>
+</html>

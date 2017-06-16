@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/heading.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupHeading(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="heading" class="tabs">
+            <svg class="icon" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" stroke-width="10" fill="none" class="primary-stroke" />
+                <g id="hdg_pointer">
+                    <path
+                        d="m50 50 l-10 0 l10 -28 l10 28z"
+                        class="primary-fill"
+                    />
+                    <path
+                        d="m40,50 l10,-28 l10,28 l-10,28z"
+                        fill="none"
+                        stroke-width="3"
+                        class="primary-stroke"
+                    />
+                </g>
+            </svg>
+            <table>
+                <tr>
+                    <td class="secondary-font secondary-color">HDG:&nbsp;</td>
+                    <td id="hdg" class="primary-font primary-color three-digit right">225</td>
+                    <td class="primary-font primary-color">&#176;</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

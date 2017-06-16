@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/temperature.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupTemperature(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="temperature" class="tabs">
+            <svg class="icon" viewBox="20 0 60 100">
+                <circle cx="50" cy="76" r="15" class="secondary-fill"/>
+                <line id="temperature-line" x1="50" x2="50" y1="62" y2="15" stroke-width="10" class="secondary-stroke" />
+                <path
+                    d="M40,60 A 18 18 0 1 0 60,60 V20 A 10 10 0 1 0 40,20z"
+                    fill="none"
+                    stroke-width="10"
+                    class="primary-stroke"
+                />
+            </svg>
+            <table>
+                <tr>
+                    <td class="secondary-font secondary-color">OAT:&nbsp;</td>
+                    <td id="oat" class="primary-font primary-color three-digit right">10</td>
+                    <td class="primary-font primary-color">&#176;C</td>
+                </tr>
+                <tr id="tat-row">
+                    <td class="secondary-font secondary-color">TAT:&nbsp;</td>
+                    <td id="tat" class="primary-font primary-color three-digit right">15</td>
+                    <td class="primary-font primary-color">&#176;C</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,6 @@
+*.pro.user
+*.directory
+node_modules
+bower_components
+*.bak
+*~

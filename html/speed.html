@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/speed.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupSpeed(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="speed" class="tabs">
+            <svg class="icon" viewBox="0 0 100 100">
+                <defs>
+                    <marker id='head' orient="auto"
+                            markerWidth='2' markerHeight='2'
+                            refX='0.1' refY='1'>
+                        <!-- triangle pointing right (+x) -->
+                        <path d='M0,0 V2 L1.5,1 Z' class="primary-fill" />
+                    </marker>
+                </defs>
+                <path
+                    marker-end="url(#head)"
+                    d="m21.075,84.472 a 45 45 0 1 1 66.165,-11.972"
+                    fill="none"
+                    stroke-width="10"
+                    class="primary-stroke"
+                />
+
+                <path id="notch"
+                      d="m50,5 l0,15"
+                      stroke-width="10"
+                      class="primary-stroke"
+                />
+                <use xlink:href="#notch" x="0" y="0" transform="rotate(60,50,50)"/>
+                <use xlink:href="#notch" x="0" y="0" transform="rotate(-60,50,50)"/>
+                <use xlink:href="#notch" x="0" y="0" transform="rotate(-120,50,50)"/>
+                <g id="ias_pointer">
+                    <circle cx="50" cy="50" r="8" class="secondary-fill" />
+                    <path
+                        d="m50,50 l-5,0 l5,-25 l5,25z"
+                        class="secondary-fill"
+                    />
+                </g>
+            </svg>
+            <table>
+                <tr>
+                    <td class="secondary-font secondary-color">IAS:&nbsp;</td>
+                    <td id="ias" class="primary-font primary-color three-digit right">10</td>
+                    <td class="primary-font primary-color">kt</td>
+                </tr>
+                <tr>
+                    <td class="secondary-font secondary-color">GS:&nbsp;</td>
+                    <td id="gs" class="primary-font primary-color three-digit right">15</td>
+                    <td class="primary-font primary-color">kt</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

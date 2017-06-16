@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/progress.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupProgress(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="progress"  class="tabs" style="display: flex;">
+            <table style="padding-left: 10px; padding-right: 20px">
+                <tr>
+                    <td class="secondary-font secondary-color">DEP:&nbsp;</td>
+                    <td id="departure_icao" class="primary-font primary-color right">EDDT</td>
+                </tr>
+                <tr>
+                    <td class="secondary-font secondary-color">ARR:&nbsp;</td>
+                    <td id="arrival_icao" class="primary-font primary-color right">LSZH</td>
+                </tr>
+            </table>
+            <div style="padding-left: 10px; padding-right: 20px; display: flex; flex-flow: column; width: 100%; align-items: center;">
+                        <svg id="progress_bar" width="100%" class="icon" style="margin-right: 0px;" viewBox="0 0 400 100">
+                            <defs>
+                                <marker id='head' viewBox="0 -50 80 50" orient="auto-start-reverse"
+                                        markerWidth='10' markerHeight='30'
+                                        refX='40' refY='0'>
+                                    <!-- triangle pointing right (+x) -->
+                                    <path d="M8,0 H72 S72,-5  65,-5 H50 L30,-25 L25,-25 L35,-5 L15,-5 L10,-10 H5z" class="secondary-fill" id="airplane-half" marker-end="url(#head)" />
+                                    <use xlink:href="#airplane-half" x="0" y="0" transform="scale(1,-1)" />
+                                </marker>
+                            </defs>
+                            <line x1="10" x2="calc(100% - 10)" y1="50%" y2="50%" stroke-width="7" class="primary-stroke" />
+                            <circle cx="10" cy="50%" r="10" class="secondary-fill" />
+                            <circle cx="calc(100% - 10)" cy="50%" r="10" class="secondary-fill" />
+                            <line id="progress-line" x1="10" x2="calc((100% - 20) * 0.5 + 10)" y1="50%" y2="50%" stroke-width="7" class="secondary-stroke" marker-end="url(#head)" />
+                        </svg>
+
+                        <span width="100%" id="route" class="primary-color primary-font">BRANE Q201 BUREL UM736 TABAT UL87 ANELA UN869 TEDGO T724 RILAX	</span>
+            </div>
+            <table style="padding-left: 10px; padding-right: 20px">
+                <tr>
+                    <td class="secondary-font secondary-color">DTG:&nbsp;</td>
+                    <td id="distance_to_destination" class="primary-font primary-color four-digit right">10</td>
+                    <td class="primary-font primary-color">nm</td>
+                </tr>
+                <tr>
+                    <td class="secondary-font secondary-color">ETA:&nbsp;</td>
+                    <td id="eta" class="primary-font primary-color five-digit right">19:45</td>
+                    <td class="primary-font primary-color">z</td>
+                </tr>
+            </table>
+        </div>
+        </body>
+        <script type="text/javascript" src="js/progress.js"></script>
+
+</html>
+

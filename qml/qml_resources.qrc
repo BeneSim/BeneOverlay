@@ -1,0 +1,24 @@
+<RCC>
+    <qresource prefix="/">
+        <file>BOColorSelector.qml</file>
+        <file>BOFontSelector.qml</file>
+        <file>BOGroupBox.qml</file>
+        <file>BOImageSelector.qml</file>
+        <file>BOItem.qml</file>
+        <file>BOLanding.qml</file>
+        <file>BOMenuItem.qml</file>
+        <file>BOProgress.qml</file>
+        <file>BOSpinBox.qml</file>
+        <file>BOSwitch.qml</file>
+        <file>BOTextField.qml</file>
+        <file>BOWidget.qml</file>
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>BOWidgetPerformance.qml</file>
+        <file>BOErrorDialog.qml</file>
+        <file>BOWidgetHeading.qml</file>
+        <file>BOWidgetWind.qml</file>
+        <file>js/showdown.js</file>
+        <file>BOWidgetTemperature.qml</file>
+    </qresource>
+</RCC>

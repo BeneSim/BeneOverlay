@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/performance.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupPerformance(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="performance" class="tabs">
+            <svg class="icon" viewBox="0 0 100 100">
+                <path d="M25,10 l50,0 l0,80 l-50,0z" fill="none" stroke-width="5" class="primary-stroke" />
+                <g id="feets">
+                    <line id="feet" x1="23" x2="10" y1="25" y2="25" stroke-width="5" class="secondary-stroke" />
+                    <use xlink:href="#feet" x="0" y="0" transform="translate(0, 10)" />
+                    <use xlink:href="#feet" x="0" y="0" transform="translate(0, 20)" />
+                    <use xlink:href="#feet" x="0" y="0" transform="translate(0, 30)" />
+                    <use xlink:href="#feet" x="0" y="0" transform="translate(0, 40)" />
+                    <use xlink:href="#feet" x="0" y="0" transform="translate(0, 50)" />
+                </g>
+                <use xlink:href="#feets" x="0" y="0" transform="translate(100) scale(-1,1)" />
+            </svg>
+            <table>
+                <tr>
+                    <td class="secondary-font secondary-color">FPS:&nbsp;</td>
+                    <td id="fps" class="primary-font primary-color three-digit right">60</td>
+                </tr>
+            </table>
+        </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/network.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupNetwork(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <div id="network" class="tabs">
+            <svg class="icon" viewBox="0 0 120 100">
+                <line x1="0" x2="120" y1="50" y2="50" stroke-width="5" class="secondary-stroke" />
+                <g id="computer">
+                    <line x1="60" x2="60" y1="50" y2="30" stroke-width="5" class="secondary-stroke" />
+                    <rect x="42.5" y="3" width="35" height="28" stroke-width="5" fill="none" class="primary-stroke" />
+                </g>
+                <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(35 0)"/>
+                <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(-35 0)"/>
+            </svg>
+            <table>
+                <tr>
+                    <td id="network_name" class="primary-font primary-color">VATSIM</td>
+                </tr>
+                <tr>
+                    <td id="aircraft_icao" class="primary-font primary-color">B738</td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>

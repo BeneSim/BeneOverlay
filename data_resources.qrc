@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/beneoverlay.png</file>
+        <file>images/event-background.png</file>
+        <file>data/airports.csv</file>
+        <file>html/css/beneoverlay.css</file>
+        <file>html/js/beneoverlay.js</file>
+        <file>html/js/jquery.min.js</file>
+        <file>html/js/landing.js</file>
+        <file>html/js/progress.js</file>
+        <file>html/js/qwebchannel.js</file>
+        <file>html/landing.html</file>
+        <file>html/progress.html</file>
+        <file>html/js/altitude.js</file>
+        <file>html/js/callsign.js</file>
+        <file>html/js/heading.js</file>
+        <file>html/js/network.js</file>
+        <file>html/js/performance.js</file>
+        <file>html/js/speed.js</file>
+        <file>html/js/wind.js</file>
+        <file>html/altitude.html</file>
+        <file>html/callsign.html</file>
+        <file>html/heading.html</file>
+        <file>html/network.html</file>
+        <file>html/performance.html</file>
+        <file>html/speed.html</file>
+        <file>html/wind.html</file>
+        <file>html/widgets.html</file>
+        <file>html/temperature.html</file>
+        <file>html/js/temperature.js</file>
+    </qresource>
+</RCC>

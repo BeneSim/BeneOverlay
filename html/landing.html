@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/beneoverlay.css">
+        <style>
+         .icon {
+             height: 70px;
+         }
+         #landing {
+             display: flex;
+             flex-flow: column;
+             align-items: center;
+             position: fixed;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+         }
+         #background {
+             position: fixed;
+             top: 50%;
+             left: 50%;
+             transform: translate(-50%, -50%);
+             }
+        </style>
+        <script type="text/javascript" src="js/qwebchannel.js"></script>
+        <script type="text/javascript" src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="js/beneoverlay.js"></script>
+        <script type="text/javascript" src="js/landing.js"></script>
+        <script type="text/javascript">
+         $(function () {
+             connect(function (data_refs) {
+                 setupLanding(data_refs);
+             });
+         });
+        </script>
+    </head>
+    <body>
+        <img id="background" style="display: none">
+        <div id="landing" style="display: none">
+            <span class="secondary-font secondary-color">Touchdown!</span>
+            <div class="tabs" style="padding-top: 10px; padding-bottom: 20px;">
+                <svg class="icon" viewBox="0 0 80 100">
+                    <line x1="0" x2="80" y1="95" y2="95" stroke-width="5" class="secondary-stroke" />
+                    <g transform="translate(0,-8) rotate(0,40,89)" id="airplane">
+                        <path d="M10,94 H65 C73,94 73,84 65,84 H50 L30,64 L25,66 L35,84 H15 L12,79 H5" class="primary-fill" />
+                        <g id="airplane-gear">
+                            <circle cx="45" cy="97.5" r="2.5" class="primary-fill" />
+                            <circle cx="39" cy="97.5" r="2.5" class="primary-fill" />
+                        </g>
+                    </g>
+                </svg>
+                <table>
+                    <tr>
+                        <td class="secondary-font secondary-color">V/S:&nbsp;</td>
+                        <td id="vs" class="primary-font primary-color right">-100</td>
+                        <td class="primary-font primary-color">ft/min</td>
+                    </tr>
+                    <tr>
+                        <td class="secondary-font secondary-color">Pitch:&nbsp;</td>
+                        <td id="pitch" class="primary-font primary-color right">3</td>
+                        <td class="primary-font primary-color">&#176;</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="tabs">
+                <div class="tabs">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <defs>
+                            <marker id='head' orient="auto"
+                                    markerWidth='2' markerHeight='2'
+                                    refX='0.1' refY='1'>
+                                <!-- triangle pointing right (+x) -->
+                                <path d='M0,0 V2 L1.5,1 Z' class="primary-fill" />
+                            </marker>
+                        </defs>
+                        <path
+                            marker-end="url(#head)"
+                            d="m21.075,84.472 a 45 45 0 1 1 66.165,-11.972"
+                            fill="none"
+                            stroke-width="10"
+                            class="primary-stroke"
+                        />
+
+                        <path id="notch"
+                              d="m50,5 l0,15"
+                              stroke-width="10"
+                              class="primary-stroke"
+                        />
+                        <use xlink:href="#notch" x="0" y="0" transform="rotate(60,50,50)"/>
+                        <use xlink:href="#notch" x="0" y="0" transform="rotate(-60,50,50)"/>
+                        <use xlink:href="#notch" x="0" y="0" transform="rotate(-120,50,50)"/>
+                        <g id="ias_pointer">
+                            <circle cx="50" cy="50" r="8" class="secondary-fill" />
+                            <path
+                                d="m50,50 l-5,0 l5,-25 l5,25z"
+                                class="secondary-fill"
+                            />
+                        </g>
+                    </svg>
+                    <table>
+                        <tr>
+                            <td class="secondary-font secondary-color">IAS:&nbsp;</td>
+                            <td id="ias" class="primary-font primary-color right">10</td>
+                            <td class="primary-font primary-color">kt</td>
+                        </tr>
+                        <tr>
+                            <td class="secondary-font secondary-color">GS:&nbsp;</td>
+                            <td id="gs" class="primary-font primary-color right">15</td>
+                            <td class="primary-font primary-color">kt</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="tabs">
+                    <svg class="icon" viewBox="0 0 100 100">
+                        <g id="bank_angle">
+                            <path d="M50,56 L0,50 L50,44 M45,50 L50,15 L55,50 M50,44 L100,50 L50,56" class="primary-fill" />
+                            <circle cx="50" cy="50" r="10" class="secondary-fill" />
+                        </g>
+                    </svg>
+                    <table>
+                        <tr>
+                            <td class="secondary-font secondary-color">Bank:&nbsp;</td>
+                            <td id="bank" class="primary-font primary-color right">3</td>
+                            <td class="primary-font primary-color">&#176;</td>
+                            <td id="bank-dir" class="primary-font primary-color">Left</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
