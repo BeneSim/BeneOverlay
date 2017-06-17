@@ -62,7 +62,7 @@ function setupLanding(data_refs) {
             $("#gs").text(data_refs["sim/gs"].data);
 
             let bank = data_refs["sim/bank"].data;
-            $("#bank").text(bank);
+            $("#bank").text(Math.abs(bank));
 
             if (bank > 0) {
                 $("#bank-dir").text("Left");
