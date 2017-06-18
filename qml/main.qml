@@ -537,68 +537,24 @@ ApplicationWindow {
       }
     }
 
-    BOWidget {
+    BOWidgetCallsign {
       anchors.fill: parent
-
-      name: "Callsign Settings"
-
-      data_ref_enabled: data_ref_manager.getDataRef("widget/callsign/enabled")
-      data_ref_custom_style: data_ref_manager.getDataRef("widget/callsign/custom_style")
-      data_ref_icon_enabled: data_ref_manager.getDataRef("widget/callsign/icon_enabled")
-      data_ref_icon_size: data_ref_manager.getDataRef("widget/callsign/icon_size")
-      data_ref_primary_color: data_ref_manager.getDataRef("widget/callsign/primary_color")
-      data_ref_secondary_color: data_ref_manager.getDataRef("widget/callsign/secondary_color")
-      data_ref_primary_font: data_ref_manager.getDataRef("widget/callsign/primary_font")
-      data_ref_secondary_font: data_ref_manager.getDataRef("widget/callsign/secondary_font")
     }
 
-    BOWidget {
+    BOWidgetNetwork {
       anchors.fill: parent
-
-      name: "Network Settings"
-
-      data_ref_enabled: data_ref_manager.getDataRef("widget/network/enabled")
-      data_ref_custom_style: data_ref_manager.getDataRef("widget/network/custom_style")
-      data_ref_icon_enabled: data_ref_manager.getDataRef("widget/network/icon_enabled")
-      data_ref_icon_size: data_ref_manager.getDataRef("widget/network/icon_size")
-      data_ref_primary_color: data_ref_manager.getDataRef("widget/network/primary_color")
-      data_ref_secondary_color: data_ref_manager.getDataRef("widget/network/secondary_color")
-      data_ref_primary_font: data_ref_manager.getDataRef("widget/network/primary_font")
-      data_ref_secondary_font: data_ref_manager.getDataRef("widget/network/secondary_font")
     }
 
-    BOWidget {
+    BOWidgetSpeed {
       anchors.fill: parent
-
-      name: "Speed Settings"
-
-      data_ref_enabled: data_ref_manager.getDataRef("widget/speed/enabled")
-      data_ref_custom_style: data_ref_manager.getDataRef("widget/speed/custom_style")
-      data_ref_icon_enabled: data_ref_manager.getDataRef("widget/speed/icon_enabled")
-      data_ref_icon_size: data_ref_manager.getDataRef("widget/speed/icon_size")
-      data_ref_primary_color: data_ref_manager.getDataRef("widget/speed/primary_color")
-      data_ref_secondary_color: data_ref_manager.getDataRef("widget/speed/secondary_color")
-      data_ref_primary_font: data_ref_manager.getDataRef("widget/speed/primary_font")
-      data_ref_secondary_font: data_ref_manager.getDataRef("widget/speed/secondary_font")
     }
 
     BOWidgetHeading {
       anchors.fill: parent
     }
 
-    BOWidget {
+    BOWidgetAltitude {
       anchors.fill: parent
-
-      name: "Altitude Settings"
-
-      data_ref_enabled: data_ref_manager.getDataRef("widget/altitude/enabled")
-      data_ref_custom_style: data_ref_manager.getDataRef("widget/altitude/custom_style")
-      data_ref_icon_enabled: data_ref_manager.getDataRef("widget/altitude/icon_enabled")
-      data_ref_icon_size: data_ref_manager.getDataRef("widget/altitude/icon_size")
-      data_ref_primary_color: data_ref_manager.getDataRef("widget/altitude/primary_color")
-      data_ref_secondary_color: data_ref_manager.getDataRef("widget/altitude/secondary_color")
-      data_ref_primary_font: data_ref_manager.getDataRef("widget/altitude/primary_font")
-      data_ref_secondary_font: data_ref_manager.getDataRef("widget/altitude/secondary_font")
     }
 
     BOWidgetWind {

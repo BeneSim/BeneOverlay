@@ -64,6 +64,7 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["sim/long"] = new DataRef(0.0, false, this);
     data_ref_map_["sim/oat"] = new DataRef(0, false, this);
     data_ref_map_["sim/tat"] = new DataRef(0, false, this);
+    data_ref_map_["sim/vas"] = new DataRef(0, false, this);
     data_ref_map_["sim/connected"] = new DataRef(false, false, this);
 
     data_ref_map_["flight/airline"] = new DataRef("Global Wings", true, this);
@@ -98,6 +99,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/callsign/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
     data_ref_map_["widget/callsign/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/callsign/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["widget/callsign/callsign_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/callsign/airline_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/network/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/network/custom_style"] = new DataRef(false, true, this);
@@ -107,6 +110,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/network/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
     data_ref_map_["widget/network/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/network/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["widget/network/network_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/network/aircraft_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/speed/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/speed/custom_style"] = new DataRef(false, true, this);
@@ -116,6 +121,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/speed/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
     data_ref_map_["widget/speed/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/speed/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["widget/speed/ias_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/speed/gs_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/heading/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/heading/custom_style"] = new DataRef(false, true, this);
@@ -126,6 +133,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/heading/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/heading/secondary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/heading/prepend_zeros"] = new DataRef(true, true, this);
+    data_ref_map_["widget/heading/hdg_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/heading/trk_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/altitude/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/altitude/custom_style"] = new DataRef(false, true, this);
@@ -135,6 +144,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/altitude/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
     data_ref_map_["widget/altitude/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/altitude/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["widget/altitude/alt_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/altitude/vs_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/wind/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/wind/custom_style"] = new DataRef(false, true, this);
@@ -145,6 +156,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/wind/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/wind/secondary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/wind/prepend_zeros"] = new DataRef(true, true, this);
+    data_ref_map_["widget/wind/dir_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/wind/mag_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/performance/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/performance/custom_style"] = new DataRef(false, true, this);
@@ -155,6 +168,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/performance/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/performance/secondary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/performance/fps_buffer_size"] = new DataRef(1, true, this);
+    data_ref_map_["widget/performance/fps_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/performance/vas_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["widget/temperature/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/temperature/custom_style"] = new DataRef(false, true, this);
@@ -164,6 +179,7 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/temperature/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
     data_ref_map_["widget/temperature/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/temperature/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["widget/temperature/oat_enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/temperature/tat_enabled"] = new DataRef(true, true, this);
 
     data_ref_map_["progress/custom_style"] = new DataRef(false, true, this);

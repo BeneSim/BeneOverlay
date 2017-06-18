@@ -20,5 +20,9 @@
         <file>BOWidgetWind.qml</file>
         <file>js/showdown.js</file>
         <file>BOWidgetTemperature.qml</file>
+        <file>BOWidgetCallsign.qml</file>
+        <file>BOWidgetNetwork.qml</file>
+        <file>BOWidgetSpeed.qml</file>
+        <file>BOWidgetAltitude.qml</file>
     </qresource>
 </RCC>

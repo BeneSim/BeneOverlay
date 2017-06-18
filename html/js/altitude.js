@@ -32,6 +32,8 @@ function setupAltitude(data_refs) {
     );
 
     attachToToggle($("#altitude"), data_refs["widget/altitude/enabled"]);
+    attachToToggle($("#alt-row"), data_refs["widget/altitude/alt_enabled"]);
+    attachToToggle($("#vs-row"), data_refs["widget/altitude/vs_enabled"]);
 
     attachToText($("#vs"), data_refs["sim/vs"]);
 

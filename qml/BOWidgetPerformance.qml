@@ -49,23 +49,49 @@ BOGroupBox {
     data_ref: root.data_ref_enabled
   }
 
+  BOSwitch {
+      id: fps_enabled_switch
+
+      anchors.top: enabled_switch.bottom
+      anchors.left: parent.left
+
+      name: "Show FPS"
+      description: "Enable FPS readout."
+      data_ref: data_ref_manager.getDataRef("widget/performance/fps_enabled")
+
+      visible: enabled_switch.checked
+  }
+
+  BOSwitch {
+      id: vas_enabled_switch
+
+      anchors.top: fps_enabled_switch.bottom
+      anchors.left: parent.left
+
+      name: "Show VAS"
+      description: "Enable VAS readout."
+      data_ref: data_ref_manager.getDataRef("widget/performance/vas_enabled")
+
+      visible: enabled_switch.checked
+  }
+
   BOSpinBox {
     id: fps_buffer_size_spin_box
 
-    anchors.top: enabled_switch.bottom
+    anchors.top: vas_enabled_switch.bottom
     anchors.left: parent.left
 
     name: "FPS Buffer Size"
     data_ref: root.data_ref_fps_buffer_size
     from: 1
 
-    visible: enabled_switch.checked
+    visible: fps_enabled_switch.checked && fps_enabled_switch.visible
   }
 
   BOSwitch {
     id: custom_style_switch
 
-    anchors.top: fps_buffer_size_spin_box.bottom
+    anchors.top: fps_buffer_size_spin_box.visible? fps_buffer_size_spin_box.bottom : vas_enabled_switch.bottom
     anchors.left: parent.left
 
     name: "Custom Style"

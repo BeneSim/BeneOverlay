@@ -32,6 +32,8 @@ function setupHeading(data_refs) {
     );
 
     attachToToggle($("#heading"), data_refs["widget/heading/enabled"]);
+    attachToToggle($("#hdg-row"), data_refs["widget/heading/hdg_enabled"]);
+    attachToToggle($("#trk-row"), data_refs["widget/heading/trk_enabled"]);
 
     $("#hdg").text(data_refs["widget/heading/prepend_zeros"].data ? prependZeros(data_refs["sim/hdg"].data, 3) : data_refs["sim/hdg"].data);
     data_refs["sim/hdg"].dataChanged.connect(function (new_value) {

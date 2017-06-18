@@ -32,6 +32,8 @@ function setupSpeed(data_refs) {
     );
 
     attachToToggle($("#speed"), data_refs["widget/speed/enabled"]);
+    attachToToggle($("#ias-row"), data_refs["widget/speed/ias_enabled"]);
+    attachToToggle($("#gs-row"), data_refs["widget/speed/gs_enabled"]);
 
     attachToText($("#ias"), data_refs["sim/ias"]);
     attachToText($("#gs"), data_refs["sim/gs"]);

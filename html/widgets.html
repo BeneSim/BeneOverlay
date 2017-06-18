@@ -52,15 +52,14 @@
                     <ellipse class="secondary-fill" cx="70" cy="90" rx="6" ry="10" transform="rotate(65,70,90)" />
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="callsign-row">
                         <td>
                             <span id="airline_icao" class="secondary-font secondary-color">GLW</span>
                             <span id="flight_number" class="secondary-font primary-color">555</span>
                         </td>
                     </tr>
-                        <td id="airline" class="primary-font primary-color">Global Wings</td>
-                    <tr>
-
+                    <tr id="airline-row">
+                        <td id="airline" class="primary-font primary-color" colspan="2" >Global Wings</td>
                     </tr>
                 </table>
             </div>
@@ -75,10 +74,10 @@
                     <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(-35 0)"/>
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="network-row">
                         <td id="network_name" class="primary-font primary-color">VATSIM</td>
                     </tr>
-                    <tr>
+                    <tr id="aircraft-row">
                         <td id="aircraft_icao" class="primary-font primary-color">B738</td>
                     </tr>
                 </table>
@@ -118,12 +117,12 @@
                     </g>
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="ias-row">
                         <td class="secondary-font secondary-color">IAS:&nbsp;</td>
                         <td id="ias" class="primary-font primary-color three-digit right">10</td>
                         <td class="primary-font primary-color">kt</td>
                     </tr>
-                    <tr>
+                    <tr id="gs-row">
                         <td class="secondary-font secondary-color">GS:&nbsp;</td>
                         <td id="gs" class="primary-font primary-color three-digit right">15</td>
                         <td class="primary-font primary-color">kt</td>
@@ -147,10 +146,12 @@
                     </g>
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="hdg-row">
                         <td class="secondary-font secondary-color">HDG:&nbsp;</td>
                         <td id="hdg" class="primary-font primary-color three-digit right">225</td>
                         <td class="primary-font primary-color">&#176;</td>
+                    </tr>
+                    <tr id="trk-row">
                     </tr>
                 </table>
             </div>
@@ -166,12 +167,12 @@
                     </g>
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="alt-row">
                         <td class="secondary-font secondary-color">ALT:&nbsp;</td>
                         <td id="alt" class="primary-font primary-color five-digit right">4900</td>
                         <td id="alt_unit" class="primary-font primary-color">ft</td>
                     </tr>
-                    <tr>
+                    <tr id="vs-row">
                         <td class="secondary-font secondary-color">V/S:&nbsp;</td>
                         <td id="vs" class="primary-font primary-color five-digit right">1500</td>
                         <td class="primary-font primary-color">ft/min</td>
@@ -188,12 +189,12 @@
                     <line x1="5" x2="5" y1="5" y2="95" stroke-width="5" class="primary-stroke" />
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="dir-row">
                         <td class="secondary-font secondary-color">DIR:&nbsp;</td>
                         <td id="wind_dir" class="primary-font primary-color three-digit right">43</td>
                         <td class="primary-font primary-color">&#176;</td>
                     </tr>
-                    <tr>
+                    <tr id="mag-row">
                         <td class="secondary-font secondary-color">MAG:&nbsp;</td>
                         <td id="wind_mag" class="primary-font primary-color three-digit right">8</td>
                         <td class="primary-font primary-color">kt</td>
@@ -212,7 +213,7 @@
                         />
                     </svg>
                     <table>
-                        <tr>
+                        <tr id="oat-row">
                             <td class="secondary-font secondary-color">OAT:&nbsp;</td>
                             <td id="oat" class="primary-font primary-color three-digit right">10</td>
                             <td class="primary-font primary-color">&#176;C</td>
@@ -238,9 +239,14 @@
                         <use xlink:href="#feets" x="0" y="0" transform="translate(100) scale(-1,1)" />
                     </svg>
                     <table>
-                        <tr>
+                        <tr id="fps-row">
                             <td class="secondary-font secondary-color">FPS:&nbsp;</td>
-                            <td id="fps" class="primary-font primary-color three-digit right">60</td>
+                            <td id="fps" class="primary-font primary-color three-digit right" colspan="2" >60</td>
+                        </tr>
+                        <tr id="vas-row">
+                            <td class="secondary-font secondary-color">VAS:&nbsp;</td>
+                            <td id="vas" class="primary-font primary-color four-digit right">0</td>
+                            <td class="primary-font primary-color">MB</td>
                         </tr>
                     </table>
                 </div>

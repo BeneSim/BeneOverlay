@@ -25,16 +25,16 @@ import QtQuick.Dialogs 1.2
 BOGroupBox {
   id: root
 
-  name: "Heading Settings"
+  name: "Callsign Settings"
 
-  property var data_ref_enabled: data_ref_manager.getDataRef("widget/heading/enabled")
-  property var data_ref_custom_style: data_ref_manager.getDataRef("widget/heading/custom_style")
-  property var data_ref_icon_enabled: data_ref_manager.getDataRef("widget/heading/icon_enabled")
-  property var data_ref_icon_size: data_ref_manager.getDataRef("widget/heading/icon_size")
-  property var data_ref_primary_color: data_ref_manager.getDataRef("widget/heading/primary_color")
-  property var data_ref_secondary_color: data_ref_manager.getDataRef("widget/heading/secondary_color")
-  property var data_ref_primary_font: data_ref_manager.getDataRef("widget/heading/primary_font")
-  property var data_ref_secondary_font: data_ref_manager.getDataRef("widget/heading/secondary_font")
+  property var data_ref_enabled: data_ref_manager.getDataRef("widget/callsign/enabled")
+  property var data_ref_custom_style: data_ref_manager.getDataRef("widget/callsign/custom_style")
+  property var data_ref_icon_enabled: data_ref_manager.getDataRef("widget/callsign/icon_enabled")
+  property var data_ref_icon_size: data_ref_manager.getDataRef("widget/callsign/icon_size")
+  property var data_ref_primary_color: data_ref_manager.getDataRef("widget/callsign/primary_color")
+  property var data_ref_secondary_color: data_ref_manager.getDataRef("widget/callsign/secondary_color")
+  property var data_ref_primary_font: data_ref_manager.getDataRef("widget/callsign/primary_font")
+  property var data_ref_secondary_font: data_ref_manager.getDataRef("widget/callsign/secondary_font")
 
   BOSwitch {
     id: enabled_switch
@@ -48,48 +48,35 @@ BOGroupBox {
   }
 
   BOSwitch {
-      id: hdg_enabled_switch
+      id: callsign_enabled_switch
 
       anchors.top: enabled_switch.bottom
       anchors.left: parent.left
 
-      name: "Show HDG"
-      description: "Enable HDG readout."
-      data_ref: data_ref_manager.getDataRef("widget/heading/hdg_enabled")
+      name: "Show Callsign"
+      description: "Enable Callsign readout."
+      data_ref: data_ref_manager.getDataRef("widget/callsign/callsign_enabled")
 
       visible: enabled_switch.checked
   }
 
   BOSwitch {
-      id: trk_enabled_switch
+      id: airline_enabled_switch
 
-      anchors.top: hdg_enabled_switch.bottom
+      anchors.top: callsign_enabled_switch.bottom
       anchors.left: parent.left
 
-      name: "Show TRK"
-      description: "Enable TRK readout."
-      data_ref: data_ref_manager.getDataRef("widget/heading/trk_enabled")
+      name: "Show Airline"
+      description: "Enable Airline readout."
+      data_ref: data_ref_manager.getDataRef("widget/callsign/airline_enabled")
 
       visible: enabled_switch.checked
-  }
-
-  BOSwitch {
-    id: prepend_zeros_switch
-
-    anchors.top: trk_enabled_switch.bottom
-    anchors.left: parent.left
-
-    name: "Prepend Zeros"
-    description: "Prepend zeros if heading is less than 100°"
-    data_ref: data_ref_manager.getDataRef("widget/heading/prepend_zeros")
-
-    visible: (hdg_enabled_switch.checked || trk_enabled_switch.checked) && enabled_switch.checked
   }
 
   BOSwitch {
     id: custom_style_switch
 
-    anchors.top: prepend_zeros_switch.visible? prepend_zeros_switch.bottom : trk_enabled_switch.bottom
+    anchors.top: airline_enabled_switch.bottom
     anchors.left: parent.left
 
     name: "Custom Style"

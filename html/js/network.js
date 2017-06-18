@@ -32,6 +32,8 @@ function setupNetwork(data_refs) {
     );
 
     attachToToggle($("#network"), data_refs["widget/network/enabled"]);
+    attachToToggle($("#network-row"), data_refs["widget/network/network_enabled"]);
+    attachToToggle($("#aircraft-row"), data_refs["widget/network/aircraft_enabled"]);
 
     attachToText($("#network_name"), data_refs["flight/network"]);
     attachToText($("#aircraft_icao"), data_refs["flight/aircraft_icao"]);

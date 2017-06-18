@@ -263,6 +263,7 @@ int main(int argc, char *argv[])
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedOat, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/oat")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedTat, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/tat")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::connectedChanged, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/connected")), &DataRef::setData);
+    QObject::connect(flight_sim_connector, &FlightSimConnector::parsedVasUsage, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/vas")), &DataRef::setData);
 
     QObject::connect(qobject_cast<DataRef*>(data_ref_manager.getDataRef("global/data_rate")), &DataRef::dataChanged, flight_sim_connector, &FlightSimConnector::setDataRate);
 
@@ -288,6 +289,7 @@ int main(int argc, char *argv[])
     QObject::connect(&timer, &QTimer::timeout, dataRefSweep(8.0, 0.0, 150.0, data_ref_manager.getDataRef("sim/wind_mag")));
     QObject::connect(&timer, &QTimer::timeout, dataRefSweep(8.0, -70.0, 50.0, data_ref_manager.getDataRef("sim/oat")));
     QObject::connect(&timer, &QTimer::timeout, dataRefSweep(8.0, -70.0, 50.0, data_ref_manager.getDataRef("sim/tat")));
+    QObject::connect(&timer, &QTimer::timeout, dataRefSweep(8.0, 0, 5000, data_ref_manager.getDataRef("sim/vas")));
 
     QObject::connect(&timer, &QTimer::timeout, funSweep(8.0, 0.0, 130.0, [&data_ref_manager](int val) { data_ref_manager.setFPS(val);}));
 

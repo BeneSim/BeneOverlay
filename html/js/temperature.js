@@ -32,6 +32,8 @@ function setupTemperature(data_refs) {
     );
 
     attachToToggle($("#temperature"), data_refs["widget/temperature/enabled"]);
+    attachToToggle($("#tat-row"), data_refs["widget/temperature/tat_enabled"]);
+    attachToToggle($("#oat-row"), data_refs["widget/temperature/oat_enabled"]);
 
     attachToText($("#oat"), data_refs["sim/oat"]);
     attachToText($("#tat"), data_refs["sim/tat"]);
@@ -41,5 +43,4 @@ function setupTemperature(data_refs) {
     }
 
     attachToFun(setTemperaturePointer, data_refs["sim/oat"]);
-    attachToToggle($("#tat-row"), data_refs["widget/temperature/tat_enabled"]);
 }

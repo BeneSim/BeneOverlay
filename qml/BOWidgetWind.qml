@@ -48,20 +48,48 @@ BOGroupBox {
   }
 
   BOSwitch {
+      id: dir_enabled_switch
+
+      anchors.top: enabled_switch.bottom
+      anchors.left: parent.left
+
+      name: "Show DIR"
+      description: "Enable DIR readout."
+      data_ref: data_ref_manager.getDataRef("widget/wind/dir_enabled")
+
+      visible: enabled_switch.checked
+  }
+
+  BOSwitch {
+      id: mag_enabled_switch
+
+      anchors.top: dir_enabled_switch.bottom
+      anchors.left: parent.left
+
+      name: "Show MAG"
+      description: "Enable MAG readout."
+      data_ref: data_ref_manager.getDataRef("widget/wind/mag_enabled")
+
+      visible: enabled_switch.checked
+  }
+
+  BOSwitch {
     id: prepend_zeros_switch
 
-    anchors.top: enabled_switch.bottom
+    anchors.top: mag_enabled_switch.bottom
     anchors.left: parent.left
 
     name: "Prepend Zeros"
     description: "Prepend zeros if wind direction is less than 100°"
     data_ref: data_ref_manager.getDataRef("widget/wind/prepend_zeros")
+
+    visible: dir_enabled_switch.checked && dir_enabled_switch.visible
   }
 
   BOSwitch {
     id: custom_style_switch
 
-    anchors.top: prepend_zeros_switch.bottom
+    anchors.top: prepend_zeros_switch.visible? prepend_zeros_switch.bottom : mag_enabled_switch.bottom
     anchors.left: parent.left
 
     name: "Custom Style"

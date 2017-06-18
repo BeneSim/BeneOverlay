@@ -32,6 +32,8 @@ function setupCallsign(data_refs) {
     );
 
     attachToToggle($("#callsign"), data_refs["widget/callsign/enabled"]);
+    attachToToggle($("#callsign-row"), data_refs["widget/callsign/callsign_enabled"]);
+    attachToToggle($("#airline-row"), data_refs["widget/callsign/airline_enabled"]);
 
     attachToText($("#airline_icao"), data_refs["flight/airline_icao"]);
     attachToText($("#flight_number"), data_refs["flight/flight_number"]);

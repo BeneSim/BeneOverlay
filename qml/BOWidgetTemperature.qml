@@ -48,14 +48,29 @@ BOGroupBox {
   }
 
   BOSwitch {
-      id: tat_enabled_switch
+      id: oat_enabled_switch
 
       anchors.top: enabled_switch.bottom
       anchors.left: parent.left
 
+      name: "Show OAT"
+      description: "Enable OAT readout."
+      data_ref: data_ref_manager.getDataRef("widget/temperature/oat_enabled")
+
+      visible: enabled_switch.checked
+  }
+
+  BOSwitch {
+      id: tat_enabled_switch
+
+      anchors.top: oat_enabled_switch.bottom
+      anchors.left: parent.left
+
       name: "Show TAT"
-      description: "Show TAT in the widget. TAT is bugged in X-Plane."
+      description: "Enable TAT readout. TAT is bugged in X-Plane."
       data_ref: data_ref_manager.getDataRef("widget/temperature/tat_enabled")
+
+      visible: enabled_switch.checked
   }
 
   BOSwitch {
