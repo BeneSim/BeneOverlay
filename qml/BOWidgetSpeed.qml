@@ -61,9 +61,22 @@ BOGroupBox {
   }
 
   BOSwitch {
-      id: gs_enabled_switch
+      id: tas_enabled_switch
 
       anchors.top: ias_enabled_switch.bottom
+      anchors.left: parent.left
+
+      name: "Show TAS"
+      description: "Enable TAS readout."
+      data_ref: data_ref_manager.getDataRef("widget/speed/tas_enabled")
+
+      visible: enabled_switch.checked
+  }
+
+  BOSwitch {
+      id: gs_enabled_switch
+
+      anchors.top: tas_enabled_switch.bottom
       anchors.left: parent.left
 
       name: "Show GS"
@@ -74,9 +87,23 @@ BOGroupBox {
   }
 
   BOSwitch {
+      id: mach_enabled_switch
+
+      anchors.top: gs_enabled_switch.bottom
+      anchors.left: parent.left
+
+      name: "Show Mach"
+      description: "Enable Mach readout."
+      data_ref: data_ref_manager.getDataRef("widget/speed/mach_enabled")
+
+      visible: enabled_switch.checked
+  }
+
+
+  BOSwitch {
     id: custom_style_switch
 
-    anchors.top: gs_enabled_switch.bottom
+    anchors.top: mach_enabled_switch.bottom
     anchors.left: parent.left
 
     name: "Custom Style"

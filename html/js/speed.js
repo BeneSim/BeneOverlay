@@ -33,10 +33,18 @@ function setupSpeed(data_refs) {
 
     attachToToggle($("#speed"), data_refs["widget/speed/enabled"]);
     attachToToggle($("#ias-row"), data_refs["widget/speed/ias_enabled"]);
+    attachToToggle($("#tas-row"), data_refs["widget/speed/tas_enabled"]);
     attachToToggle($("#gs-row"), data_refs["widget/speed/gs_enabled"]);
+    attachToToggle($("#mach-row"), data_refs["widget/speed/mach_enabled"]);
 
     attachToText($("#ias"), data_refs["sim/ias"]);
+    attachToText($("#tas"), data_refs["sim/tas"]);
     attachToText($("#gs"), data_refs["sim/gs"]);
+
+    $("#mach").text(parseFloat(data_refs["sim/mach"].data).toFixed(2));
+    data_refs["sim/mach"].dataChanged.connect(function (new_value) {
+        $("#mach").text(parseFloat(new_value).toFixed(2));
+    });
 
     function setIasPointer(val) {
         $("#ias_pointer").attr("transform", "rotate(" + (180 * getRatio(val, data_refs["flight/max_ias"].data) - 120) + ",50,50)");

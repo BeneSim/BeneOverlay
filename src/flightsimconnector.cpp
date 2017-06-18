@@ -22,6 +22,7 @@
 #include <windows.h>
 #include "FSUIPC_User.h"
 #include <cstdint>
+#include <QtMath>
 
 FlightSimConnector::FlightSimConnector(QObject *parent) : QObject(parent), _connected(false), _data_rate(1)
 {
@@ -105,18 +106,38 @@ void FlightSimConnector::pollData()
         return;
     }
 
+    int32_t tas = 0;
+    if (pollValue<int32_t, 4>(0x2B8, tas)) {
+        emit parsedTas(tas/128.0);
+    } else {
+        return;
+    }
+
     int32_t gs = 0;
+    double gs_final = 0.0;
     if (pollValue<int32_t, 4>(0x2B4, gs)) {
-        emit parsedGs(gs/65536.0*1.94384);
+        gs_final = gs/65536.0*1.94384;
+        emit parsedGs(gs_final);
+    } else {
+        return;
+    }
+
+    int16_t mach = 0;
+    double mach_final = 0.0;
+    if (pollValue<int16_t, 4>(0x11C6, mach)) {
+        mach_final = mach / 20480.0;
+        emit parsedMach(mach_final);
     } else {
         return;
     }
 
     int32_t hdg = 0;
+    double hdg_final = 0.0;
     if (pollValue<int32_t, 4>(0x580, hdg)) {
-        double hdg_tmp = hdg * 360.0 / (65536.0 * 65536.0) - (mag_var * 360.0 / 65536.0);
+        hdg_final = hdg * 360.0 / (65536.0 * 65536.0) - (mag_var * 360.0 / 65536.0);
+        hdg_final = hdg_final >= 0.0 ? hdg_final : 360.0 + hdg_final;
 
-        emit parsedHdg(hdg_tmp >= 0.0? hdg_tmp : 360.0 + hdg_tmp);
+        emit parsedHdg(hdg_final);
     } else {
         return;
     }
@@ -136,15 +157,20 @@ void FlightSimConnector::pollData()
     }
 
     int16_t wind_dir = 0;
+    double wind_dir_final = 0;
     if (pollValue<int16_t, 2>(0xE92, wind_dir)) {
-        emit parsedWindDir(wind_dir >= 0.0? wind_dir * 360.0 / 65536.0 : 360.0 + wind_dir * 360.0 / 65536.0);
+        wind_dir_final = wind_dir * 360.0 / 65536.0;
+        wind_dir_final = wind_dir_final >= 0.0 ? wind_dir_final : 360.0 + wind_dir_final;
+        emit parsedWindDir(wind_dir_final);
     } else {
         return;
     }
 
     int16_t wind_mag = 0;
+    double wind_mag_final = 0.0;
     if (pollValue<int16_t, 2>(0xE90, wind_mag)) {
-        emit parsedWindMag(wind_mag);
+        wind_mag_final = wind_mag;
+        emit parsedWindMag(wind_mag_final);
     } else {
         return;
     }
@@ -232,6 +258,27 @@ void FlightSimConnector::pollData()
     } else {
         return;
     }
+
+    double wca_final = 0.0;
+    double trk_final = hdg_final;
+    if (gs_final > 0.0) {
+        wca_final = qRadiansToDegrees(
+                    qAsin(
+                        qSin(qDegreesToRadians(hdg_final - wind_dir_final)) * wind_mag_final / gs_final
+                        )
+                    );
+
+    }
+
+    trk_final = trk_final + wca_final;
+    if (trk_final > 360.0) {
+        trk_final = trk_final - 360.0;
+    } else if (trk_final < 0.0) {
+        trk_final = 360.0 + trk_final;
+    }
+
+    emit parsedTrk(trk_final);
+
 }
 
 void FlightSimConnector::setDataRate(const QVariant &data_rate)

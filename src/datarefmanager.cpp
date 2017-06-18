@@ -50,7 +50,10 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
 {
     data_ref_map_["sim/ias"] = new DataRef(0, false, this);
     data_ref_map_["sim/gs"] = new DataRef(0, false, this);
+    data_ref_map_["sim/tas"] = new DataRef(0, false, this);
+    data_ref_map_["sim/mach"] = new DataRef(0.0, false, this);
     data_ref_map_["sim/hdg"] = new DataRef(0, false, this);
+    data_ref_map_["sim/trk"] = new DataRef(0, false, this);
     data_ref_map_["sim/alt"] = new DataRef(0, false, this);
     data_ref_map_["sim/vs"] = new DataRef(0, false, this);
     data_ref_map_["sim/pitch"] = new DataRef(0, false, this);
@@ -123,6 +126,8 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/speed/secondary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["widget/speed/ias_enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/speed/gs_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["widget/speed/tas_enabled"] = new DataRef(false, true, this);
+    data_ref_map_["widget/speed/mach_enabled"] = new DataRef(false, true, this);
 
     data_ref_map_["widget/heading/enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/heading/custom_style"] = new DataRef(false, true, this);

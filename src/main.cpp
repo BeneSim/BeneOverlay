@@ -248,7 +248,10 @@ int main(int argc, char *argv[])
 
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedIas, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/ias")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedGs, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/gs")), &DataRef::setData);
+    QObject::connect(flight_sim_connector, &FlightSimConnector::parsedTas, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/tas")), &DataRef::setData);
+    QObject::connect(flight_sim_connector, &FlightSimConnector::parsedMach, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/mach")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedHdg, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/hdg")), &DataRef::setData);
+    QObject::connect(flight_sim_connector, &FlightSimConnector::parsedTrk, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/trk")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedPitch, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/pitch")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedBank, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/bank")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedAltitude, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/alt")), &DataRef::setData);

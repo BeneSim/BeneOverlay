@@ -40,6 +40,11 @@ function setupHeading(data_refs) {
       $("#hdg").text(data_refs["widget/heading/prepend_zeros"].data ? prependZeros(new_value, 3) : new_value);
     });
 
+    $("#trk").text(data_refs["widget/heading/prepend_zeros"].data ? prependZeros(data_refs["sim/trk"].data, 3) : data_refs["sim/trk"].data);
+    data_refs["sim/trk"].dataChanged.connect(function (new_value) {
+      $("#trk").text(data_refs["widget/heading/prepend_zeros"].data ? prependZeros(new_value, 3) : new_value);
+    });
+
     function setHdgPointer(val) {
         $("#hdg_pointer").attr("transform", "rotate(" + val + ",50,50)");
     }

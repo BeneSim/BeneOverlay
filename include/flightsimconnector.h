@@ -39,7 +39,10 @@ signals:
 
     void parsedIas(double ias);
     void parsedGs(double gs);
+    void parsedTas(double tas);
+    void parsedMach(double gs);
     void parsedHdg(double hdg);
+    void parsedTrk(double trk);
     void parsedAltitude(double altitude);
     void parsedVs(double vs);
     void parsedWindDir(double wind_dir);
