@@ -92,6 +92,11 @@ void FlightSimConnector::disconnectFS()
 
 void FlightSimConnector::pollData()
 {
+    int16_t mag_var = 0;
+    if (pollValue<int16_t, 4>(0x2A0, mag_var)) {
+    } else {
+        return;
+    }
 
     int32_t ias = 0;
     if (pollValue<int32_t, 4>(0x2BC, ias)) {
@@ -109,8 +114,9 @@ void FlightSimConnector::pollData()
 
     int32_t hdg = 0;
     if (pollValue<int32_t, 4>(0x580, hdg)) {
+        double hdg_tmp = hdg * 360.0 / (65536.0 * 65536.0) - (mag_var * 360.0 / 65536.0);
 
-        emit parsedHdg(hdg >= 0.0? hdg*360.0/(65536.0*65536.0) : 360.0 + hdg*360.0/(65536.0*65536.0));
+        emit parsedHdg(hdg_tmp >= 0.0? hdg_tmp : 360.0 + hdg_tmp);
     } else {
         return;
     }
