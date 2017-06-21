@@ -1,445 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="BeneOverlay is a tool that lets you enhance your flight sim stream by supplying usefull informations like speed, altitude and heading to your viewers.">
-    <meta name="author" content="Benjamin Isbarn">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="BeneOverlay is a tool that lets you enhance your flight sim stream by supplying usefull informations like speed, altitude and heading to your viewers.">
+        <meta name="author" content="Benjamin Isbarn">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="manifest" href="/img/manifest.json">
-    <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-    <meta name="msapplication-config" content="/img/browserconfig.xml">
-    <meta name="theme-color" content="#ffffff">
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/img/manifest.json">
+        <link rel="mask-icon" href="/img/safari-pinned-tab.svg" color="#5bbad5">
+        <link rel="shortcut icon" href="/img/favicon.ico">
+        <meta name="msapplication-config" content="/img/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
 
-    <title>BeneOverlay by BeneSim</title>
+        <title>BeneOverlay by BeneSim</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+        <!-- Custom Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
 
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
 
-    <!-- Theme CSS -->
-    <link href="css/new-age.min.css" rel="stylesheet">
+        <!-- Theme CSS -->
+        <link href="css/new-age.min.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-</head>
+    </head>
 
-<body id="page-top">
+    <body id="page-top">
 
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
-                </button>
-                <a class="navbar-brand page-scroll" href="#page-top">BeneOverlay</a>
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span><i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand page-scroll" href="#page-top">BeneOverlay</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a class="page-scroll" href="#about">About</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#features">Features</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#requirements">Requirements</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#download">Download</a>
+                        </li>
+                        <li>
+                            <a class="page-scroll" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
             </div>
+            <!-- /.container-fluid -->
+        </nav>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#features">Features</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#requirements">Requirements</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#download">Download</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <header>
-        <div class="container">
-            <div class="overlay"></div>
-            <div class="row">
-                <div class="header-content">
-                    <div class="header-content-inner">
-                        <h1>Want to make your Flight Sim Stream more attractive?</h1>
-                        <div class="row">
-                            <div id="callsign" class="col-md-1 col-md-offset-2">
-                                <svg class="icon" viewBox="0 0 100 100">
-                                    <path
-                                        d="m10,50 a 40 45 0 0 1 80,0"
-                                        stroke-width="5"
-                                        fill="none"
-                                        class="primary-stroke"
-                                    />
-                                    <g id="earpad">
-                                        <ellipse cx="12" cy="50" rx="5" ry="15" class="primary-fill" />
-                                        <ellipse cx="22" cy="52" rx="10" ry="20" class="primary-fill" />
-                                    </g>
-                                    <use xlink:href="#earpad" x="0" y="0" transform="translate(100) scale(-1 1)" />
-                                    <path
-                                        d="m90,50 a 30 30 0 0 1 -20 40"
-                                        stroke-width="3"
-                                        fill="none"
-                                        class="primary-stroke"
-                                    />
-                                    <ellipse class="secondary-fill" cx="70" cy="90" rx="6" ry="10" transform="rotate(65,70,90)" />
-                                </svg>
-                            </div>
-                            <div id="network" class="col-md-1">
-                                <svg class="icon" viewBox="0 0 120 100">
-                                    <line x1="0" x2="120" y1="50" y2="50" stroke-width="5" class="secondary-stroke" />
-                                    <g id="computer">
-                                        <line x1="60" x2="60" y1="50" y2="30" stroke-width="5" class="secondary-stroke" />
-                                        <rect x="42.5" y="3" width="35" height="28" stroke-width="5" fill="none" class="primary-stroke" />
-                                    </g>
-                                    <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(35 0)"/>
-                                    <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(-35 0)"/>
-                                </svg>
-                            </div>
-                            <div id="speed" class="col-md-1">
-                                <svg class="icon" viewBox="0 0 100 100">
-                                    <defs>
-                                        <marker id='head' orient="auto"
-                                                markerWidth='2' markerHeight='2'
-                                                refX='0.1' refY='1'>
-                                            <!-- triangle pointing right (+x) -->
-                                            <path d='M0,0 V2 L1.5,1 Z' class="primary-fill" />
-                                        </marker>
-                                    </defs>
-                                    <path
-                                        marker-end="url(#head)"
-                                        d="m21.075,84.472 a 45 45 0 1 1 66.165,-11.972"
-                                        fill="none"
-                                        stroke-width="10"
-                                        class="primary-stroke"
-                                    />
-
-                                    <path id="notch"
-                                          d="m50,5 l0,15"
-                                          stroke-width="10"
-                                          class="primary-stroke"
-                                    />
-                                    <use xlink:href="#notch" x="0" y="0" transform="rotate(60,50,50)"/>
-                                    <use xlink:href="#notch" x="0" y="0" transform="rotate(-60,50,50)"/>
-                                    <use xlink:href="#notch" x="0" y="0" transform="rotate(-120,50,50)"/>
-                                    <g id="ias_pointer">
-                                        <circle cx="50" cy="50" r="8" class="secondary-fill" />
+        <header>
+            <div class="container">
+                <div class="overlay"></div>
+                <div class="row">
+                    <div class="header-content">
+                        <div class="header-content-inner">
+                            <h1>Want to make your Flight Sim Stream more attractive?</h1>
+                            <div class="row">
+                                <div id="callsign" class="col-xs-2 col-xs-offset-2 col-sm-1">
+                                    <svg class="icon" viewBox="0 0 100 100">
                                         <path
-                                            d="m50,50 l-5,0 l5,-25 l5,25z"
-                                            class="secondary-fill"
-                                        />
-                                    </g>
-                                </svg>
-                            </div>
-                            <div id="heading" class="col-md-1">
-                                <svg class="icon" viewBox="0 0 100 100">
-                                    <circle cx="50" cy="50" r="45" stroke-width="10" fill="none" class="primary-stroke" />
-                                    <g id="hdg_pointer">
-                                        <path
-                                            d="m50 50 l-10 0 l10 -28 l10 28z"
-                                            class="primary-fill"
-                                        />
-                                        <path
-                                            d="m40,50 l10,-28 l10,28 l-10,28z"
+                                            d="m10,50 a 40 45 0 0 1 80,0"
+                                            stroke-width="5"
                                             fill="none"
-                                            stroke-width="3"
                                             class="primary-stroke"
                                         />
-                                    </g>
-                                </svg>
-                            </div>
-                            <div id="altitude" class="col-md-1">
-                                <svg class="icon" viewBox="0 0 80 100">
-                                    <line x1="0" x2="80" y1="95" y2="95" stroke-width="5" class="secondary-stroke" />
-                                    <g transform="translate(0,-8) rotate(0,40,89)" id="airplane">
-                                        <path d="M10,94 H65 C73,94 73,84 65,84 H50 L30,64 L25,66 L35,84 H15 L12,79 H5" class="primary-fill" />
-                                        <g id="airplane-gear">
-                                            <circle cx="45" cy="97.5" r="2.5" class="primary-fill" />
-                                            <circle cx="39" cy="97.5" r="2.5" class="primary-fill" />
+                                        <g id="earpad">
+                                            <ellipse cx="12" cy="50" rx="5" ry="15" class="primary-fill" />
+                                            <ellipse cx="22" cy="52" rx="10" ry="20" class="primary-fill" />
                                         </g>
-                                    </g>
-                                </svg>
-                            </div>
-                            <div id="wind" class="col-md-1">
-                                <svg class="icon" viewBox="0 0 100 100">
-                                    <ellipse cx="90" cy="30" rx="5" ry="10" class="secondary-fill" />
-                                    <path d="m30,7 L90,20 L90,40 L30,53" class="secondary-fill" />
-                                    <ellipse cx="30" cy="30" rx="10" ry="23" class="primary-fill" />
-                                    <line x1="5" x2="30" y1="8" y2="10" stroke-width="3" class="secondary-stroke" />
-                                    <line x1="5" x2="30" y1="52" y2="50" stroke-width="3" class="secondary-stroke" />
-                                    <line x1="5" x2="5" y1="5" y2="95" stroke-width="5" class="primary-stroke" />
-                                </svg>
-                            </div>
-                            <div id="temperature" class="col-md-1">
-                                <svg class="icon" viewBox="20 0 60 100">
-                                    <circle cx="50" cy="76" r="15" class="secondary-fill"/>
-                                    <line id="temperature-line" x1="50" x2="50" y1="62" y2="62" stroke-width="5" class="secondary-stroke" />
-                                    <path
-                                        d="M40,60 A 18 18 0 1 0 60,60 V20 A 10 10 0 1 0 40,20z"
-                                        fill="none"
-                                        stroke-width="10"
-                                        class="primary-stroke"
-                                    />
-                                </svg>
-                            </div>
-                            <div id="performance" class="col-md-1">
-                                <svg class="icon" viewBox="0 0 100 100">
-                                    <path d="M25,10 l50,0 l0,80 l-50,0z" fill="none" stroke-width="5" class="primary-stroke" />
-                                    <g id="feets">
-                                        <line id="feet" x1="23" x2="10" y1="25" y2="25" stroke-width="5" class="secondary-stroke" />
-                                        <use xlink:href="#feet" x="0" y="0" transform="translate(0, 10)" />
-                                        <use xlink:href="#feet" x="0" y="0" transform="translate(0, 20)" />
-                                        <use xlink:href="#feet" x="0" y="0" transform="translate(0, 30)" />
-                                        <use xlink:href="#feet" x="0" y="0" transform="translate(0, 40)" />
-                                        <use xlink:href="#feet" x="0" y="0" transform="translate(0, 50)" />
-                                    </g>
-                                    <use xlink:href="#feets" x="0" y="0" transform="translate(100) scale(-1,1)" />
-                                </svg>
-                            </div>
-                        </div>
-                    <h2><span class="overlay-font" >BeneOverlay</span> might be just the right tool for you!</h2>
-                    <a href="#about" class="btn btn-outline btn-xl page-scroll">Tell me more</a>
-                    <a href="#download" class="btn btn-outline btn-xl page-scroll">Download</a>
-                </div>
-            </div>
-        </div>
-        </div>
-    </header>
+                                        <use xlink:href="#earpad" x="0" y="0" transform="translate(100) scale(-1 1)" />
+                                        <path
+                                            d="m90,50 a 30 30 0 0 1 -20 40"
+                                            stroke-width="3"
+                                            fill="none"
+                                            class="primary-stroke"
+                                        />
+                                        <ellipse class="secondary-fill" cx="70" cy="90" rx="6" ry="10" transform="rotate(65,70,90)" />
+                                    </svg>
+                                </div>
+                                <div id="network" class="col-xs-2 col-sm-1">
+                                    <svg class="icon" viewBox="0 0 120 100">
+                                        <line x1="0" x2="120" y1="50" y2="50" stroke-width="5" class="secondary-stroke" />
+                                        <g id="computer">
+                                            <line x1="60" x2="60" y1="50" y2="30" stroke-width="5" class="secondary-stroke" />
+                                            <rect x="42.5" y="3" width="35" height="28" stroke-width="5" fill="none" class="primary-stroke" />
+                                        </g>
+                                        <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(35 0)"/>
+                                        <use xlink:href="#computer" x="0" y="0" transform="rotate(180,60,50) translate(-35 0)"/>
+                                    </svg>
+                                </div>
+                                <div id="speed" class="col-xs-2 col-sm-1">
+                                    <svg class="icon" viewBox="0 0 100 100">
+                                        <defs>
+                                            <marker id='head' orient="auto"
+                                                    markerWidth='2' markerHeight='2'
+                                                    refX='0.1' refY='1'>
+                                                <!-- triangle pointing right (+x) -->
+                                                <path d='M0,0 V2 L1.5,1 Z' class="primary-fill" />
+                                            </marker>
+                                        </defs>
+                                        <path
+                                            marker-end="url(#head)"
+                                            d="m21.075,84.472 a 45 45 0 1 1 66.165,-11.972"
+                                            fill="none"
+                                            stroke-width="10"
+                                            class="primary-stroke"
+                                        />
 
-    <section id="about" class="about bg-gray-lightest">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="row text-center" >
-                        <div class="col-sm-4" >
-                            <img src="img/benesim.jpg" class="img-circle" >
-                            <h4>Benjamin Isbarn</h4>
-                            <p class="text-muted" ><span class="overlay-font" >BeneSim</span> &middot; Developer</p>
-            <ul class="list-inline list-social">
-                <li class="social-twitch">
-                    <a href="https://www.twitch.tv/benesim"><i class="fa fa-twitch"></i></a>
-                </li>
-                <li class="social-youtube">
-                    <a href="https://www.youtube.com/c/BeneSim"><i class="fa fa-youtube"></i></a>
-                </li>
-                <li class="social-twitter">
-                    <a href="https://twitter.com/bene_sim"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li class="social-github">
-                    <a href="https://github.com/BeneSim"><i class="fa fa-github"></i></a>
-                </li>
-            </ul>
-                        </div>
-                        <div class="col-sm-8" >
-                            <p class="text-justify"><span class="overlay-font" >BeneOverlay</span> by <span class="overlay-font" >BeneSim</span> is free software distributed under the GNU General Public License, Version 3.</p>
-                            <p class="text-justify">It was designed to enhance the experience for viewers of flight sim streams. Often times it is very hard to see some of the interesting data of the current flight, like altitude, heading and speed. In fact, if you are not inside the virtual cockpit it might even be impossible to get hold of these information.
-                                <p class="text-justify"> This is where <span class="overlay-font" >BeneOverlay</span> comes into play. It uses the FSUIPC SDK to communicate with your favorite flight sim and extracts all the important data and embeds them into a website. By simply including this website into your preferred streaming client you're viewers are always aware of what's going on in the sim.</p>
+                                        <path id="notch"
+                                              d="m50,5 l0,15"
+                                              stroke-width="10"
+                                              class="primary-stroke"
+                                        />
+                                        <use xlink:href="#notch" x="0" y="0" transform="rotate(60,50,50)"/>
+                                        <use xlink:href="#notch" x="0" y="0" transform="rotate(-60,50,50)"/>
+                                        <use xlink:href="#notch" x="0" y="0" transform="rotate(-120,50,50)"/>
+                                        <g id="ias_pointer">
+                                            <circle cx="50" cy="50" r="8" class="secondary-fill" />
+                                            <path
+                                                d="m50,50 l-5,0 l5,-25 l5,25z"
+                                                class="secondary-fill"
+                                            />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div id="heading" class="col-xs-2 col-sm-1">
+                                    <svg class="icon" viewBox="0 0 100 100">
+                                        <circle cx="50" cy="50" r="45" stroke-width="10" fill="none" class="primary-stroke" />
+                                        <g id="hdg_pointer">
+                                            <path
+                                                d="m50 50 l-10 0 l10 -28 l10 28z"
+                                                class="primary-fill"
+                                            />
+                                            <path
+                                                d="m40,50 l10,-28 l10,28 l-10,28z"
+                                                fill="none"
+                                                stroke-width="3"
+                                                class="primary-stroke"
+                                            />
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div class="clearfix visible-xs-block" ></div>
+                                <div id="altitude" class="col-xs-2 col-xs-offset-2 col-sm-1 col-sm-offset-0">
+                                    <svg class="icon" viewBox="0 0 80 100">
+                                        <line x1="0" x2="80" y1="95" y2="95" stroke-width="5" class="secondary-stroke" />
+                                        <g transform="translate(0,-8) rotate(0,40,89)" id="airplane">
+                                            <path d="M10,94 H65 C73,94 73,84 65,84 H50 L30,64 L25,66 L35,84 H15 L12,79 H5" class="primary-fill" />
+                                            <g id="airplane-gear">
+                                                <circle cx="45" cy="97.5" r="2.5" class="primary-fill" />
+                                                <circle cx="39" cy="97.5" r="2.5" class="primary-fill" />
+                                            </g>
+                                        </g>
+                                    </svg>
+                                </div>
+                                <div id="wind" class="col-xs-2 col-sm-1">
+                                    <svg class="icon" viewBox="0 0 100 100">
+                                        <ellipse cx="90" cy="30" rx="5" ry="10" class="secondary-fill" />
+                                        <path d="m30,7 L90,20 L90,40 L30,53" class="secondary-fill" />
+                                        <ellipse cx="30" cy="30" rx="10" ry="23" class="primary-fill" />
+                                        <line x1="5" x2="30" y1="8" y2="10" stroke-width="3" class="secondary-stroke" />
+                                        <line x1="5" x2="30" y1="52" y2="50" stroke-width="3" class="secondary-stroke" />
+                                        <line x1="5" x2="5" y1="5" y2="95" stroke-width="5" class="primary-stroke" />
+                                    </svg>
+                                </div>
+                                <div id="temperature" class="col-xs-2 col-sm-1">
+                                    <svg class="icon" viewBox="20 0 60 100">
+                                        <circle cx="50" cy="76" r="15" class="secondary-fill"/>
+                                        <line id="temperature-line" x1="50" x2="50" y1="62" y2="62" stroke-width="5" class="secondary-stroke" />
+                                        <path
+                                            d="M40,60 A 18 18 0 1 0 60,60 V20 A 10 10 0 1 0 40,20z"
+                                            fill="none"
+                                            stroke-width="10"
+                                            class="primary-stroke"
+                                        />
+                                    </svg>
+                                </div>
+                                <div id="performance" class="col-xs-2 col-sm-1">
+                                    <svg class="icon" viewBox="0 0 100 100">
+                                        <path d="M25,10 l50,0 l0,80 l-50,0z" fill="none" stroke-width="5" class="primary-stroke" />
+                                        <g id="feets">
+                                            <line id="feet" x1="23" x2="10" y1="25" y2="25" stroke-width="5" class="secondary-stroke" />
+                                            <use xlink:href="#feet" x="0" y="0" transform="translate(0, 10)" />
+                                            <use xlink:href="#feet" x="0" y="0" transform="translate(0, 20)" />
+                                            <use xlink:href="#feet" x="0" y="0" transform="translate(0, 30)" />
+                                            <use xlink:href="#feet" x="0" y="0" transform="translate(0, 40)" />
+                                            <use xlink:href="#feet" x="0" y="0" transform="translate(0, 50)" />
+                                        </g>
+                                        <use xlink:href="#feets" x="0" y="0" transform="translate(100) scale(-1,1)" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <h2><span class="overlay-font" >BeneOverlay</span> might be just the right tool for you!</h2>
+                            <a href="#about" class="btn btn-outline btn-xl page-scroll">Tell me more</a>
+                            <a href="#download" class="btn btn-outline btn-xl page-scroll">Download</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </header>
 
-    <section id="features" class="features">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="section-heading">
-                        <h2>Small App - Great Features</h2>
-                        <p class="text-muted">Discover what <span class="overlay-font" >BeneOverlay</span> has to offer!</p>
-                        <hr>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4" >
-                    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000" >
-
-                        <!-- Wrapper for slides -->
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active">
-                                <img src="img/flight.png" alt="...">
+        <section id="about" class="about bg-gray-lightest">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="row text-center" >
+                            <div class="col-sm-4" >
+                                <img src="img/benesim.jpg" class="img-circle" >
+                                <h4>Benjamin Isbarn</h4>
+                                <p class="text-muted" ><span class="overlay-font" >BeneSim</span> &middot; Developer</p>
+                                <ul class="list-inline list-social">
+                                    <li class="social-twitch">
+                                        <a href="https://www.twitch.tv/benesim"><i class="fa fa-twitch"></i></a>
+                                    </li>
+                                    <li class="social-youtube">
+                                        <a href="https://www.youtube.com/c/BeneSim"><i class="fa fa-youtube"></i></a>
+                                    </li>
+                                    <li class="social-twitter">
+                                        <a href="https://twitter.com/bene_sim"><i class="fa fa-twitter"></i></a>
+                                    </li>
+                                    <li class="social-github">
+                                        <a href="https://github.com/BeneSim"><i class="fa fa-github"></i></a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="item">
-                                <img src="img/general.png" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="img/heading.png" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="img/landing_settings_mode.png" alt="...">
-                            </div>
-                            <div class="item">
-                                <img src="img/progress.png" alt="...">
+                            <div class="col-sm-8" >
+                                <p class="text-justify"><span class="overlay-font" >BeneOverlay</span> by <span class="overlay-font" >BeneSim</span> is free software distributed under the GNU General Public License, Version 3.</p>
+                                <p class="text-justify">It was designed to enhance the experience for viewers of flight sim streams. Often times it is very hard to see some of the interesting data of the current flight, like altitude, heading and speed. In fact, if you are not inside the virtual cockpit it might even be impossible to get hold of these information.
+                                    <p class="text-justify"> This is where <span class="overlay-font" >BeneOverlay</span> comes into play. It uses the FSUIPC SDK to communicate with your favorite flight sim and extracts all the important data and embeds them into a website. By simply including this website into your preferred streaming client you're viewers are always aware of what's going on in the sim.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8" >
-                    <div class="row" >
-                <div class="col-lg-4">
-                    <div class="feature-item">
-                        <i class="fa fa-paper-plane text-primary"></i>
-                        <h3>Cross Platform</h3>
-                        <p class="text-muted">Support for all the major simulator platforms and not tied to a particular streaming service.</p>
+            </div>
+        </section>
+
+        <section id="features" class="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="section-heading">
+                            <h2>Small App - Great Features</h2>
+                            <p class="text-muted">Discover what <span class="overlay-font" >BeneOverlay</span> has to offer!</p>
+                            <hr>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="feature-item">
-                        <i class="fa fa-paint-brush text-primary"></i>
-                        <h3>Customizable</h3>
-                        <p class="text-muted">Customize colors, fonts and even the widgets to be displayed, to your liking.</p>
+                <div class="row">
+                    <div class="col-md-4" >
+                        <div class="feature-item" >
+                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000" >
+
+                                <!-- Wrapper for slides -->
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="item active">
+                                        <img src="img/flight.png" alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/general.png" alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/heading.png" alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/landing_settings_mode.png" alt="...">
+                                    </div>
+                                    <div class="item">
+                                        <img src="img/progress.png" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="feature-item">
-                        <i class="fa fa-play text-primary"></i>
-                        <h3>Animated Icons</h3>
-                        <p class="text-muted">Bring your stream to life with animated icons that will display your aircraft's current attitude.</p>
+                    <div class="col-md-8" >
+                        <div class="row" >
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="feature-item">
+                                    <i class="fa fa-paper-plane text-primary"></i>
+                                    <h3>Cross Platform</h3>
+                                    <p class="text-muted">Support for all the major simulator platforms and not tied to a particular streaming service.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="feature-item">
+                                    <i class="fa fa-paint-brush text-primary"></i>
+                                    <h3>Customizable</h3>
+                                    <p class="text-muted">Customize colors, fonts and even the widgets to be displayed, to your liking.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="feature-item">
+                                    <i class="fa fa-play text-primary"></i>
+                                    <h3>Animated Icons</h3>
+                                    <p class="text-muted">Bring your stream to life with animated icons that will display your aircraft's current attitude.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="feature-item">
+                                    <i class="fa fa-fighter-jet text-primary"></i>
+                                    <h3>Real-time Data</h3>
+                                    <p class="text-muted">Data is streamed in real-time, with up to 60 FPS. Since no third party servers are involved there is almost no delay.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="feature-item">
+                                    <i class="fa fa-plug text-primary"></i>
+                                    <h3>Plug & Play</h3>
+                                    <p class="text-muted">Super easy to setup. No registration or installation required.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-lg-4">
+                                <div class="feature-item">
+                                    <i class="fa fa-heart text-primary"></i>
+                                    <h3>Free Software</h3>
+                                    <p class="text-muted">BeneOverlay is distributed under the GNU General Public License, Version 3 and is free of charge.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="feature-item">
-                        <i class="fa fa-fighter-jet text-primary"></i>
-                        <h3>Real-time Data</h3>
-                        <p class="text-muted">Data is streamed in real-time, with up to 60 FPS. Since no third party servers are involved there is almost no delay.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="feature-item">
-                        <i class="fa fa-plug text-primary"></i>
-                        <h3>Plug & Play</h3>
-                        <p class="text-muted">Super easy to setup. No registration or installation required.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="feature-item">
-                        <i class="fa fa-heart text-primary"></i>
-                        <h3>Free Software</h3>
-                        <p class="text-muted">BeneOverlay is distributed under the GNU General Public License, Version 3 and is free of charge.</p>
-                    </div>
-                </div>
-            </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="requirements" class="contact bg-secondary">
-        <div class="container">
-            <h2>What else do I need?</h2>
-            <p>Since <span class="overlay-font" >BeneOverlay</span> uses the FSUIPC SDK to communicate with your sim,<br />you need a copy of FSUIPC (FSX/P3D), unregistered version is sufficient, or XPUIPC (XP10/11).</p>
+        </section>
+        <section id="requirements" class="contact bg-secondary">
+            <div class="container">
+                <h2>What else do I need?</h2>
+                <p>Since <span class="overlay-font" >BeneOverlay</span> uses the FSUIPC SDK to communicate with your sim,<br />you need a copy of FSUIPC (FSX/P3D), unregistered version is sufficient, or XPUIPC (XP10/11).</p>
                 <a href="http://www.schiratti.com/dowson.html" class="btn btn-inverse btn-outline btn-xl page-scroll">Get FSUIPC</a>
                 <a href="http://www.tosi-online.de/XPUIPC/XPUIPC.html" class="btn btn-inverse btn-outline btn-xl page-scroll">Get XPUIPC</a>
                 <p style="margin-top: 25px;">Be aware that you'll need the WideFS resp. WPWide Client / Server,<br />if you want to run BeneOverlay on a machine other than the one your sim runs on.</p>
-        </div>
-    </section>
-
-    <section class="cta" id="download">
-        <div class="cta-content">
-            <div class="container">
-                <h2>Ready for takeoff?</h2>
-                <h3>Get your copy of <span class="overlay-font" >BeneOverlay</span> now!</h3>
-                <a href="https://github.com/benesim/beneoverlay/releases/latest" class="btn btn-outline btn-xl">Download<br />(Windows 32-Bit)</a>
-                <a href="https://github.com/benesim/beneoverlay" class="btn btn-outline btn-xl">Download<br />(Source)</a>
-<h3>Make sure to read the latest installation instructions</h3>
-                <a href="https://github.com/BeneSim/BeneOverlay/blob/master/README.md" class="btn btn-outline btn-xl">Readme</a>
             </div>
-        </div>
-        <div class="overlay"></div>
-    </section>
+        </section>
 
-    <section id="contact" class="contact bg-gray-lighter">
-        <div class="container">
-            <h2>Want to spread the <i class="fa fa-heart"></i>?</h2>
-            <p>Join the <span class="overlay-font" >BeneSim</span> community!</p>
-            <ul class="list-inline list-social">
-                <li class="social-twitch">
-                    <a href="https://www.twitch.tv/benesim"><i class="fa fa-twitch"></i></a>
-                </li>
-                <li class="social-youtube">
-                    <a href="https://www.youtube.com/c/BeneSim"><i class="fa fa-youtube"></i></a>
-                </li>
-                <li class="social-twitter">
-                    <a href="https://twitter.com/bene_sim"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li class="social-github">
-                    <a href="https://github.com/BeneSim"><i class="fa fa-github"></i></a>
-                </li>
-            </ul>
-            <p>Are you enjoying the <span class="overlay-font">BeneOverlay</span> and want to thank me?<br />Spread the word and consider making a donation to your favorite charity!<br />Alternatively you may want to donate via my twitch channel to the charity Save the Children.</p>
-        </div>
-    </section>
+        <section class="cta" id="download">
+            <div class="cta-content">
+                <div class="container">
+                    <div class="row" >
+                        <h2>Ready for takeoff?</h2>
+                        <div class="col-lg-4 col-lg-push-7 text-center" >
+                            <h3>Quick Installation & Setup Guide</h3>
+                            <div class="embed-responsive embed-responsive-16by9" >
+                                <iframe src="https://www.youtube.com/embed/hOWkNvn7TkU" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <div class="col-lg-7 col-lg-pull-4" >
+                            <h3>Get your copy of <span class="overlay-font" >BeneOverlay</span> now!</h3>
+                            <a href="https://github.com/benesim/beneoverlay/releases/latest" class="btn btn-outline btn-xl">Download<br />(Windows 32-Bit)</a>
+                            <a href="https://github.com/benesim/beneoverlay" class="btn btn-outline btn-xl">Download<br />(Source)</a>
+                            <h3>Make sure to read the latest installation instructions</h3>
+                            <a href="https://github.com/BeneSim/BeneOverlay/blob/master/README.md" class="btn btn-outline btn-xl">Readme</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay"></div>
+        </section>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2017 Benjamin Isbarn. All Rights Reserved. Portions of this site originally &copy; 2016 <a href="https://startbootstrap.com" >Start Bootstrap</a>.</p>
-            <ul class="list-inline">
-                <li class="list-inline-item">
-                    <a href="legal.html#impressum">Impressum</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="legal.html#datenschutz">Datenschutzerklärung</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="legal.html#haftung">Haftungsausschluss</a>
-                </li>
-                <li class="list-inline-item">
-                    &middot;
-                </li>
-                <li class="list-inline-item">
-                    <a href="legal.html#sitenotice">Site Notice</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="legal.html#privacy">Privacy Policy</a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="legal.html#disclaimer">Disclaimer</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
+        <section id="contact" class="contact bg-gray-lighter">
+            <div class="container">
+                <h2>Want to spread the <i class="fa fa-heart"></i>?</h2>
+                <p>Join the <span class="overlay-font" >BeneSim</span> community!</p>
+                <ul class="list-inline list-social">
+                    <li class="social-twitch">
+                        <a href="https://www.twitch.tv/benesim"><i class="fa fa-twitch"></i></a>
+                    </li>
+                    <li class="social-youtube">
+                        <a href="https://www.youtube.com/c/BeneSim"><i class="fa fa-youtube"></i></a>
+                    </li>
+                    <li class="social-twitter">
+                        <a href="https://twitter.com/bene_sim"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li class="social-github">
+                        <a href="https://github.com/BeneSim"><i class="fa fa-github"></i></a>
+                    </li>
+                </ul>
+                <p>Are you enjoying the <span class="overlay-font">BeneOverlay</span> and want to thank me?<br />Spread the word and consider making a donation to your favorite charity!<br />Alternatively you may want to donate via my twitch channel to the charity Save the Children.</p>
+            </div>
+        </section>
 
-    <!-- jQuery -->
-    <script src="lib/jquery/jquery.min.js"></script>
+        <footer>
+            <div class="container">
+                <p>&copy; 2017 Benjamin Isbarn. All Rights Reserved. Portions of this site originally &copy; 2016 <a href="https://startbootstrap.com" >Start Bootstrap</a>.</p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a href="legal.html#impressum">Impressum</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="legal.html#datenschutz">Datenschutzerklärung</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="legal.html#haftung">Haftungsausschluss</a>
+                    </li>
+                    <li class="list-inline-item">
+                        &middot;
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="legal.html#sitenotice">Site Notice</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="legal.html#privacy">Privacy Policy</a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="legal.html#disclaimer">Disclaimer</a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+        <!-- jQuery -->
+        <script src="lib/jquery/jquery.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Theme JavaScript -->
-    <script src="js/new-age.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-</body>
+        <!-- Theme JavaScript -->
+        <script src="js/new-age.min.js"></script>
+
+    </body>
 
 </html>
