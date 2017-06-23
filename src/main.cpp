@@ -256,6 +256,7 @@ int main(int argc, char *argv[])
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedBank, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/bank")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedAltitude, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/alt")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedVs, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/vs")), &DataRef::setData);
+    QObject::connect(flight_sim_connector, &FlightSimConnector::parsedVsAir, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/vs_air")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedWindDir, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/wind_dir")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedWindMag, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/wind_mag")), &DataRef::setData);
     QObject::connect(flight_sim_connector, &FlightSimConnector::parsedLatitude, qobject_cast<DataRef*>(data_ref_manager.getDataRef("sim/lat")), &DataRef::setData);
@@ -301,7 +302,7 @@ int main(int argc, char *argv[])
     QObject::connect(&timer, &QTimer::timeout, dataRefSweep(3.0, 0.0, 1.0, data_ref_manager.getDataRef("sim/connected")));
     QObject::connect(&timer, &QTimer::timeout, dataRefSweep(3.0, 0.0, 1.0, data_ref_manager.getDataRef("sim/gear_down")));
     QObject::connect(&timer, &QTimer::timeout, dataRefSweep(10.0, 0.0, 1.0, data_ref_manager.getDataRef("sim/on_ground")));
-    QObject::connect(&timer, &QTimer::timeout, dataRefSweep(10.0, 0.0, 3000.0, data_ref_manager.getDataRef("flight/distance_to_destination")));
+    QObject::connect(&timer, &QTimer::timeout, dataRefSweep(60.0, 0.0, 2000.0, data_ref_manager.getDataRef("flight/distance_to_destination")));
     timer.start(1000/25);
 
 #endif

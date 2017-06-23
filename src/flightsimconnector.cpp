@@ -156,6 +156,13 @@ void FlightSimConnector::pollData()
         return;
     }
 
+    int32_t vs_air = 0;
+    if (pollValue<int32_t, 4>(0x030C, vs_air)) {
+      emit parsedVsAir(vs_air / 256.0 * 60 * 3.28084);
+    } else {
+      return;
+    }
+
     int16_t wind_dir = 0;
     double wind_dir_final = 0;
     if (pollValue<int16_t, 2>(0xE92, wind_dir)) {
@@ -220,13 +227,6 @@ void FlightSimConnector::pollData()
     int32_t pitch = 0;
     if (pollValue<int32_t, 4>(0x0578, pitch)) {
         emit parsedPitch(- pitch * 360.0 / (65536.0*65536.0));
-    } else {
-        return;
-    }
-
-    int32_t vs_air = 0;
-    if (pollValue<int32_t, 4>(0x030C, vs_air)) {
-        emit parsedVsAir(vs_air / 256.0 * 60 * 3.28084);
     } else {
         return;
     }

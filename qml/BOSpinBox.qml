@@ -22,43 +22,43 @@ import QtQuick.Layouts 1.1
 
 BOItem {
 
-  id: root
+    id: root
 
-  property alias from: spin_box.from
-  property alias to: spin_box.to
+    property alias from: spin_box.from
+    property alias to: spin_box.to
 
-  anchors.leftMargin: 20
-  anchors.topMargin: 20
+    anchors.leftMargin: 20
+    anchors.topMargin: 20
 
-  implicitWidth: 150
+    implicitWidth: 150
 
-  Text {
-    id: name_text
-                anchors.top: parent.top
-                anchors.left: parent.left
-    text: root.name
-  }
-
-  SpinBox {
-
-    id: spin_box
-
-    anchors.top: name_text.bottom
-    anchors.left: parent.left
-    anchors.leftMargin: 10
-    anchors.right: parent.right
-
-    value: data_ref.data
-
-    editable: true
-
-    Binding {
-      target: data_ref
-      property: "data"
-      value: spin_box.value
+    Text {
+        id: name_text
+        anchors.top: parent.top
+        anchors.left: parent.left
+        text: root.name
     }
 
-  }
+    SpinBox {
+
+        id: spin_box
+
+        anchors.top: name_text.bottom
+        anchors.left: parent.left
+        anchors.leftMargin: 10
+        anchors.right: parent.right
+
+        value: data_ref.data
+
+        editable: true
+
+        Binding {
+            target: data_ref
+            property: "data"
+            value: spin_box.value
+        }
+
+    }
 
 
 

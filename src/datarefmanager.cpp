@@ -56,6 +56,7 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["sim/trk"] = new DataRef(0, false, this);
     data_ref_map_["sim/alt"] = new DataRef(0, false, this);
     data_ref_map_["sim/vs"] = new DataRef(0, false, this);
+    data_ref_map_["sim/vs_air"] = new DataRef(0, false, this);
     data_ref_map_["sim/pitch"] = new DataRef(0, false, this);
     data_ref_map_["sim/gear_down"] = new DataRef(true, false, this);
     data_ref_map_["sim/wind_dir"] = new DataRef(0, false, this);
@@ -84,6 +85,7 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["flight/route_distance"] = new DataRef(0, true, this);
     data_ref_map_["flight/distance_to_destination"] = new DataRef(0, true, this);
     data_ref_map_["flight/eta"] = new DataRef("--:--", true, this);
+    data_ref_map_["flight/ete"] = new DataRef("--:--", true, this);
 
     data_ref_map_["global/icon_enabled"] = new DataRef(true, true, this);
     data_ref_map_["global/icon_size"] = new DataRef(70, true, this);
@@ -194,6 +196,11 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["progress/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
     data_ref_map_["progress/primary_font"] = new DataRef(QFont(), true, this);
     data_ref_map_["progress/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["progress/dep_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["progress/arr_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["progress/dtg_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["progress/eta_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["progress/ete_enabled"] = new DataRef(false, true, this);
 
     data_ref_map_["landing/settings_mode"] = new DataRef(false, true, this);
     data_ref_map_["landing/background_image_enabled"] = new DataRef(true, true, this);
@@ -343,6 +350,7 @@ void DataRefManager::calcETA()
     double on_ground = qobject_cast<DataRef*>(data_ref_map_["sim/on_ground"])->data().toBool();
 
     QString eta = "--:--";
+    QString ete = "--:--";
 
 
     if (!on_ground && gs > 5) {
@@ -356,9 +364,12 @@ void DataRefManager::calcETA()
 
         eta = current_date_time.toString("HH:mm");
 
+        ete = QString("%1:%2").arg((int)(dt / (60 * 60)), 2, 10, QChar('0')).arg((int)(dt / 60) % 60, 2, 10, QChar('0'));
+
     }
 
     qobject_cast<DataRef*>(data_ref_map_["flight/eta"])->setData(eta);
+    qobject_cast<DataRef*>(data_ref_map_["flight/ete"])->setData(ete);
 
 }
 

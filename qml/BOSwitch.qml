@@ -22,62 +22,62 @@ import QtQuick.Controls.Material 2.1
 
 BOItem {
 
-  id: root
+    id: root
 
-  anchors.leftMargin: 20
-  anchors.topMargin: 20
+    anchors.leftMargin: 20
+    anchors.topMargin: 20
 
-  implicitWidth: 150
+    implicitWidth: 150
 
-  property alias checked: checkbox.checked
+    property alias checked: checkbox.checked
 
-  Switch {
-    id: checkbox
-    anchors.top: parent.top
-    anchors.left: parent.left
+    Switch {
+        id: checkbox
+        anchors.top: parent.top
+        anchors.left: parent.left
 
-    padding: 0
+        padding: 0
 
-    checked: root.data_ref.data
+        checked: root.data_ref.data
 
-    Binding {
-      target: root.data_ref
-      property: "data"
-      value: checkbox.checked
-    }
-
-  }
-
-  Item {
-    anchors.verticalCenter: checkbox.verticalCenter
-    anchors.left: checkbox.right
-    anchors.leftMargin: 10
-
-    implicitHeight: childrenRect.height
-    implicitWidth: childrenRect.width
-
-    Text {
-      id: label
-
-      anchors.top: parent.top
-      anchors.left: parent.left
-
-      text: root.name
-
-      font.pointSize: 11
+        Binding {
+            target: root.data_ref
+            property: "data"
+            value: checkbox.checked
+        }
 
     }
 
-    Text {
-      anchors.top: label.bottom
-      anchors.left: parent.left
+    Item {
+        anchors.verticalCenter: checkbox.verticalCenter
+        anchors.left: checkbox.right
+        anchors.leftMargin: 10
 
-      text: root.description
+        implicitHeight: childrenRect.height
+        implicitWidth: childrenRect.width
 
-      color: Material.hintTextColor
+        Text {
+            id: label
+
+            anchors.top: parent.top
+            anchors.left: parent.left
+
+            text: root.name
+
+            font.pointSize: 11
+
+        }
+
+        Text {
+            anchors.top: label.bottom
+            anchors.left: parent.left
+
+            text: root.description
+
+            color: Material.hintTextColor
+        }
+
     }
-
-  }
 
 
 }

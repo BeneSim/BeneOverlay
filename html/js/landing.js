@@ -56,7 +56,7 @@ function setupLanding(data_refs) {
 
     data_refs["sim/on_ground"].dataChanged.connect(function (new_value) {
         if (new_value && !$("#landing").is(":visible")) {
-            $("#vs").text(data_refs["sim/vs"].data);
+            $("#vs").text(data_refs["sim/vs_air"].data);
             $("#pitch").text(data_refs["sim/pitch"].data);
             $("#ias").text(data_refs["sim/ias"].data);
             $("#gs").text(data_refs["sim/gs"].data);

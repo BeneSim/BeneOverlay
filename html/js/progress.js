@@ -36,6 +36,13 @@ function setupProgress(data_refs) {
     attachToText($("#route"), data_refs["flight/route"]);
     attachToText($("#distance_to_destination"), data_refs["flight/distance_to_destination"]);
     attachToText($("#eta"), data_refs["flight/eta"]);
+    attachToText($("#ete"), data_refs["flight/ete"]);
+
+    attachToToggle($("#dep-row"), data_refs["progress/dep_enabled"]);
+    attachToToggle($("#arr-row"), data_refs["progress/arr_enabled"]);
+    attachToToggle($("#dtg-row"), data_refs["progress/dtg_enabled"]);
+    attachToToggle($("#eta-row"), data_refs["progress/eta_enabled"]);
+    attachToToggle($("#ete-row"), data_refs["progress/ete_enabled"]);
 
     function setProgressBarViewBox() {
         let width = $("#progress_bar").width();
