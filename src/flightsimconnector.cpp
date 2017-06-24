@@ -261,7 +261,7 @@ void FlightSimConnector::pollData()
 
     double wca_final = 0.0;
     double trk_final = hdg_final;
-    if (gs_final > 0.0) {
+    if (gs_final > 0.0 && !on_ground) {
         wca_final = qRadiansToDegrees(
                     qAsin(
                         qSin(qDegreesToRadians(hdg_final - wind_dir_final)) * wind_mag_final / gs_final
