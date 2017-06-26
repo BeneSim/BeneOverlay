@@ -20,87 +20,65 @@ import QtQuick 2.0
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 import Qt.labs.platform 1.0
-//import QtQuick.Dialogs 1.2
 
 BOItem {
+    id: root
 
-  id: root
+    implicitWidth: Math.max(label_text.implicitWidth, indicator_rectangle.implicitWidth + indicator_rectangle.anchors.leftMargin)
+    implicitHeight: label_text.implicitHeight + indicator_rectangle.implicitHeight + indicator_rectangle.anchors.topMargin
 
-  anchors.leftMargin: 20
-  anchors.topMargin: 20
+    Text {
+        id: label_text
 
-  implicitWidth: 150
-
-  Text {
-    id: name_text
-    anchors.top: parent.top
-    anchors.left: parent.left
-    text: root.name
-
-    color: enabled? Material.foreground : Material.hintTextColor
-  }
-
-  Rectangle {
-
-    id: border_rect
-
-    anchors.top: name_text.bottom
-    anchors.left: parent.left
-    anchors.leftMargin: 10
-    anchors.topMargin: 8
-
-    implicitWidth: 30
-    implicitHeight: 30
-    radius: 3
-
-    border.color: Material.accent
-    border.width: 2
-
-    visible: mouse_area.containsMouse
-
-
-  }
-
-  Rectangle {
-
-    id: color_rect
-
-    anchors.centerIn: border_rect
-
-    implicitHeight: 24
-    implicitWidth: 24
-    radius: 3
-
-    color: data_ref.data
-
-    Binding {
-      target: data_ref
-      property: "data"
-      value: color_rect.color
+        anchors {top: parent.top; left: parent.left; right: parent.right}
+        text: root.label
     }
 
-  }
+    Item {
+        anchors {left: parent.left; top: label_text.bottom; right: parent.right; bottom: parent.bottom}
 
-  MouseArea {
-    id: mouse_area
-    anchors.fill: border_rect
+        Rectangle {
+            id: indicator_rectangle
 
-    hoverEnabled: true
-    //cursorShape: Qt.PointingHandCursor
+            anchors {left: parent.left; verticalCenter: parent.verticalCenter; leftMargin: 10; topMargin: 8}
+            implicitWidth: 30
+            implicitHeight: 30
+            radius: 3
+            border.color: Material.accent
+            border.width: 2
+            visible: mouse_area.containsMouse
+        }
 
-    onClicked: color_dialog.open()
-  }
+        Rectangle {
+            id: value_rectangle
 
-  ColorDialog {
-    id: color_dialog
+            anchors {fill: indicator_rectangle; margins: 3}
+            radius: 3
+            color: data_ref.data
 
-    color: color_rect.color
-    currentColor: color_rect.color
+            Binding {
+                target: data_ref
+                property: "data"
+                value: value_rectangle.color
+            }
+        }
 
-    onColorChanged: {
-      color_rect.color = color_dialog.color;
+        MouseArea {
+            id: mouse_area
+
+            anchors.fill: indicator_rectangle
+            hoverEnabled: true
+            onClicked: color_dialog.open()
+        }
+
+        ColorDialog {
+            id: color_dialog
+
+            color: value_rectangle.color
+            currentColor: value_rectangle.color
+            onColorChanged: {
+                value_rectangle.color = color_dialog.color;
+            }
+        }
     }
-  }
-
-
 }

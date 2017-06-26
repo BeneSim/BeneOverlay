@@ -20,73 +20,56 @@ import QtQuick 2.0
 import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 import Qt.labs.platform 1.0
-//import QtQuick.Dialogs 1.2
 
 BOItem {
+    id: root
 
-  id: root
+    implicitWidth: Math.max(label_text.implicitWidth, value_text.implicitWidth + value_text.anchors.leftMargin)
+    implicitHeight: label_text.implicitHeight + value_text.implicitHeight + value_text.anchors.topMargin + indicator_rectangle.implicitHeight
 
-  anchors.leftMargin: 20
-  anchors.topMargin: 20
+    Text {
+        id: label_text
 
-  implicitWidth: childrenRect.width > 150 ? childrenRect.width : 150
-
-  Text {
-    id: name_text
-    anchors.top: parent.top
-    anchors.left: parent.left
-    text: root.name
-  }
-
-  Text {
-    id: font_text
-
-    anchors.top: name_text.bottom
-    anchors.left: parent.left
-    anchors.leftMargin: 10
-    anchors.topMargin: 8
-
-    text: data_ref.data.family + ", " + data_ref.data.pointSize
-
-    font.family: data_ref.data.family
-    font.pointSize: 11
-  }
-
-  Rectangle {
-    anchors.left: font_text.left
-    anchors.right: font_text.right
-    anchors.top: font_text.bottom
-
-    height: 2
-
-    color: Material.accentColor
-
-    visible: mouse_area.containsMouse
-  }
-
-  MouseArea {
-    id: mouse_area
-
-    anchors.fill: font_text
-
-    hoverEnabled: true
-
-    onClicked: font_dialog.open()
-  }
-
-  FontDialog {
-    id: font_dialog
-
-    font: data_ref.data
-
-    onFontChanged: {
-      console.log("Font changed to " + font_dialog.font);
-      data_ref.data = font_dialog.font;
-
+        anchors {top: parent.top; left: parent.left; right: parent.right}
+        text: root.label
     }
-  }
 
+    Text {
+        id: value_text
 
+        anchors {top: label_text.bottom; left: parent.left; right: parent.right; leftMargin: 10; topMargin: 8}
 
+        text: data_ref.data.family + ", " + data_ref.data.pointSize
+        font.family: data_ref.data.family
+        font.pointSize: 11
+    }
 
+    Rectangle {
+        id: indicator_rectangle
+
+        anchors {left: value_text.left; top: value_text.bottom; right: value_text.right; bottom: parent.bottom}
+        implicitHeight: 2
+        color: Material.accentColor
+        visible: mouse_area.containsMouse
+    }
+
+    MouseArea {
+        id: mouse_area
+
+        anchors.fill: value_text
+        hoverEnabled: true
+        onClicked: font_dialog.open()
+    }
+
+    FontDialog {
+        id: font_dialog
+
+        font: data_ref.data
+
+        onFontChanged: {
+            console.log("Font changed to " + font_dialog.font);
+            data_ref.data = font_dialog.font;
+
+        }
+    }
 }

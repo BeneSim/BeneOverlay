@@ -18,48 +18,33 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.1
-import QtQuick.Layouts 1.1
 
 BOItem {
-
     id: root
 
-    property alias from: spin_box.from
-    property alias to: spin_box.to
+    property alias from: value_spin_box.from
+    property alias to: value_spin_box.to
 
-    anchors.leftMargin: 20
-    anchors.topMargin: 20
-
-    implicitWidth: 150
+    implicitWidth: Math.max(label_text.implicitWidth, value_spin_box.implicitWidth + value_spin_box.anchors.leftMargin)
+    implicitHeight: label_text.implicitHeight + value_spin_box.implicitHeight
 
     Text {
-        id: name_text
-        anchors.top: parent.top
-        anchors.left: parent.left
-        text: root.name
+        id: label_text
+        anchors {top: parent.top; left: parent.left; right: parent.right}
+        text: root.label
     }
 
     SpinBox {
+        id: value_spin_box
 
-        id: spin_box
-
-        anchors.top: name_text.bottom
-        anchors.left: parent.left
-        anchors.leftMargin: 10
-        anchors.right: parent.right
-
+        anchors {top: label_text.bottom; left: parent.left; right: parent.right; bottom: parent.bottom; leftMargin: 10}
         value: data_ref.data
-
         editable: true
 
         Binding {
             target: data_ref
             property: "data"
-            value: spin_box.value
+            value: value_spin_box.value
         }
-
     }
-
-
-
 }

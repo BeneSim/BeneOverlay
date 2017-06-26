@@ -189,6 +189,7 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/temperature/oat_enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/temperature/tat_enabled"] = new DataRef(true, true, this);
 
+    data_ref_map_["progress/enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/custom_style"] = new DataRef(false, true, this);
     data_ref_map_["progress/icon_enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/icon_size"] = new DataRef(70, true, this);
@@ -202,6 +203,7 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["progress/eta_enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/ete_enabled"] = new DataRef(false, true, this);
 
+    data_ref_map_["landing/enabled"] = new DataRef(true, true, this);
     data_ref_map_["landing/settings_mode"] = new DataRef(false, true, this);
     data_ref_map_["landing/background_image_enabled"] = new DataRef(true, true, this);
     data_ref_map_["landing/background_image"] = new DataRef("file:///" + QDir::current().absoluteFilePath("html/images/event-background.png"), true, this);

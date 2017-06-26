@@ -17,39 +17,46 @@
 */
 
 import QtQuick 2.0
-
+import QtQuick.Controls 2.2
 import QtQuick.Controls.Material 2.1
 
 Item {
+    id: root
 
-  id: root
+    property string label
+    default property alias contents: content.data
 
-  property string name
-  default property alias contents: content.children
+    implicitWidth: Math.max(label_text.implicitWidth, content.implicitWidth)
+    implicitHeight: label_text.implicitHeight + content.implicitHeight
 
-  anchors.leftMargin: 30
-  anchors.topMargin: 30
+    Text {
+        id: label_text
 
-  Text {
-    id: name_text
+        anchors {left: parent.left; top: parent.top; right: parent.right}
+        text: root.label
+        font.pointSize: 12
+        color: Material.hintTextColor
+    }
 
-    anchors.left: parent.left
-    anchors.top: parent.top
+    Flickable {
+        id: content_flickable
 
-    text: root.name
-    font.pointSize: 12
-    color: Material.hintTextColor
-  }
+        anchors {left: parent.left; top: label_text.bottom; right: parent.right; bottom: parent.bottom}
+        contentHeight: content.height + content.anchors.topMargin
+        clip: true
+        ScrollBar.vertical: ScrollBar {
+            id: vertical_scroll_bar
 
-  Item {
-    id: content
+            policy: content_flickable.contentHeight > content_flickable.height? ScrollBar.AlwaysOn : ScrollBar.AlwaysOff
+        }
 
-    anchors.left: parent.left
-    anchors.top: name_text.bottom
-    anchors.bottom: parent.bottom
-    anchors.right: parent.right
+        Item {
+            id: content
 
-  }
+            implicitWidth: children[0].implicitWidth
+            implicitHeight: children[0].implicitHeight
 
-
+            anchors {left: parent.left; top: parent.top; right: parent.right; leftMargin: 8; topMargin: 16; rightMargin: vertical_scroll_bar.visible? vertical_scroll_bar.width + 8 : 8}
+        }
+    }
 }

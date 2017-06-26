@@ -24,5 +24,7 @@
         <file>BOWidgetNetwork.qml</file>
         <file>BOWidgetSpeed.qml</file>
         <file>BOWidgetAltitude.qml</file>
+        <file>main2.qml</file>
+        <file>BOWidgetSettings.qml</file>
     </qresource>
 </RCC>

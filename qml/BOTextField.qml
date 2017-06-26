@@ -18,52 +18,39 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.1
-import QtQuick.Layouts 1.1
 
 BOItem {
+    id: root
 
-  id: root
+    property alias placeholderText: value_text_field.placeholderText
+    property alias validator: value_text_field.validator
 
-  property alias placeholderText: text_field.placeholderText
-  property alias validator: text_field.validator
+    implicitWidth: Math.max(label_text.implicitWidth, value_text_field.implicitWidth + value_text_field.anchors.leftMargin)
+    implicitHeight: label_text.implicitHeight + value_text_field.implicitHeight
 
-  anchors.leftMargin: 20
-  anchors.topMargin: 20
+    Text {
+        id: label_text
 
-  implicitWidth: 150
-
-  Text {
-    id: name_text
-                anchors.top: parent.top
-                anchors.left: parent.left
-    text: root.name
-  }
-
-  TextField {
-
-    id: text_field
-
-    anchors.top: name_text.bottom
-    anchors.left: parent.left
-    anchors.leftMargin: 10
-    anchors.right: parent.right
-
-    text: data_ref.data
-
-    onActiveFocusChanged: {
-      if (activeFocus) {
-        selectAll();
-      }
+        anchors {top: parent.top; left: parent.left; right: parent.right}
+        text: root.label
     }
 
-    Binding {
-      target: data_ref
-      property: "data"
-      value: text_field.text
+    TextField {
+        id: value_text_field
+
+        onActiveFocusChanged: {
+            if (activeFocus) {
+                selectAll();
+            }
+        }
+
+        anchors {top: label_text.bottom; left: parent.left; right: parent.right; bottom: parent.bottom; leftMargin: 8}
+        text: data_ref.data
+
+        Binding {
+            target: data_ref
+            property: "data"
+            value: value_text_field.text
+        }
     }
-
-  }
-
-
-
 }

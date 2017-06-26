@@ -17,14 +17,12 @@
 */
 
 import QtQuick 2.0
+import QtQuick.Controls 2.2
 
 Item {
+    id: root
 
-  property var data_ref
-  property string name
-  property string description
-
-  implicitWidth: childrenRect.width
-  implicitHeight: childrenRect.height
-
+    property var data_ref
+    property string label
+    property string description
 }

@@ -19,83 +19,61 @@
 import QtQuick 2.0
 import QtQuick.Controls.Material 2.1
 import Qt.labs.platform 1.0
-//import QtQuick.Dialogs 1.2
 
 BOItem {
+    id: root
 
-  id: root
+    implicitWidth: Math.max(label_text.implicitWidth, indicator_rectangle.implicitWidth + indicator_rectangle.anchors.leftMargin)
+    implicitHeight: label_text.implicitHeight + indicator_rectangle.implicitHeight + indicator_rectangle.anchors.topMargin
 
-  anchors.leftMargin: 20
-  anchors.topMargin: 20
+    Text {
+        id: label_text
 
-  Text {
-    id: name_text
-    anchors.top: parent.top
-    anchors.left: parent.left
-    text: root.name
-
-    color: enabled? Material.foreground : Material.hintTextColor
-  }
-
-  Rectangle {
-
-    id: border_rect
-
-    anchors.top: name_text.bottom
-    anchors.left: parent.left
-    anchors.leftMargin: 10
-    anchors.topMargin: 8
-
-    implicitWidth: 100
-    implicitHeight: 100
-    radius: 3
-
-    border.color: Material.accent
-    border.width: 2
-
-    visible: mouse_area.containsMouse
-
-
-  }
-
-  Image {
-    id: image_display
-
-    source: data_ref.data
-
-    anchors.centerIn: border_rect
-
-    width: border_rect.width - 6
-    height: border_rect.height - 6
-
-    fillMode: Image.PreserveAspectCrop
-
-    Binding {
-      target: data_ref
-      property: "data"
-      value: image_display.source
-    }
-  }
-
-  MouseArea {
-    id: mouse_area
-    anchors.fill: border_rect
-
-    hoverEnabled: true
-
-    onClicked: file_dialog.open()
-  }
-
-  FileDialog {
-    id: file_dialog
-
-    nameFilters: ["Image files (*.bmp *.png *.jpg *.jpeg *.gif *.svg)"]
-
-    onFileChanged: {
-      image_display.source = file_dialog.file
+        anchors {top: parent.top; left: parent.left; right: parent.right}
+        text: root.label
+        color: enabled? Material.foreground : Material.hintTextColor
     }
 
-  }
+    Rectangle {
+        id: indicator_rectangle
 
+        anchors {left: parent.left; top: label_text.bottom; right: parent.right; bottom: parent.bottom; leftMargin: 10; topMargin: 8}
 
+        implicitWidth: implicitHeight
+        implicitHeight: 100
+        radius: 3
+        border {color: Material.accent; width: 2}
+        visible: mouse_area.containsMouse
+    }
+
+    Image {
+        id: value_image
+
+        source: data_ref.data
+        anchors {fill: indicator_rectangle; margins: 3}
+        fillMode: Image.PreserveAspectCrop
+
+        Binding {
+            target: data_ref
+            property: "data"
+            value: value_image.source
+        }
+    }
+
+    MouseArea {
+        id: mouse_area
+
+        anchors.fill: indicator_rectangle
+        hoverEnabled: true
+        onClicked: value_file_dialog.open()
+    }
+
+    FileDialog {
+        id: value_file_dialog
+
+        nameFilters: ["Image files (*.bmp *.png *.jpg *.jpeg *.gif *.svg)"]
+        onFileChanged: {
+            value_image.source = value_file_dialog.file
+        }
+    }
 }

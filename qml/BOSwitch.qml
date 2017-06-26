@@ -21,63 +21,43 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 BOItem {
-
     id: root
 
-    anchors.leftMargin: 20
-    anchors.topMargin: 20
+    property alias checked: value_checkbox.checked
 
-    implicitWidth: 150
-
-    property alias checked: checkbox.checked
+    implicitWidth: value_checkbox.implicitWidth + Math.max(label_text.implicitWidth + label_text.anchors.leftMargin, description_text.implicitWidth + description_text.anchors.leftMargin)
+    implicitHeight: Math.max(value_checkbox.implicitHeight, label_text.implicitHeight + description_text.implicitHeight)
 
     Switch {
-        id: checkbox
-        anchors.top: parent.top
-        anchors.left: parent.left
+        id: value_checkbox
 
+        anchors {left: parent.left; top: parent.top; bottom: parent.bottom}
         padding: 0
-
         checked: root.data_ref.data
 
         Binding {
             target: root.data_ref
             property: "data"
-            value: checkbox.checked
+            value: value_checkbox.checked
         }
-
     }
 
-    Item {
-        anchors.verticalCenter: checkbox.verticalCenter
-        anchors.left: checkbox.right
-        anchors.leftMargin: 10
+    Text {
+        id: label_text
 
-        implicitHeight: childrenRect.height
-        implicitWidth: childrenRect.width
-
-        Text {
-            id: label
-
-            anchors.top: parent.top
-            anchors.left: parent.left
-
-            text: root.name
-
-            font.pointSize: 11
-
-        }
-
-        Text {
-            anchors.top: label.bottom
-            anchors.left: parent.left
-
-            text: root.description
-
-            color: Material.hintTextColor
-        }
-
+        anchors {left: value_checkbox.right; top: parent.top; right: parent.right; bottom: value_checkbox.verticalCenter; leftMargin: 8; bottomMargin: 2}
+        text: root.label
+        font.pointSize: 11
+        wrapMode: Text.WordWrap
+        verticalAlignment: Text.AlignBottom
     }
 
+    Text {
+        id: description_text
 
+        anchors {left: value_checkbox.right; top: value_checkbox.verticalCenter; right: parent.right; bottom: parent.bottom; leftMargin: 8; topMargin: 2}
+        text: root.description
+        color: Material.hintTextColor
+        wrapMode: Text.WordWrap
+    }
 }
