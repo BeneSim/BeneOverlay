@@ -21,39 +21,26 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 RadioButton {
+    id: root
 
-  id: root
+    property string label
 
-  anchors.leftMargin: 10
+    checked: false
+    hoverEnabled: true
+    implicitHeight: 35
 
-  checked: false
+    indicator: Rectangle {
+        anchors.right: parent.right
+        anchors.top: parent.top
+        anchors.bottom: parent.bottom
+        implicitWidth: 10
+        color: root.checked? Material.accentColor : Material.background
+        visible: root.hovered | root.checked ? true : false
+    }
 
-  hoverEnabled: true
-
-  property string label
-
-  indicator: Rectangle {
-    implicitWidth: 10
-
-    anchors.right: parent.right
-    anchors.top: parent.top
-    anchors.bottom: parent.bottom
-
-    //color: control.checked? "#7289da" : "#616367"
-    color: root.checked? Material.accentColor : Material.background
-    visible: root.hovered | root.checked ? true : false
-
-  }
-
-  contentItem: Text {
-    text: root.label
-
-    //color: control.hovered | control.checked? "#FFFFFF" : "#616367"
-    color: root.hovered | root.checked? "#edf0f2" : "#61747e"
-    font.pointSize: 10
-    //horizontalAlignment: Text.AlignLeft
-    //verticalAlignment: Text.AlignVCenter
-
-  }
-
+    contentItem: Text {
+        text: root.label
+        color: root.hovered | root.checked? "#edf0f2" : "#61747e"
+        font.pointSize: 10
+    }
 }

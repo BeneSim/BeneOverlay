@@ -22,7 +22,6 @@ import QtQuick.Layouts 1.3
 BOGroupBox {
     id: root
 
-    property var data_ref_enabled
     property var data_ref_custom_style
     property var data_ref_icon_enabled
     property var data_ref_icon_size
@@ -39,20 +38,12 @@ BOGroupBox {
         columnSpacing: 16
         rowSpacing: 16
 
-        BOSwitch {
-            id: enabled_switch
-
-            label: "Enabled"
-            description: "Enable this widget"
-            data_ref: root.data_ref_enabled
-            Layout.columnSpan: 2
-        }
-
         ColumnLayout {
             id: content
 
             spacing: 16
-            visible: enabled_switch.checked
+
+            Layout.columnSpan: 2
         }
 
         BOSwitch {
@@ -61,44 +52,60 @@ BOGroupBox {
             label: "Custom Style"
             description: "Enable custom styling for this widget"
             data_ref: root.data_ref_custom_style
-            Layout.columnSpan: 2
-            visible: enabled_switch.checked
 
-            onHeightChanged: {
-                console.log(height);
-            }
+            Layout.columnSpan: 2
+        }
+
+        BOSwitch {
+            id: icon_enabled_switch
+
+            label: "Icon Enabled"
+            description: "Enable icon for this widget"
+            data_ref: root.data_ref_icon_enabled
+            visible: custom_style_switch.checked
+
+            Layout.columnSpan: 2
         }
 
         BOSpinBox {
             label: "Icon Size"
             data_ref: root.data_ref_icon_size
             from: 0
+            visible: custom_style_switch.checked && icon_enabled_switch.checked
+
             Layout.columnSpan: 2
-            visible: custom_style_switch.checked && custom_style_switch.visible
         }
 
         BOColorSelector {
             label: "Primary Color"
             data_ref: data_ref_primary_color
-            visible: custom_style_switch.checked && custom_style_switch.visible
+            visible: custom_style_switch.checked
+
+            Layout.fillWidth: false
         }
 
         BOColorSelector {
             label: "Secondary Color"
             data_ref: data_ref_secondary_color
-            visible: custom_style_switch.checked && custom_style_switch.visible
+            visible: custom_style_switch.checked
+
+            Layout.fillWidth: true
         }
 
         BOFontSelector {
             label: "Primary Font"
             data_ref: root.data_ref_primary_font
-            visible: custom_style_switch.checked && custom_style_switch.visible
+            visible: custom_style_switch.checked
+
+            Layout.fillWidth: false
         }
 
         BOFontSelector {
             label: "Secondary Font"
             data_ref: root.data_ref_secondary_font
-            visible: custom_style_switch.checked && custom_style_switch.visible
+            visible: custom_style_switch.checked
+
+            Layout.fillWidth: true
         }
     }
 }

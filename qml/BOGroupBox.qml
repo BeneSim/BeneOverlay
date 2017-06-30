@@ -18,45 +18,53 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.1
 
-Item {
+ColumnLayout {
     id: root
 
     property string label
     default property alias contents: content.data
 
-    implicitWidth: Math.max(label_text.implicitWidth, content.implicitWidth)
-    implicitHeight: label_text.implicitHeight + content.implicitHeight
+    spacing: 0
 
     Text {
         id: label_text
 
-        anchors {left: parent.left; top: parent.top; right: parent.right}
         text: root.label
         font.pointSize: 12
         color: Material.hintTextColor
+
+        Layout.fillWidth: true
+        Layout.leftMargin: 20
+        Layout.rightMargin: 20
+        Layout.topMargin: 20
     }
 
     Flickable {
         id: content_flickable
 
-        anchors {left: parent.left; top: label_text.bottom; right: parent.right; bottom: parent.bottom}
-        contentHeight: content.height + content.anchors.topMargin
+        contentHeight: content.height
         clip: true
+
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+        Layout.leftMargin: 30
+        Layout.topMargin: 20
+        Layout.rightMargin: 20
+        Layout.bottomMargin: 20
+
         ScrollBar.vertical: ScrollBar {
             id: vertical_scroll_bar
 
             policy: content_flickable.contentHeight > content_flickable.height? ScrollBar.AlwaysOn : ScrollBar.AlwaysOff
         }
 
-        Item {
+        GridLayout {
             id: content
 
-            implicitWidth: children[0].implicitWidth
-            implicitHeight: children[0].implicitHeight
-
-            anchors {left: parent.left; top: parent.top; right: parent.right; leftMargin: 8; topMargin: 16; rightMargin: vertical_scroll_bar.visible? vertical_scroll_bar.width + 8 : 8}
+            anchors {left: parent.left; top: parent.top; right: parent.right; rightMargin: 10}
         }
     }
 }

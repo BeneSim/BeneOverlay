@@ -31,7 +31,6 @@ function setupWind(data_refs) {
         data_refs
     );
 
-    attachToToggle($("#wind"), data_refs["widget/wind/enabled"]);
     attachToToggle($("#dir-row"), data_refs["widget/wind/dir_enabled"]);
     attachToToggle($("#mag-row"), data_refs["widget/wind/mag_enabled"]);
 

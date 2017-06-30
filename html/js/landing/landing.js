@@ -17,19 +17,16 @@
 */
 
 function setupLanding(data_refs) {
-    setupCustomStyle(
-        $("#landing"),
-        {
-            "custom_style": data_refs["landing/custom_style"],
-            "icon_enabled": data_refs["landing/icon_enabled"],
-            "icon_size": data_refs["landing/icon_size"],
-            "primary_color": data_refs["landing/primary_color"],
-            "secondary_color": data_refs["landing/secondary_color"],
-            "primary_font": data_refs["landing/primary_font"],
-            "secondary_font": data_refs["landing/secondary_font"]
-        },
-        data_refs
-    );
+    setupTitle(data_refs);
+    setupRate(data_refs);
+    setupSpeed(data_refs);
+    setupAttitude(data_refs);
+
+    attachToToggle($("#title"), data_refs["landing/title/enabled"]);
+    attachToToggle($("#rate"), data_refs["landing/rate/enabled"]);
+    attachToToggle($("#speed"), data_refs["landing/speed/enabled"]);
+    attachToToggle($("#attitude"), data_refs["landing/attitude/enabled"]);
+
 
     function updateBackgroundImage() {
         if (data_refs["landing/background_image_enabled"].data) {
@@ -43,13 +40,13 @@ function setupLanding(data_refs) {
     attachToFun(updateBackgroundImage, data_refs["landing/background_image_enabled"]);
 
     function setVisible(val) {
-      if (val) {
-        $("#landing").fadeIn("fast");
-        $("#background").fadeIn("fast");
-      } else {
-        $("#landing").fadeOut("slow");
-        $("#background").fadeOut("slow");
-      }
+        if (val) {
+            $("#landing").fadeIn("fast");
+            $("#background").fadeIn("fast");
+        } else {
+            $("#landing").fadeOut("slow");
+            $("#background").fadeOut("slow");
+        }
     }
 
     attachToFun(setVisible, data_refs["landing/settings_mode"]);
@@ -82,5 +79,4 @@ function setupLanding(data_refs) {
 
         }
     });
-
 }

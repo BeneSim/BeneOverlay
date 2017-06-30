@@ -18,11 +18,14 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.2
+import QtQuick.Layouts 1.3
 
-Item {
+GridLayout {
     id: root
 
     property var data_ref
     property string label
     property string description
+
+    columns: 1
 }

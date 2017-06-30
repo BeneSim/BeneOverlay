@@ -6,18 +6,23 @@
         <file>html/css/beneoverlay.css</file>
         <file>html/js/beneoverlay.js</file>
         <file>html/js/jquery.min.js</file>
-        <file>html/js/landing.js</file>
-        <file>html/js/progress.js</file>
+        <file>html/js/landing/title.js</file>
+        <file>html/js/landing/rate.js</file>
+        <file>html/js/landing/speed.js</file>
+        <file>html/js/landing/attitude.js</file>
+        <file>html/js/landing/landing.js</file>
+        <file>html/js//progress/progress.js</file>
         <file>html/js/qwebchannel.js</file>
         <file>html/landing.html</file>
         <file>html/progress.html</file>
-        <file>html/js/altitude.js</file>
-        <file>html/js/callsign.js</file>
-        <file>html/js/heading.js</file>
-        <file>html/js/network.js</file>
-        <file>html/js/performance.js</file>
-        <file>html/js/speed.js</file>
-        <file>html/js/wind.js</file>
+        <file>html/js/widgets/altitude.js</file>
+        <file>html/js/widgets/callsign.js</file>
+        <file>html/js/widgets/heading.js</file>
+        <file>html/js/widgets/network.js</file>
+        <file>html/js/widgets/performance.js</file>
+        <file>html/js/widgets/speed.js</file>
+        <file>html/js/widgets/wind.js</file>
+        <file>html/js/widgets/widgets.js</file>
         <file>html/altitude.html</file>
         <file>html/callsign.html</file>
         <file>html/heading.html</file>
@@ -27,6 +32,6 @@
         <file>html/wind.html</file>
         <file>html/widgets.html</file>
         <file>html/temperature.html</file>
-        <file>html/js/temperature.js</file>
+        <file>html/js/widgets/temperature.js</file>
     </qresource>
 </RCC>

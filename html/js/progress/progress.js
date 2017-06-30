@@ -43,6 +43,7 @@ function setupProgress(data_refs) {
     attachToToggle($("#dtg-row"), data_refs["progress/dtg_enabled"]);
     attachToToggle($("#eta-row"), data_refs["progress/eta_enabled"]);
     attachToToggle($("#ete-row"), data_refs["progress/ete_enabled"]);
+    attachToToggle($("#route"), data_refs["progress/route_enabled"]);
 
     function setProgressBarViewBox() {
         let width = $("#progress_bar").width();

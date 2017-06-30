@@ -18,6 +18,7 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.3
 
 BOItem {
     id: root
@@ -25,19 +26,18 @@ BOItem {
     property alias from: value_spin_box.from
     property alias to: value_spin_box.to
 
-    implicitWidth: Math.max(label_text.implicitWidth, value_spin_box.implicitWidth + value_spin_box.anchors.leftMargin)
-    implicitHeight: label_text.implicitHeight + value_spin_box.implicitHeight
-
     Text {
         id: label_text
-        anchors {top: parent.top; left: parent.left; right: parent.right}
+
         text: root.label
+        wrapMode: Text.WordWrap
+
+        Layout.fillWidth: true
     }
 
     SpinBox {
         id: value_spin_box
 
-        anchors {top: label_text.bottom; left: parent.left; right: parent.right; bottom: parent.bottom; leftMargin: 10}
         value: data_ref.data
         editable: true
 

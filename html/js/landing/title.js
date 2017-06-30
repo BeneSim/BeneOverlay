@@ -16,42 +16,18 @@
    along with BeneOverlay.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-import QtQuick 2.0
-import QtQuick.Controls 2.1
-import QtQuick.Layouts 1.3
-
-BOItem {
-    id: root
-
-    property alias placeholderText: value_text_field.placeholderText
-    property alias validator: value_text_field.validator
-
-    Text {
-        id: label_text
-
-        text: root.label
-        wrapMode: Text.WordWrap
-
-        Layout.fillWidth: true
-    }
-
-    TextField {
-        id: value_text_field
-
-        text: data_ref.data
-        onActiveFocusChanged: {
-            if (activeFocus) {
-                selectAll();
-            }
-        }
-
-        Layout.fillWidth: true
-
-        Binding {
-            target: data_ref
-            property: "data"
-            value: value_text_field.text
-        }
-    }
-
+function setupTitle(data_refs) {
+    setupCustomStyle(
+        $("#title"),
+        {
+            "custom_style": data_refs["landing/title/custom_style"],
+            "icon_enabled": data_refs["landing/title/icon_enabled"],
+            "icon_size": data_refs["landing/title/icon_size"],
+            "primary_color": data_refs["landing/title/primary_color"],
+            "secondary_color": data_refs["landing/title/secondary_color"],
+            "primary_font": data_refs["landing/title/primary_font"],
+            "secondary_font": data_refs["landing/title/secondary_font"]
+        },
+        data_refs
+    );
 }

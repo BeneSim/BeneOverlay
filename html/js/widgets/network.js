@@ -31,7 +31,6 @@ function setupNetwork(data_refs) {
         data_refs
     );
 
-    attachToToggle($("#network"), data_refs["widget/network/enabled"]);
     attachToToggle($("#network-row"), data_refs["widget/network/network_enabled"]);
     attachToToggle($("#aircraft-row"), data_refs["widget/network/aircraft_enabled"]);
 

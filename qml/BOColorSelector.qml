@@ -18,35 +18,55 @@
 
 import QtQuick 2.0
 import QtQuick.Controls 2.1
+import QtQuick.Layouts 1.3
 import QtQuick.Controls.Material 2.1
 import Qt.labs.platform 1.0
 
 BOItem {
     id: root
 
-    implicitWidth: Math.max(label_text.implicitWidth, indicator_rectangle.implicitWidth + indicator_rectangle.anchors.leftMargin)
-    implicitHeight: label_text.implicitHeight + indicator_rectangle.implicitHeight + indicator_rectangle.anchors.topMargin
-
     Text {
         id: label_text
 
-        anchors {top: parent.top; left: parent.left; right: parent.right}
         text: root.label
+        wrapMode: Text.WordWrap
+
+        Layout.fillWidth: true
     }
 
     Item {
-        anchors {left: parent.left; top: label_text.bottom; right: parent.right; bottom: parent.bottom}
+
+        implicitWidth: indicator_rectangle.implicitWidth
+        implicitHeight: indicator_rectangle.implicitHeight
 
         Rectangle {
             id: indicator_rectangle
 
-            anchors {left: parent.left; verticalCenter: parent.verticalCenter; leftMargin: 10; topMargin: 8}
+            anchors.centerIn: parent
             implicitWidth: 30
             implicitHeight: 30
             radius: 3
             border.color: Material.accent
             border.width: 2
-            visible: mouse_area.containsMouse
+            opacity: mouse_area.containsMouse
+
+            MouseArea {
+                id: mouse_area
+
+                anchors.fill: parent
+                hoverEnabled: true
+                onClicked: value_color_dialog.open()
+            }
+
+            ColorDialog {
+                id: value_color_dialog
+
+                color: value_rectangle.color
+                currentColor: value_rectangle.color
+                onColorChanged: {
+                    root.data_ref.data = value_color_dialog.color;
+                }
+            }
         }
 
         Rectangle {
@@ -54,31 +74,7 @@ BOItem {
 
             anchors {fill: indicator_rectangle; margins: 3}
             radius: 3
-            color: data_ref.data
-
-            Binding {
-                target: data_ref
-                property: "data"
-                value: value_rectangle.color
-            }
-        }
-
-        MouseArea {
-            id: mouse_area
-
-            anchors.fill: indicator_rectangle
-            hoverEnabled: true
-            onClicked: color_dialog.open()
-        }
-
-        ColorDialog {
-            id: color_dialog
-
-            color: value_rectangle.color
-            currentColor: value_rectangle.color
-            onColorChanged: {
-                value_rectangle.color = color_dialog.color;
-            }
+            color: root.data_ref.data
         }
     }
 }

@@ -31,7 +31,6 @@ function setupTemperature(data_refs) {
         data_refs
     );
 
-    attachToToggle($("#temperature"), data_refs["widget/temperature/enabled"]);
     attachToToggle($("#tat-row"), data_refs["widget/temperature/tat_enabled"]);
     attachToToggle($("#oat-row"), data_refs["widget/temperature/oat_enabled"]);
 

@@ -31,7 +31,6 @@ function setupPerformance(data_refs) {
         data_refs
     );
 
-    attachToToggle($("#performance"), data_refs["widget/performance/enabled"]);
     attachToToggle($("#fps-row"), data_refs["widget/performance/fps_enabled"]);
     attachToToggle($("#vas-row"), data_refs["widget/performance/vas_enabled"]);
 

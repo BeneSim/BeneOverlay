@@ -25,7 +25,11 @@
         <script type="text/javascript" src="js/qwebchannel.js"></script>
         <script type="text/javascript" src="js/jquery.min.js"></script>
         <script type="text/javascript" src="js/beneoverlay.js"></script>
-        <script type="text/javascript" src="js/landing.js"></script>
+        <script type="text/javascript" src="js/landing/title.js"></script>
+        <script type="text/javascript" src="js/landing/rate.js"></script>
+        <script type="text/javascript" src="js/landing/speed.js"></script>
+        <script type="text/javascript" src="js/landing/attitude.js"></script>
+        <script type="text/javascript" src="js/landing/landing.js"></script>
         <script type="text/javascript">
          $(function () {
              connect(function (data_refs) {
@@ -37,8 +41,8 @@
     <body>
         <img id="background" style="display: none">
         <div id="landing" style="display: none">
-            <span class="secondary-font secondary-color">Touchdown!</span>
-            <div class="tabs" style="padding-top: 10px; padding-bottom: 20px;">
+            <div id="title" style="padding-bottom: 10px;"><span class="secondary-font secondary-color">Touchdown!<span></div>
+            <div id="rate" class="tabs" style="padding-bottom: 20px;">
                 <svg class="icon" viewBox="0 0 80 100">
                     <line x1="0" x2="80" y1="95" y2="95" stroke-width="5" class="secondary-stroke" />
                     <g transform="translate(0,-8) rotate(0,40,89)" id="airplane">
@@ -50,12 +54,12 @@
                     </g>
                 </svg>
                 <table>
-                    <tr>
+                    <tr id="vs-row">
                         <td class="secondary-font secondary-color">V/S:&nbsp;</td>
                         <td id="vs" class="primary-font primary-color right">-100</td>
                         <td class="primary-font primary-color">ft/min</td>
                     </tr>
-                    <tr>
+                    <tr id="pitch-row">
                         <td class="secondary-font secondary-color">Pitch:&nbsp;</td>
                         <td id="pitch" class="primary-font primary-color right">3</td>
                         <td class="primary-font primary-color">&#176;</td>
@@ -63,7 +67,7 @@
                 </table>
             </div>
             <div class="tabs">
-                <div class="tabs">
+                <div id="speed" class="tabs">
                     <svg class="icon" viewBox="0 0 100 100">
                         <defs>
                             <marker id='head' orient="auto"
@@ -98,19 +102,19 @@
                         </g>
                     </svg>
                     <table>
-                        <tr>
+                        <tr id="ias-row">
                             <td class="secondary-font secondary-color">IAS:&nbsp;</td>
                             <td id="ias" class="primary-font primary-color right">10</td>
                             <td class="primary-font primary-color">kt</td>
                         </tr>
-                        <tr>
+                        <tr id="gs-row">
                             <td class="secondary-font secondary-color">GS:&nbsp;</td>
                             <td id="gs" class="primary-font primary-color right">15</td>
                             <td class="primary-font primary-color">kt</td>
                         </tr>
                     </table>
                 </div>
-                <div class="tabs">
+                <div id="attitude" class="tabs">
                     <svg class="icon" viewBox="0 0 100 100">
                         <g id="bank_angle">
                             <path d="M50,56 L0,50 L50,44 M45,50 L50,15 L55,50 M50,44 L100,50 L50,56" class="primary-fill" />
@@ -118,7 +122,7 @@
                         </g>
                     </svg>
                     <table>
-                        <tr>
+                        <tr id="bank-row">
                             <td class="secondary-font secondary-color">Bank:&nbsp;</td>
                             <td id="bank" class="primary-font primary-color right">3</td>
                             <td class="primary-font primary-color">&#176;</td>

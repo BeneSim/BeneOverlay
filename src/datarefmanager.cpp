@@ -189,7 +189,6 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["widget/temperature/oat_enabled"] = new DataRef(true, true, this);
     data_ref_map_["widget/temperature/tat_enabled"] = new DataRef(true, true, this);
 
-    data_ref_map_["progress/enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/custom_style"] = new DataRef(false, true, this);
     data_ref_map_["progress/icon_enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/icon_size"] = new DataRef(70, true, this);
@@ -202,19 +201,53 @@ DataRefManager::DataRefManager(QObject *parent) : QObject(parent)
     data_ref_map_["progress/dtg_enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/eta_enabled"] = new DataRef(true, true, this);
     data_ref_map_["progress/ete_enabled"] = new DataRef(false, true, this);
+    data_ref_map_["progress/route_enabled"] = new DataRef(true, true, this);
 
-    data_ref_map_["landing/enabled"] = new DataRef(true, true, this);
     data_ref_map_["landing/settings_mode"] = new DataRef(false, true, this);
     data_ref_map_["landing/background_image_enabled"] = new DataRef(true, true, this);
     data_ref_map_["landing/background_image"] = new DataRef("file:///" + QDir::current().absoluteFilePath("html/images/event-background.png"), true, this);
     data_ref_map_["landing/popup_duration"] = new DataRef(8, true, this);
-    data_ref_map_["landing/custom_style"] = new DataRef(false, true, this);
-    data_ref_map_["landing/icon_enabled"] = new DataRef(true, true, this);
-    data_ref_map_["landing/icon_size"] = new DataRef(70, true, this);
-    data_ref_map_["landing/primary_color"] = new DataRef(QColor("#ffffff"), true, this);
-    data_ref_map_["landing/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
-    data_ref_map_["landing/primary_font"] = new DataRef(QFont(), true, this);
-    data_ref_map_["landing/secondary_font"] = new DataRef(QFont(), true, this);
+
+    data_ref_map_["landing/title/enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/title/custom_style"] = new DataRef(false, true, this);
+    data_ref_map_["landing/title/icon_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/title/icon_size"] = new DataRef(70, true, this);
+    data_ref_map_["landing/title/primary_color"] = new DataRef(QColor("#ffffff"), true, this);
+    data_ref_map_["landing/title/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
+    data_ref_map_["landing/title/primary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/title/secondary_font"] = new DataRef(QFont(), true, this);
+
+    data_ref_map_["landing/rate/enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/rate/custom_style"] = new DataRef(false, true, this);
+    data_ref_map_["landing/rate/icon_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/rate/icon_size"] = new DataRef(70, true, this);
+    data_ref_map_["landing/rate/primary_color"] = new DataRef(QColor("#ffffff"), true, this);
+    data_ref_map_["landing/rate/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
+    data_ref_map_["landing/rate/primary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/rate/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/rate/vs_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/rate/pitch_enabled"] = new DataRef(true, true, this);
+
+    data_ref_map_["landing/speed/enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/speed/custom_style"] = new DataRef(false, true, this);
+    data_ref_map_["landing/speed/icon_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/speed/icon_size"] = new DataRef(70, true, this);
+    data_ref_map_["landing/speed/primary_color"] = new DataRef(QColor("#ffffff"), true, this);
+    data_ref_map_["landing/speed/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
+    data_ref_map_["landing/speed/primary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/speed/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/speed/ias_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/speed/gs_enabled"] = new DataRef(true, true, this);
+
+    data_ref_map_["landing/attitude/enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/attitude/custom_style"] = new DataRef(false, true, this);
+    data_ref_map_["landing/attitude/icon_enabled"] = new DataRef(true, true, this);
+    data_ref_map_["landing/attitude/icon_size"] = new DataRef(70, true, this);
+    data_ref_map_["landing/attitude/primary_color"] = new DataRef(QColor("#ffffff"), true, this);
+    data_ref_map_["landing/attitude/secondary_color"] = new DataRef(QColor("#f44336"), true, this);
+    data_ref_map_["landing/attitude/primary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/attitude/secondary_font"] = new DataRef(QFont(), true, this);
+    data_ref_map_["landing/attitude/bank_enabled"] = new DataRef(true, true, this);
 
     // Load airport data
     QFile file(":data/airports.csv");

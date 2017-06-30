@@ -31,7 +31,6 @@ function setupHeading(data_refs) {
         data_refs
     );
 
-    attachToToggle($("#heading"), data_refs["widget/heading/enabled"]);
     attachToToggle($("#hdg-row"), data_refs["widget/heading/hdg_enabled"]);
     attachToToggle($("#trk-row"), data_refs["widget/heading/trk_enabled"]);
 
