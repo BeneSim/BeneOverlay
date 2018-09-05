@@ -1,3 +1,16 @@
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [About](#about)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+    - [OBS Studio Setup](#obs-studio-setup)
+- [Usage](#usage)
+- [License](#license)
+
+<!-- markdown-toc end -->
+
+
 # About
 BeneOverlay by BeneSim is free software distributed under the GNU General Public
 License, Version 3.
@@ -16,10 +29,15 @@ Since BeneOverlay uses the FSUIPC SDK to communicate with the flight sim, you
 need to have FSUIPC (FSX/P3D) or XPUIPC (XP10/11) installed. The unregistered
 version of FSUIPC is sufficient.
 
-Download FSUIPC (FSX/P3D): http://www.schiratti.com/dowson.html  
-Download XPUIPC (XP10/11): http://www.tosi-online.de/XPUIPC/XPUIPC.html
+- [Download FSUIPC (FSX/P3D)](http://www.schiratti.com/dowson.html)
+- [Download XPUIPC (XP10/11)](http://www.tosi-online.de/XPUIPC/XPUIPC.html)
 
 # Installation
+I created a video that explains the installation process in detail. To view it
+just click on the image below.
+
+[![BeneOverlay - Installation & Setup Guide](https://img.youtube.com/vi/hOWkNvn7TkU/0.jpg)](https://www.youtube.com/watch?v=hOWkNvn7TkU "BeneOverlay - Installation & Setup Guide")
+
 BeneOverlay ships as a `*.zip` file. Simply unzip the file to a directory of
 your liking. No installation required. Once unzipped run `BeneOverlay.exe`. On
 first start it will create a `html` folder. Within this `html` folder are the
@@ -67,7 +85,7 @@ The GUI should be pretty self explanatory. I might include a manual in future
 versions. If you need help using the software feel free to contact me. The best
 place would be my discord server.
 
-https://discord.gg/nkwz4Dg
+[BeneSim Discord Server](https://discord.gg/nkwz4Dg)
 
 # License
 BeneOverlay is free software: you can redistribute it and/or modify
