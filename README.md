@@ -1,5 +1,5 @@
-# Download
-[BeneOverlay v1.2.0](https://github.com/BeneSim/BeneOverlay/releases/download/v1.2.0/BeneOverlay.v1.2.0.zip)
+# Download (Binaries)
+Direkt link to the latest Version: [BeneOverlay v1.2.0](https://github.com/BeneSim/BeneOverlay/releases/download/v1.2.0/BeneOverlay.v1.2.0.zip)
 
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
