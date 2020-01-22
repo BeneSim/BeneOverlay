@@ -289,13 +289,6 @@ ApplicationWindow {
             BOGroupBox {
                 label: "Flight Settings"
 
-                GridLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    columns: 2
-
-                    columnSpacing: 32
-                    rowSpacing: 32
-
                     BOTextField {
                         label: "Departure ICAO"
                         placeholderText: "EDDT"
@@ -381,19 +374,14 @@ ApplicationWindow {
                         placeholderText: "B738"
                         data_ref: data_ref_manager.getDataRef("flight/aircraft_icao")
                         Layout.fillWidth: true
-                    }
                 }
             }
 
             BOGroupBox {
-                anchors.fill: parent
                 label: "General Settings"
 
-                GridLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    columns: 2
-                    columnSpacing: 16
-                    rowSpacing: 16
+                    content.columnSpacing: 16
+                    content.rowSpacing: 16
 
                     BOSpinBox {
                         label: "Data Rate"
@@ -447,15 +435,13 @@ ApplicationWindow {
 
                         Layout.fillWidth: true
                     }
-                }
             }
 
             BOGroupBox {
                 label: "Widgets Settings"
 
-                ColumnLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    spacing: 16
+                content.columns: 1
+                content.rowSpacing: 16
 
                     BOSwitch {
                         label: "Callsign Enabled"
@@ -503,7 +489,6 @@ ApplicationWindow {
                         label: "Performance Enabled"
                         description: "Enable Performance widget"
                         data_ref: data_ref_manager.getDataRef("widget/performance/enabled")
-                    }
                 }
             }
 
@@ -777,8 +762,8 @@ ApplicationWindow {
             BOGroupBox {
                 label: "Landing Settings"
 
-                ColumnLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
+                    content.columns: 1
+                    content.rowSpacing: 16
                     spacing: 16
 
                     BOSwitch {
@@ -840,7 +825,6 @@ ApplicationWindow {
                         label: "Attitude Enabled"
                         description: "Enable Attitude widget"
                         data_ref: data_ref_manager.getDataRef("landing/attitude/enabled")
-                    }
                 }
             }
 
