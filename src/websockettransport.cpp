@@ -1,6 +1,7 @@
 /****************************************************************************
 **
-** Copyright (C) 2016 Klarälvdalens Datakonsult AB, a KDAB Group company, info@kdab.com, author Milian Wolff <milian.wolff@kdab.com>
+** Copyright (C) 2016 Klarälvdalens Datakonsult AB, a KDAB Group company,
+*info@kdab.com, author Milian Wolff <milian.wolff@kdab.com>
 ** Contact: https://www.qt.io/licensing/
 **
 ** This file is part of the QtWebChannel module of the Qt Toolkit.
@@ -50,14 +51,14 @@
 
 #include "websockettransport.h"
 
+#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QDebug>
-
 #include <QtWebSockets/QWebSocket>
 
 /*!
-    \brief QWebChannelAbstractSocket implementation that uses a QWebSocket internally.
+    \brief QWebChannelAbstractSocket implementation that uses a QWebSocket
+   internally.
 
     The transport delegates all messages received over the QWebSocket over its
     textMessageReceived signal. Analogously, all calls to sendTextMessage will
@@ -72,48 +73,44 @@ QT_BEGIN_NAMESPACE
     The socket is also set as the parent of the transport object.
 */
 WebSocketTransport::WebSocketTransport(QWebSocket *socket)
-: QWebChannelAbstractTransport(socket)
-, m_socket(socket)
-{
-    connect(socket, &QWebSocket::textMessageReceived,
-            this, &WebSocketTransport::textMessageReceived);
-    connect(socket, &QWebSocket::disconnected,
-            this, &WebSocketTransport::deleteLater);
+    : QWebChannelAbstractTransport(socket), m_socket(socket) {
+  connect(socket, &QWebSocket::textMessageReceived, this,
+          &WebSocketTransport::textMessageReceived);
+  connect(socket, &QWebSocket::disconnected, this,
+          &WebSocketTransport::deleteLater);
 }
 
 /*!
     Destroys the WebSocketTransport.
 */
-WebSocketTransport::~WebSocketTransport()
-{
-    m_socket->deleteLater();
-}
+WebSocketTransport::~WebSocketTransport() { m_socket->deleteLater(); }
 
 /*!
-    Serialize the JSON message and send it as a text message via the WebSocket to the client.
+    Serialize the JSON message and send it as a text message via the WebSocket
+   to the client.
 */
-void WebSocketTransport::sendMessage(const QJsonObject &message)
-{
-    QJsonDocument doc(message);
-    m_socket->sendTextMessage(QString::fromUtf8(doc.toJson(QJsonDocument::Compact)));
+void WebSocketTransport::sendMessage(const QJsonObject &message) {
+  QJsonDocument doc(message);
+  m_socket->sendTextMessage(
+      QString::fromUtf8(doc.toJson(QJsonDocument::Compact)));
 }
 
 /*!
     Deserialize the stringified JSON messageData and emit messageReceived.
 */
-void WebSocketTransport::textMessageReceived(const QString &messageData)
-{
-    QJsonParseError error;
-    QJsonDocument message = QJsonDocument::fromJson(messageData.toUtf8(), &error);
-    if (error.error) {
-        qWarning() << "Failed to parse text message as JSON object:" << messageData
-                   << "Error is:" << error.errorString();
-        return;
-    } else if (!message.isObject()) {
-        qWarning() << "Received JSON message that is not an object: " << messageData;
-        return;
-    }
-    emit messageReceived(message.object(), this);
+void WebSocketTransport::textMessageReceived(const QString &messageData) {
+  QJsonParseError error;
+  QJsonDocument message = QJsonDocument::fromJson(messageData.toUtf8(), &error);
+  if (error.error) {
+    qWarning() << "Failed to parse text message as JSON object:" << messageData
+               << "Error is:" << error.errorString();
+    return;
+  } else if (!message.isObject()) {
+    qWarning() << "Received JSON message that is not an object: "
+               << messageData;
+    return;
+  }
+  emit messageReceived(message.object(), this);
 }
 
 QT_END_NAMESPACE

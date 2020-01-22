@@ -19,39 +19,38 @@
 #ifndef DATAREFMANAGER_H
 #define DATAREFMANAGER_H
 
-#include <QObject>
 #include <QHash>
+#include <QObject>
 #include <QVariant>
 #include <QVector>
 
 class DataRef;
 
-class DataRefManager : public QObject
-{
-    Q_OBJECT
+class DataRefManager : public QObject {
+  Q_OBJECT
 public:
-    explicit DataRefManager(QObject *parent = 0);
+  explicit DataRefManager(QObject *parent = 0);
 
-    Q_INVOKABLE QObject *getDataRef(QString const &name);
+  Q_INVOKABLE QObject *getDataRef(QString const &name);
 
-    QHash<QString, QObject *> dataRefMap();
+  QHash<QString, QObject *> dataRefMap();
 
 private:
-    QHash<QString, QObject*> data_ref_map_;
-    QHash<QString, QList<QVariant>> airports_;
+  QHash<QString, QObject *> data_ref_map_;
+  QHash<QString, QList<QVariant>> airports_;
 
-    QVector<int> fps_buffer_;
+  QVector<int> fps_buffer_;
 
 public slots:
-    void loadDataRefs();
-    void saveDataRefs();
-    void setFPS(int fps);
+  void loadDataRefs();
+  void saveDataRefs();
+  void setFPS(int fps);
 
 private slots:
-    void calcRouteDistance();
-    void calcDistanceToDestination();
-    void calcETA();
-    void updateFPSBufferSize();
+  void calcRouteDistance();
+  void calcDistanceToDestination();
+  void calcETA();
+  void updateFPSBufferSize();
 };
 
 #endif // DATAREFMANAGER_H

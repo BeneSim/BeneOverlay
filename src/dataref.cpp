@@ -20,31 +20,19 @@
 
 #include <QDebug>
 
-DataRef::DataRef(QVariant data, bool saveable, QObject *parent) :
-        QObject(parent),
-        data_(data),
-        saveable_(saveable)
-{
+DataRef::DataRef(QVariant data, bool saveable, QObject *parent)
+    : QObject(parent), data_(data), saveable_(saveable) {}
 
-}
+QVariant DataRef::data() const { return data_; }
 
-QVariant DataRef::data() const
-{
-    return data_;
-}
+bool DataRef::saveable() const { return saveable_; }
 
-bool DataRef::saveable() const
-{
-    return saveable_;
-}
-
-void DataRef::setData(const QVariant &data)
-{
-    QVariant tmp_data = data;
-    tmp_data.convert(data_.type());
-    if (data_ != tmp_data) {
-        //qDebug() << data_ << tmp_data;
-        data_ = tmp_data;
-        emit dataChanged(data_);
-    }
+void DataRef::setData(const QVariant &data) {
+  QVariant tmp_data = data;
+  tmp_data.convert(data_.type());
+  if (data_ != tmp_data) {
+    // qDebug() << data_ << tmp_data;
+    data_ = tmp_data;
+    emit dataChanged(data_);
+  }
 }

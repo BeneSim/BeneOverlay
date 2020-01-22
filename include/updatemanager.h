@@ -24,35 +24,35 @@
 class QNetworkAccessManager;
 class QNetworkReply;
 
-class UpdateManager : public QObject
-{
-    Q_OBJECT
-    Q_PROPERTY(QString user READ user WRITE setUser NOTIFY userChanged)
-    Q_PROPERTY(QString repo READ repo WRITE setRepo NOTIFY repoChanged)
+class UpdateManager : public QObject {
+  Q_OBJECT
+  Q_PROPERTY(QString user READ user WRITE setUser NOTIFY userChanged)
+  Q_PROPERTY(QString repo READ repo WRITE setRepo NOTIFY repoChanged)
 public:
-    explicit UpdateManager(QObject *parent = 0);
+  explicit UpdateManager(QObject *parent = 0);
 
-    QString user() const;
-    QString repo() const;
+  QString user() const;
+  QString repo() const;
 
 private:
-    QNetworkAccessManager *network_manager_;
+  QNetworkAccessManager *network_manager_;
 
-    QString user_;
-    QString repo_;
+  QString user_;
+  QString repo_;
 
 signals:
-    void updateAvailable(QString const &version_string, QString const &body, QString const &download_url);
-    void userChanged(QString const &user);
-    void repoChanged(QString const &repo);
+  void updateAvailable(QString const &version_string, QString const &body,
+                       QString const &download_url);
+  void userChanged(QString const &user);
+  void repoChanged(QString const &repo);
 
 private slots:
-    void handleReply(QNetworkReply *reply);
+  void handleReply(QNetworkReply *reply);
 
 public slots:
-    void checkForUpdate();
-    void setUser(QString const &user);
-    void setRepo(QString const &repo);
+  void checkForUpdate();
+  void setUser(QString const &user);
+  void setRepo(QString const &repo);
 };
 
 #endif // UPDATEMANAGER_H

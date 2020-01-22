@@ -1,6 +1,7 @@
 /****************************************************************************
 **
-** Copyright (C) 2016 Klarälvdalens Datakonsult AB, a KDAB Group company, info@kdab.com, author Milian Wolff <milian.wolff@kdab.com>
+** Copyright (C) 2016 Klarälvdalens Datakonsult AB, a KDAB Group company,
+*info@kdab.com, author Milian Wolff <milian.wolff@kdab.com>
 ** Contact: https://www.qt.io/licensing/
 **
 ** This file is part of the QtWebChannel module of the Qt Toolkit.
@@ -56,20 +57,19 @@
 QT_BEGIN_NAMESPACE
 
 class QWebSocket;
-class WebSocketTransport : public QWebChannelAbstractTransport
-{
-    Q_OBJECT
+class WebSocketTransport : public QWebChannelAbstractTransport {
+  Q_OBJECT
 public:
-    explicit WebSocketTransport(QWebSocket *socket);
-    virtual ~WebSocketTransport();
+  explicit WebSocketTransport(QWebSocket *socket);
+  virtual ~WebSocketTransport();
 
-    void sendMessage(const QJsonObject &message) Q_DECL_OVERRIDE;
+  void sendMessage(const QJsonObject &message) Q_DECL_OVERRIDE;
 
 private Q_SLOTS:
-    void textMessageReceived(const QString &message);
+  void textMessageReceived(const QString &message);
 
 private:
-    QWebSocket *m_socket;
+  QWebSocket *m_socket;
 };
 
 QT_END_NAMESPACE
