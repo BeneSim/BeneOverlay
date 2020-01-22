@@ -26,44 +26,48 @@ BOItem {
 
     property alias checked: value_checkbox.checked
 
-    Switch {
-        id: value_checkbox
+    GridLayout {
 
-        padding: 0
-        checked: root.data_ref.data
+        Switch {
+            id: value_checkbox
 
-        Layout.rowSpan: 2
-        Layout.column: 0
-        Layout.row: 0
+            padding: 0
+            checked: root.data_ref.data
 
-        Binding {
-            target: root.data_ref
-            property: "data"
-            value: value_checkbox.checked
+            Layout.rowSpan: 2
+            Layout.column: 0
+            Layout.row: 0
+
+            Binding {
+                target: root.data_ref
+                property: "data"
+                value: value_checkbox.checked
+            }
         }
-    }
 
-    Text {
-        id: label_text
+        Text {
+            id: label_text
 
-        text: root.label
-        font.pointSize: 11
-        wrapMode: Text.WordWrap
+            text: root.label
+            font.pointSize: 11
+            wrapMode: Text.WordWrap
 
-        Layout.row: 0
-        Layout.column: 1
-        Layout.fillWidth: true
-    }
+            Layout.row: 0
+            Layout.column: 1
+            Layout.fillWidth: true
+        }
 
-    Text {
-        id: description_text
+        Text {
+            id: description_text
 
-        text: root.description
-        color: Material.hintTextColor
-        wrapMode: Text.WordWrap
+            text: root.description
+            color: Material.hintTextColor
+            wrapMode: Text.WordWrap
 
-        Layout.row: 1
-        Layout.column: 1
-        Layout.fillWidth: true
+            Layout.row: 1
+            Layout.column: 1
+            Layout.fillWidth: true
+        }
+
     }
 }

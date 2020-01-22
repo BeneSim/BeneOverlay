@@ -23,122 +23,122 @@ import QtQuick.Dialogs 1.2
 
 
 BOGroupBox {
-  id: root
+    id: root
 
-  property var data_ref_enabled
-  property var data_ref_custom_style
-  property var data_ref_icon_enabled
-  property var data_ref_icon_size
-  property var data_ref_primary_color
-  property var data_ref_secondary_color
-  property var data_ref_primary_font
-  property var data_ref_secondary_font
+    property var data_ref_enabled
+    property var data_ref_custom_style
+    property var data_ref_icon_enabled
+    property var data_ref_icon_size
+    property var data_ref_primary_color
+    property var data_ref_secondary_color
+    property var data_ref_primary_font
+    property var data_ref_secondary_font
 
 
-  BOSwitch {
-    id: enabled_switch
+    BOSwitch {
+        id: enabled_switch
 
-    anchors.top: parent.top
-    anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.left: parent.left
 
-    name: "Enabled"
-    description: "Enable this widget"
-    data_ref: root.data_ref_enabled
-  }
+        name: "Enabled"
+        description: "Enable this widget"
+        data_ref: root.data_ref_enabled
+    }
 
-  BOSwitch {
-    id: custom_style_switch
+    BOSwitch {
+        id: custom_style_switch
 
-    anchors.top: enabled_switch.bottom
-    anchors.left: parent.left
+        anchors.top: enabled_switch.bottom
+        anchors.left: parent.left
 
-    name: "Custom Style"
-    description: "Enable custom styling for this widget"
-    data_ref: root.data_ref_custom_style
+        name: "Custom Style"
+        description: "Enable custom styling for this widget"
+        data_ref: root.data_ref_custom_style
 
-    visible: enabled_switch.checked
-  }
+        visible: enabled_switch.checked
+    }
 
-  BOSwitch {
-    id: icon_enabled_switch
+    BOSwitch {
+        id: icon_enabled_switch
 
-    anchors.top: custom_style_switch.bottom
-    anchors.left: parent.left
+        anchors.top: custom_style_switch.bottom
+        anchors.left: parent.left
 
-    name: "Icon Enabled"
-    description: "Enable the icon for this widget"
-    data_ref: root.data_ref_icon_enabled
+        name: "Icon Enabled"
+        description: "Enable the icon for this widget"
+        data_ref: root.data_ref_icon_enabled
 
-    visible: custom_style_switch.checked && custom_style_switch.visible
-  }
+        visible: custom_style_switch.checked && custom_style_switch.visible
+    }
 
-  BOSpinBox {
-    id: icon_size_spin_box
+    BOSpinBox {
+        id: icon_size_spin_box
 
-    anchors.top: icon_enabled_switch.bottom
-    anchors.left: parent.left
+        anchors.top: icon_enabled_switch.bottom
+        anchors.left: parent.left
 
-    name: "Icon Size"
-    data_ref: root.data_ref_icon_size
-    from: 0
+        name: "Icon Size"
+        data_ref: root.data_ref_icon_size
+        from: 0
 
-    visible: icon_enabled_switch.checked && icon_enabled_switch.visible
-  }
+        visible: icon_enabled_switch.checked && icon_enabled_switch.visible
+    }
 
-  BOColorSelector {
+    BOColorSelector {
 
-    id: primary_color_color_selector
+        id: primary_color_color_selector
 
-    anchors.top: icon_size_spin_box.visible? icon_size_spin_box.bottom : icon_enabled_switch.bottom
-    anchors.left: parent.left
+        anchors.top: icon_size_spin_box.visible? icon_size_spin_box.bottom : icon_enabled_switch.bottom
+        anchors.left: parent.left
 
-    name: "Primary Color"
-    data_ref: data_ref_primary_color
+        name: "Primary Color"
+        data_ref: data_ref_primary_color
 
-    visible: custom_style_switch.checked && custom_style_switch.visible
+        visible: custom_style_switch.checked && custom_style_switch.visible
 
-  }
+    }
 
-  BOColorSelector {
+    BOColorSelector {
 
-    id: secondary_color_color_selector
+        id: secondary_color_color_selector
 
-    anchors.left: primary_color_color_selector.right
-    anchors.verticalCenter: primary_color_color_selector.verticalCenter
+        anchors.left: primary_color_color_selector.right
+        anchors.verticalCenter: primary_color_color_selector.verticalCenter
 
-    name: "Secondary Color"
-    data_ref: data_ref_secondary_color
+        name: "Secondary Color"
+        data_ref: data_ref_secondary_color
 
-    visible: custom_style_switch.checked && custom_style_switch.visible
+        visible: custom_style_switch.checked && custom_style_switch.visible
 
-  }
+    }
 
-  BOFontSelector {
+    BOFontSelector {
 
-    id: primary_font_font_selector
+        id: primary_font_font_selector
 
-    anchors.top: secondary_color_color_selector.bottom
-    anchors.left: parent.left
+        anchors.top: secondary_color_color_selector.bottom
+        anchors.left: parent.left
 
-    name: "Primary Font"
+        name: "Primary Font"
 
-    data_ref: root.data_ref_primary_font
+        data_ref: root.data_ref_primary_font
 
-    visible: custom_style_switch.checked && custom_style_switch.visible
-  }
+        visible: custom_style_switch.checked && custom_style_switch.visible
+    }
 
-  BOFontSelector {
-    id: secondary_font_font_selector
+    BOFontSelector {
+        id: secondary_font_font_selector
 
-    anchors.left: primary_font_font_selector.right
-    anchors.top: secondary_color_color_selector.bottom
+        anchors.left: primary_font_font_selector.right
+        anchors.top: secondary_color_color_selector.bottom
 
-    name: "Secondary Font"
+        name: "Secondary Font"
 
-    data_ref: root.data_ref_secondary_font
+        data_ref: root.data_ref_secondary_font
 
-    visible: custom_style_switch.checked && custom_style_switch.visible
-  }
+        visible: custom_style_switch.checked && custom_style_switch.visible
+    }
 
 
 }

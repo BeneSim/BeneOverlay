@@ -22,28 +22,26 @@
 #include <QObject>
 #include <QVariant>
 
-class DataRef : public QObject
-{
-    Q_OBJECT
-    Q_PROPERTY(QVariant data READ data WRITE setData NOTIFY dataChanged)
-    Q_PROPERTY(bool saveable READ saveable NOTIFY saveableChanged)
+class DataRef : public QObject {
+  Q_OBJECT
+  Q_PROPERTY(QVariant data READ data WRITE setData NOTIFY dataChanged)
+  Q_PROPERTY(bool saveable READ saveable NOTIFY saveableChanged)
 public:
-    explicit DataRef(QVariant data, bool saveable = false, QObject *parent = 0);
+  explicit DataRef(QVariant data, bool saveable = false, QObject *parent = 0);
 
-    QVariant data() const;
-    bool saveable() const;
+  QVariant data() const;
+  bool saveable() const;
 
 private:
-    QVariant data_;
-    bool saveable_;
+  QVariant data_;
+  bool saveable_;
 
 signals:
-    void dataChanged(QVariant const &data);
-    void saveableChanged(bool saveable);
+  void dataChanged(QVariant const &data);
+  void saveableChanged(bool saveable);
 
 public slots:
-    void setData(QVariant const &data);
+  void setData(QVariant const &data);
 };
-
 
 #endif // DATAREF_H

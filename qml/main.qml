@@ -289,221 +289,206 @@ ApplicationWindow {
             BOGroupBox {
                 label: "Flight Settings"
 
-                GridLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    columns: 2
+                BOTextField {
+                    label: "Departure ICAO"
+                    placeholderText: "EDDT"
+                    data_ref: data_ref_manager.getDataRef("flight/departure_icao")
+                    Layout.fillWidth: true
+                }
 
-                    columnSpacing: 32
-                    rowSpacing: 32
+                BOTextField {
+                    label: "Arrival ICAO"
+                    placeholderText: "LSZH"
+                    data_ref: data_ref_manager.getDataRef("flight/arrival_icao")
+                    Layout.fillWidth: true
+                }
 
-                    BOTextField {
-                        label: "Departure ICAO"
-                        placeholderText: "EDDT"
-                        data_ref: data_ref_manager.getDataRef("flight/departure_icao")
-                        Layout.fillWidth: true
+                BOTextField {
+                    label: "Route"
+                    placeholderText: "BRANE Q201 BUREL UM736 TABAT UL87 ANELA UN869 TEDGO T724 RILAX"
+                    data_ref: data_ref_manager.getDataRef("flight/route")
+                    Layout.columnSpan: 2
+                    Layout.fillWidth: true
+                }
+
+                BOTextField {
+                    label: "Airline"
+                    placeholderText: "Global Wings"
+                    data_ref: data_ref_manager.getDataRef("flight/airline")
+                    Layout.fillWidth: true
+                }
+
+                BOTextField {
+                    label: "Airline ICAO"
+                    placeholderText: "GLW"
+                    data_ref: data_ref_manager.getDataRef("flight/airline_icao")
+                    Layout.fillWidth: true
+                }
+
+                BOTextField {
+                    label: "Flight Number"
+                    placeholderText: "568A"
+                    data_ref: data_ref_manager.getDataRef("flight/flight_number")
+                    Layout.fillWidth: true
+                }
+
+                BOTextField {
+                    label: "Network"
+                    placeholderText: "IVAO"
+                    data_ref: data_ref_manager.getDataRef("flight/network")
+                    Layout.fillWidth: true
+                }
+
+                BOTextField {
+                    label: "Cruise Altitude"
+                    placeholderText: "12000"
+                    data_ref: data_ref_manager.getDataRef("flight/cruise_altitude")
+                    Layout.fillWidth: true
+                    validator: IntValidator {
+                        bottom: 0
                     }
+                }
 
-                    BOTextField {
-                        label: "Arrival ICAO"
-                        placeholderText: "LSZH"
-                        data_ref: data_ref_manager.getDataRef("flight/arrival_icao")
-                        Layout.fillWidth: true
+                BOTextField {
+                    label: "Max IAS"
+                    placeholderText: "300"
+                    data_ref: data_ref_manager.getDataRef("flight/max_ias")
+                    Layout.fillWidth: true
+                    validator: IntValidator {
+                        bottom: 0
                     }
+                }
 
-                    BOTextField {
-                        label: "Route"
-                        placeholderText: "BRANE Q201 BUREL UM736 TABAT UL87 ANELA UN869 TEDGO T724 RILAX"
-                        data_ref: data_ref_manager.getDataRef("flight/route")
-                        Layout.columnSpan: 2
-                        Layout.fillWidth: true
+                BOTextField {
+                    label: "Transition Altitude"
+                    placeholderText: "5000"
+                    data_ref: data_ref_manager.getDataRef("flight/transition_altitude")
+                    Layout.fillWidth: true
+                    validator: IntValidator {
+                        bottom: 0
                     }
+                }
 
-                    BOTextField {
-                        label: "Airline"
-                        placeholderText: "Global Wings"
-                        data_ref: data_ref_manager.getDataRef("flight/airline")
-                        Layout.fillWidth: true
-                    }
-
-                    BOTextField {
-                        label: "Airline ICAO"
-                        placeholderText: "GLW"
-                        data_ref: data_ref_manager.getDataRef("flight/airline_icao")
-                        Layout.fillWidth: true
-                    }
-
-                    BOTextField {
-                        label: "Flight Number"
-                        placeholderText: "568A"
-                        data_ref: data_ref_manager.getDataRef("flight/flight_number")
-                        Layout.fillWidth: true
-                    }
-
-                    BOTextField {
-                        label: "Network"
-                        placeholderText: "IVAO"
-                        data_ref: data_ref_manager.getDataRef("flight/network")
-                        Layout.fillWidth: true
-                    }
-
-                    BOTextField {
-                        label: "Cruise Altitude"
-                        placeholderText: "12000"
-                        data_ref: data_ref_manager.getDataRef("flight/cruise_altitude")
-                        Layout.fillWidth: true
-                        validator: IntValidator {
-                            bottom: 0
-                        }
-                    }
-
-                    BOTextField {
-                        label: "Max IAS"
-                        placeholderText: "300"
-                        data_ref: data_ref_manager.getDataRef("flight/max_ias")
-                        Layout.fillWidth: true
-                        validator: IntValidator {
-                            bottom: 0
-                        }
-                    }
-
-                    BOTextField {
-                        label: "Transition Altitude"
-                        placeholderText: "5000"
-                        data_ref: data_ref_manager.getDataRef("flight/transition_altitude")
-                        Layout.fillWidth: true
-                        validator: IntValidator {
-                            bottom: 0
-                        }
-                    }
-
-                    BOTextField {
-                        label: "Aircraft ICAO"
-                        placeholderText: "B738"
-                        data_ref: data_ref_manager.getDataRef("flight/aircraft_icao")
-                        Layout.fillWidth: true
-                    }
+                BOTextField {
+                    label: "Aircraft ICAO"
+                    placeholderText: "B738"
+                    data_ref: data_ref_manager.getDataRef("flight/aircraft_icao")
+                    Layout.fillWidth: true
                 }
             }
 
             BOGroupBox {
-                anchors.fill: parent
                 label: "General Settings"
 
-                GridLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    columns: 2
-                    columnSpacing: 16
-                    rowSpacing: 16
+                content.columnSpacing: 16
+                content.rowSpacing: 16
 
-                    BOSpinBox {
-                        label: "Data Rate"
-                        from: 1
-                        to: 60
-                        data_ref: data_ref_manager.getDataRef("global/data_rate")
+                BOSpinBox {
+                    label: "Data Rate"
+                    from: 1
+                    to: 60
+                    data_ref: data_ref_manager.getDataRef("global/data_rate")
 
-                        Layout.columnSpan: 2
-                    }
+                    Layout.columnSpan: 2
+                }
 
-                    BOSwitch {
-                        label: "Icons Enabled"
-                        description: "Enable icons for the widgets"
-                        data_ref: data_ref_manager.getDataRef("global/icon_enabled")
+                BOSwitch {
+                    label: "Icons Enabled"
+                    description: "Enable icons for the widgets"
+                    data_ref: data_ref_manager.getDataRef("global/icon_enabled")
 
-                        Layout.columnSpan: 2
-                    }
+                    Layout.columnSpan: 2
+                }
 
-                    BOSpinBox {
-                        label: "Icon Size"
-                        data_ref: data_ref_manager.getDataRef("global/icon_size")
-                        from: 0
+                BOSpinBox {
+                    label: "Icon Size"
+                    data_ref: data_ref_manager.getDataRef("global/icon_size")
+                    from: 0
 
-                        Layout.columnSpan: 2
-                    }
+                    Layout.columnSpan: 2
+                }
 
-                    BOColorSelector {
-                        label: "Primary Color"
-                        data_ref: data_ref_manager.getDataRef("global/primary_color")
+                BOColorSelector {
+                    label: "Primary Color"
+                    data_ref: data_ref_manager.getDataRef("global/primary_color")
 
-                        Layout.fillWidth: false
-                    }
+                    Layout.fillWidth: false
+                }
 
-                    BOColorSelector {
-                        label: "Secondary Color"
-                        data_ref: data_ref_manager.getDataRef("global/secondary_color")
+                BOColorSelector {
+                    label: "Secondary Color"
+                    data_ref: data_ref_manager.getDataRef("global/secondary_color")
 
-                        Layout.fillWidth: true
-                    }
+                    Layout.fillWidth: true
+                }
 
-                    BOFontSelector {
-                        label: "Primary Font"
-                        data_ref: data_ref_manager.getDataRef("global/primary_font")
+                BOFontSelector {
+                    label: "Primary Font"
+                    data_ref: data_ref_manager.getDataRef("global/primary_font")
 
-                        Layout.fillWidth: false
-                    }
+                    Layout.fillWidth: false
+                }
 
-                    BOFontSelector {
-                        label: "Secondary Font"
-                        data_ref: data_ref_manager.getDataRef("global/secondary_font")
+                BOFontSelector {
+                    label: "Secondary Font"
+                    data_ref: data_ref_manager.getDataRef("global/secondary_font")
 
-                        Layout.fillWidth: true
-                    }
+                    Layout.fillWidth: true
                 }
             }
 
             BOGroupBox {
                 label: "Widgets Settings"
 
-                ColumnLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    spacing: 16
+                content.columns: 1
+                content.rowSpacing: 16
 
-                    BOSwitch {
-                        label: "Callsign Enabled"
-                        description: "Enable Callsign widget"
-                        data_ref: data_ref_manager.getDataRef("widget/callsign/enabled")
-                    }
+                BOSwitch {
+                    label: "Callsign Enabled"
+                    description: "Enable Callsign widget"
+                    data_ref: data_ref_manager.getDataRef("widget/callsign/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Network Enabled"
-                        description: "Enable Network widget"
-                        data_ref: data_ref_manager.getDataRef("widget/network/enabled")
-                    }
+                BOSwitch {
+                    label: "Network Enabled"
+                    description: "Enable Network widget"
+                    data_ref: data_ref_manager.getDataRef("widget/network/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Speed Enabled"
-                        description: "Enable Speed widget"
-                        data_ref: data_ref_manager.getDataRef("widget/speed/enabled")
-                    }
+                BOSwitch {
+                    label: "Speed Enabled"
+                    description: "Enable Speed widget"
+                    data_ref: data_ref_manager.getDataRef("widget/speed/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Heading Enabled"
-                        description: "Enable Heading widget"
-                        data_ref: data_ref_manager.getDataRef("widget/heading/enabled")
-                    }
+                BOSwitch {
+                    label: "Heading Enabled"
+                    description: "Enable Heading widget"
+                    data_ref: data_ref_manager.getDataRef("widget/heading/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Altitude Enabled"
-                        description: "Enable Altitude widget"
-                        data_ref: data_ref_manager.getDataRef("widget/altitude/enabled")
-                    }
+                BOSwitch {
+                    label: "Altitude Enabled"
+                    description: "Enable Altitude widget"
+                    data_ref: data_ref_manager.getDataRef("widget/altitude/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Wind Enabled"
-                        description: "Enable Wind widget"
-                        data_ref: data_ref_manager.getDataRef("widget/wind/enabled")
-                    }
+                BOSwitch {
+                    label: "Wind Enabled"
+                    description: "Enable Wind widget"
+                    data_ref: data_ref_manager.getDataRef("widget/wind/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Temperature Enabled"
-                        description: "Enable Temperature widget"
-                        data_ref: data_ref_manager.getDataRef("widget/temperature/enabled")
-                    }
+                BOSwitch {
+                    label: "Temperature Enabled"
+                    description: "Enable Temperature widget"
+                    data_ref: data_ref_manager.getDataRef("widget/temperature/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Performance Enabled"
-                        description: "Enable Performance widget"
-                        data_ref: data_ref_manager.getDataRef("widget/performance/enabled")
-                    }
+                BOSwitch {
+                    label: "Performance Enabled"
+                    description: "Enable Performance widget"
+                    data_ref: data_ref_manager.getDataRef("widget/performance/enabled")
                 }
             }
 
@@ -777,70 +762,69 @@ ApplicationWindow {
             BOGroupBox {
                 label: "Landing Settings"
 
-                ColumnLayout {
-                    anchors {left: parent.left; top: parent.top; right: parent.right}
-                    spacing: 16
+                content.columns: 1
+                content.rowSpacing: 16
+                spacing: 16
 
-                    BOSwitch {
-                        id: settings_mode_switch
+                BOSwitch {
+                    id: settings_mode_switch
 
-                        label: "Settings Mode"
-                        description: "Set landing monitor to always visible"
-                        data_ref: data_ref_manager.getDataRef("landing/settings_mode")
+                    label: "Settings Mode"
+                    description: "Set landing monitor to always visible"
+                    data_ref: data_ref_manager.getDataRef("landing/settings_mode")
+                }
+
+                Button {
+                    text: "Test Event"
+                    visible: !settings_mode_switch.checked
+                    onClicked: {
+                        data_ref_manager.getDataRef("sim/on_ground").setData(false);
+                        data_ref_manager.getDataRef("sim/on_ground").setData(true);
                     }
+                }
 
-                    Button {
-                        text: "Test Event"
-                        visible: !settings_mode_switch.checked
-                        onClicked: {
-                            data_ref_manager.getDataRef("sim/on_ground").setData(false);
-                            data_ref_manager.getDataRef("sim/on_ground").setData(true);
-                        }
-                    }
+                BOSpinBox {
+                    label: "Popup Duration"
+                    data_ref: data_ref_manager.getDataRef("landing/popup_duration")
+                    from: 1
+                }
 
-                    BOSpinBox {
-                        label: "Popup Duration"
-                        data_ref: data_ref_manager.getDataRef("landing/popup_duration")
-                        from: 1
-                    }
+                BOSwitch {
+                    id: background_image_enabled_switch
 
-                    BOSwitch {
-                        id: background_image_enabled_switch
+                    label: "Background Image"
+                    description: "Enable background image"
+                    data_ref: data_ref_manager.getDataRef("landing/background_image_enabled")
+                }
 
-                        label: "Background Image"
-                        description: "Enable background image"
-                        data_ref: data_ref_manager.getDataRef("landing/background_image_enabled")
-                    }
+                BOImageSelector {
+                    label: "Background Image"
+                    data_ref: data_ref_manager.getDataRef("landing/background_image")
+                    visible: background_image_enabled_switch.checked
+                }
 
-                    BOImageSelector {
-                        label: "Background Image"
-                        data_ref: data_ref_manager.getDataRef("landing/background_image")
-                        visible: background_image_enabled_switch.checked
-                    }
+                BOSwitch {
+                    label: "Title Enabled"
+                    description: "Enable Title widget"
+                    data_ref: data_ref_manager.getDataRef("landing/title/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Title Enabled"
-                        description: "Enable Title widget"
-                        data_ref: data_ref_manager.getDataRef("landing/title/enabled")
-                    }
+                BOSwitch {
+                    label: "Network Rate"
+                    description: "Enable Rate widget"
+                    data_ref: data_ref_manager.getDataRef("landing/rate/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Network Rate"
-                        description: "Enable Rate widget"
-                        data_ref: data_ref_manager.getDataRef("landing/rate/enabled")
-                    }
+                BOSwitch {
+                    label: "Speed Enabled"
+                    description: "Enable Speed widget"
+                    data_ref: data_ref_manager.getDataRef("landing/speed/enabled")
+                }
 
-                    BOSwitch {
-                        label: "Speed Enabled"
-                        description: "Enable Speed widget"
-                        data_ref: data_ref_manager.getDataRef("landing/speed/enabled")
-                    }
-
-                    BOSwitch {
-                        label: "Attitude Enabled"
-                        description: "Enable Attitude widget"
-                        data_ref: data_ref_manager.getDataRef("landing/attitude/enabled")
-                    }
+                BOSwitch {
+                    label: "Attitude Enabled"
+                    description: "Enable Attitude widget"
+                    data_ref: data_ref_manager.getDataRef("landing/attitude/enabled")
                 }
             }
 

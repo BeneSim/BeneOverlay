@@ -21,41 +21,41 @@ import QtQuick.Controls 2.1
 import QtQuick.Controls.Material 2.1
 
 ApplicationWindow {
-  id: root
-  visible: true
-  width: message_item.width + 20
-  height: message_item.height + 20
-  title: "BeneOverlay v" + VERSION_STRING
+    id: root
+    visible: true
+    width: message_item.width + 20
+    height: message_item.height + 20
+    title: "BeneOverlay v" + VERSION_STRING
 
-  Item {
-    id: message_item
+    Item {
+        id: message_item
 
-    width: childrenRect.width
-    height: childrenRect.height
+        width: childrenRect.width
+        height: childrenRect.height
 
-    anchors.centerIn: parent
+        anchors.centerIn: parent
 
-    Text {
-      id: title_text
-      text: TITLE
-      anchors.top: parent.top
-      anchors.left: parent.left
+        Text {
+            id: title_text
+            text: TITLE
+            anchors.top: parent.top
+            anchors.left: parent.left
 
-      font.pointSize: 13
+            font.pointSize: 13
+        }
+
+        Text {
+            id: message_text
+
+            anchors.top: title_text.bottom
+            anchors.left: parent.left
+            anchors.topMargin: 10
+            anchors.leftMargin: 10
+            text: MESSAGE
+
+            color: Material.hintTextColor
+        }
+
     }
-
-    Text {
-      id: message_text
-
-      anchors.top: title_text.bottom
-      anchors.left: parent.left
-      anchors.topMargin: 10
-      anchors.leftMargin: 10
-      text: MESSAGE
-
-      color: Material.hintTextColor
-    }
-
-  }
 
 }

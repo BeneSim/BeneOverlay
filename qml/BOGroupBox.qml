@@ -26,6 +26,7 @@ ColumnLayout {
 
     property string label
     default property alias contents: content.data
+    property alias content: content
 
     spacing: 0
 
@@ -63,6 +64,11 @@ ColumnLayout {
 
         GridLayout {
             id: content
+
+            columns: 2
+
+            columnSpacing: 32
+            rowSpacing: 32
 
             anchors {left: parent.left; top: parent.top; right: parent.right; rightMargin: 10}
         }
