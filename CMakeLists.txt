@@ -6,11 +6,7 @@ set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-find_package(Qt5Qml)
-find_package(Qt5Widgets)
-find_package(Qt5Quick)
-find_package(Qt5WebChannel)
-find_package(Qt5WebSockets)
+find_package(Qt5 COMPONENTS Qml Widgets Quick WebChannel WebSockets REQUIRED)
 
 set(SRC_FILES
   src/dataref.cpp
