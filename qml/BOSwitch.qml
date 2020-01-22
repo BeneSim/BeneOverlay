@@ -26,6 +26,8 @@ BOItem {
 
     property alias checked: value_checkbox.checked
 
+    GridLayout {
+
     Switch {
         id: value_checkbox
 
@@ -65,5 +67,7 @@ BOItem {
         Layout.row: 1
         Layout.column: 1
         Layout.fillWidth: true
+    }
+
     }
 }
