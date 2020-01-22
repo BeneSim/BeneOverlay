@@ -32,76 +32,76 @@ BOGroupBox {
 
     default property alias contents: content.data
 
-        content.columnSpacing: 16
-        content.rowSpacing: 16
+    content.columnSpacing: 16
+    content.rowSpacing: 16
 
-        ColumnLayout {
-            id: content
+    ColumnLayout {
+        id: content
 
-            spacing: 16
+        spacing: 16
 
-            Layout.columnSpan: 2
-        }
+        Layout.columnSpan: 2
+    }
 
-        BOSwitch {
-            id: custom_style_switch
+    BOSwitch {
+        id: custom_style_switch
 
-            label: "Custom Style"
-            description: "Enable custom styling for this widget"
-            data_ref: root.data_ref_custom_style
+        label: "Custom Style"
+        description: "Enable custom styling for this widget"
+        data_ref: root.data_ref_custom_style
 
-            Layout.columnSpan: 2
-        }
+        Layout.columnSpan: 2
+    }
 
-        BOSwitch {
-            id: icon_enabled_switch
+    BOSwitch {
+        id: icon_enabled_switch
 
-            label: "Icon Enabled"
-            description: "Enable icon for this widget"
-            data_ref: root.data_ref_icon_enabled
-            visible: custom_style_switch.checked
+        label: "Icon Enabled"
+        description: "Enable icon for this widget"
+        data_ref: root.data_ref_icon_enabled
+        visible: custom_style_switch.checked
 
-            Layout.columnSpan: 2
-        }
+        Layout.columnSpan: 2
+    }
 
-        BOSpinBox {
-            label: "Icon Size"
-            data_ref: root.data_ref_icon_size
-            from: 0
-            visible: custom_style_switch.checked && icon_enabled_switch.checked
+    BOSpinBox {
+        label: "Icon Size"
+        data_ref: root.data_ref_icon_size
+        from: 0
+        visible: custom_style_switch.checked && icon_enabled_switch.checked
 
-            Layout.columnSpan: 2
-        }
+        Layout.columnSpan: 2
+    }
 
-        BOColorSelector {
-            label: "Primary Color"
-            data_ref: data_ref_primary_color
-            visible: custom_style_switch.checked
+    BOColorSelector {
+        label: "Primary Color"
+        data_ref: data_ref_primary_color
+        visible: custom_style_switch.checked
 
-            Layout.fillWidth: false
-        }
+        Layout.fillWidth: false
+    }
 
-        BOColorSelector {
-            label: "Secondary Color"
-            data_ref: data_ref_secondary_color
-            visible: custom_style_switch.checked
+    BOColorSelector {
+        label: "Secondary Color"
+        data_ref: data_ref_secondary_color
+        visible: custom_style_switch.checked
 
-            Layout.fillWidth: true
-        }
+        Layout.fillWidth: true
+    }
 
-        BOFontSelector {
-            label: "Primary Font"
-            data_ref: root.data_ref_primary_font
-            visible: custom_style_switch.checked
+    BOFontSelector {
+        label: "Primary Font"
+        data_ref: root.data_ref_primary_font
+        visible: custom_style_switch.checked
 
-            Layout.fillWidth: false
-        }
+        Layout.fillWidth: false
+    }
 
-        BOFontSelector {
-            label: "Secondary Font"
-            data_ref: root.data_ref_secondary_font
-            visible: custom_style_switch.checked
+    BOFontSelector {
+        label: "Secondary Font"
+        data_ref: root.data_ref_secondary_font
+        visible: custom_style_switch.checked
 
-            Layout.fillWidth: true
-        }
+        Layout.fillWidth: true
+    }
 }
