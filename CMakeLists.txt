@@ -36,7 +36,7 @@ set(HDR_FILES
 add_executable(BeneOverlay ${SRC_FILES} ${HDR_FILES} ${RCC_FILES})
 
 target_include_directories(BeneOverlay PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
-
 target_link_libraries(BeneOverlay Qt5::Widgets Qt5::Qml Qt5::Quick Qt5::WebChannel Qt5::WebSockets)
+target_compile_options(BeneOverlay PRIVATE -Wall -Wextra -Wconversion -Wsign-conversion -pedantic-errors)
 
 add_definitions(-DTEST_MODE)

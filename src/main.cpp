@@ -25,6 +25,7 @@
 #include <QWebChannel>
 #include <QDebug>
 #include <QTimer>
+#include <QElapsedTimer>
 #include <QtMath>
 #include <QDir>
 #include <QDirIterator>
@@ -49,10 +50,10 @@
 #if defined(TEST_MODE)
 std::function<void()> dataRefSweep(double duration, double from, double to, QObject *data_ref) {
     return [=]() {
-        static QTime time;
+        static QElapsedTimer time;
         static double dt;
 
-        dt += time.restart();
+        dt += static_cast<double>(time.restart());
         double amplitude = (to - from) / 2;
         double offset = (to + from) / 2;
 
@@ -67,10 +68,10 @@ std::function<void()> dataRefSweep(double duration, double from, double to, QObj
 
 std::function<void()> funSweep(double duration, double from, double to, std::function<void(int)> fun) {
     return [=]() {
-        static QTime time;
+        static QElapsedTimer time;
         static double dt;
 
-        dt += time.restart();
+        dt += static_cast<double>(time.restart());
         double amplitude = (to - from) / 2;
         double offset = (to + from) / 2;
 
@@ -78,7 +79,7 @@ std::function<void()> funSweep(double duration, double from, double to, std::fun
 
         double val = amplitude * qSin(phi) + offset;
 
-        fun(val);
+        fun(static_cast<int>(val));
 
     };
 }

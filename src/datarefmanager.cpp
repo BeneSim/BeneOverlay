@@ -395,7 +395,7 @@ void DataRefManager::calcETA()
         double dt = distance_to_destination / gs * 60 * 60;
 
 
-        current_date_time = current_date_time.addSecs(dt);
+        current_date_time = current_date_time.addSecs(static_cast<qint64>(dt));
 
         eta = current_date_time.toString("HH:mm");
 
