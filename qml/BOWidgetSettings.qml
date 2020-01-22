@@ -32,11 +32,8 @@ BOGroupBox {
 
     default property alias contents: content.data
 
-    GridLayout {
-        anchors {left: parent.left; top: parent.top; right: parent.right}
-        columns: 2
-        columnSpacing: 16
-        rowSpacing: 16
+        content.columnSpacing: 16
+        content.rowSpacing: 16
 
         ColumnLayout {
             id: content
@@ -107,5 +104,4 @@ BOGroupBox {
 
             Layout.fillWidth: true
         }
-    }
 }
