@@ -17,8 +17,8 @@ jobs:
     - name: Compile
       run: |
         mkdir build
-        docker container run --rm -v $(pwd):/app -w /app/build docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest qmake ..
-        docker container run --rm -v $(pwd):/app -w /app/build docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest make
+        docker container run --rm -v $(pwd):/app -w /app/build docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest -c "qmake .."
+        docker container run --rm -v $(pwd):/app -w /app/build docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest -c make
         echo ${{ github.ref }}
     - name: Package
       run: |
