@@ -8,13 +8,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v1
+    - name: Build
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest
     - name: Login
       uses: azure/docker-login@v1
       with:
         login-server: docker.pkg.github.com
         username: BeneSim
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: Build
-      run: docker build . --file Dockerfile --tag docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest
+        password: ${{ secrets.DOCKER_TOKEN }}
     - name: Push
       run: docker push docker.pkg.github.com/benesim/beneoverlay/gcc-windows:latest
