@@ -3,7 +3,7 @@
 
 int const VERSION_MAJOR = 1;
 int const VERSION_MINOR = 2;
-int const VERSION_PATCH = 0;
+int const VERSION_PATCH = 1;
 bool const VERSION_PRERELEASE = false;
 
 QString const VERSION_STRING = VERSION_PRERELEASE ? QString("%1.%2.%3 (Beta)")
