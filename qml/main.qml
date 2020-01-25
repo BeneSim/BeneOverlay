@@ -85,7 +85,7 @@ ApplicationWindow {
 
         onUpdateAvailable: {
             dialog.title = "Version " + version_string + " available!";
-            dialog.text = "<style>a { color: " + Material.accent + "; }</style>" + new Showdown.showdown.Converter().makeHtml(body);
+            dialog.text = "<style>a { color: " + Material.accent + "; }</style>" + new showdown.Converter().makeHtml(body);
             dialog.download_url = download_url;
             dialog.open();
         }
