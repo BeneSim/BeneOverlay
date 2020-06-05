@@ -25,8 +25,8 @@ function setupAttitude(data_refs) {
             "icon_size": data_refs["landing/attitude/icon_size"],
             "primary_color": data_refs["landing/attitude/primary_color"],
             "secondary_color": data_refs["landing/attitude/secondary_color"],
-            "primary_font": data_refs["landing/attitude/primary_font"],
-            "secondary_font": data_refs["landing/attitude/secondary_font"]
+            "primary_font": '"' + data_refs["landing/attitude/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["landing/attitude/secondary_font"] + '"'
         },
         data_refs
     );

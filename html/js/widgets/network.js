@@ -25,8 +25,8 @@ function setupNetwork(data_refs) {
             "icon_size": data_refs["widget/network/icon_size"],
             "primary_color": data_refs["widget/network/primary_color"],
             "secondary_color": data_refs["widget/network/secondary_color"],
-            "primary_font": data_refs["widget/network/primary_font"],
-            "secondary_font": data_refs["widget/network/secondary_font"]
+            "primary_font": '"' + data_refs["widget/network/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/network/secondary_font"] + '"'
         },
         data_refs
     );

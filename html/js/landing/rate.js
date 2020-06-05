@@ -25,8 +25,8 @@ function setupRate(data_refs) {
             "icon_size": data_refs["landing/rate/icon_size"],
             "primary_color": data_refs["landing/rate/primary_color"],
             "secondary_color": data_refs["landing/rate/secondary_color"],
-            "primary_font": data_refs["landing/rate/primary_font"],
-            "secondary_font": data_refs["landing/rate/secondary_font"]
+            "primary_font": '"' + data_refs["landing/rate/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["landing/rate/secondary_font"] + '"'
         },
         data_refs
     );

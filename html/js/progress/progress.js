@@ -25,8 +25,8 @@ function setupProgress(data_refs) {
             "icon_size": data_refs["progress/icon_size"],
             "primary_color": data_refs["progress/primary_color"],
             "secondary_color": data_refs["progress/secondary_color"],
-            "primary_font": data_refs["progress/primary_font"],
-            "secondary_font": data_refs["progress/secondary_font"]
+            "primary_font": '"' + data_refs["progress/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["progress/secondary_font"] + '"'
         },
         data_refs
     );
