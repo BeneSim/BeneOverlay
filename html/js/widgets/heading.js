@@ -25,8 +25,8 @@ function setupHeading(data_refs) {
             "icon_size": data_refs["widget/heading/icon_size"],
             "primary_color": data_refs["widget/heading/primary_color"],
             "secondary_color": data_refs["widget/heading/secondary_color"],
-            "primary_font": data_refs["widget/heading/primary_font"],
-            "secondary_font": data_refs["widget/heading/secondary_font"]
+            "primary_font": '"' + data_refs["widget/heading/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/heading/secondary_font"] + '"'
         },
         data_refs
     );

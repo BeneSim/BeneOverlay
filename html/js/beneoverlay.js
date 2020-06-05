@@ -57,12 +57,12 @@ function setSecondaryColor(element, val) {
 
 function setPrimaryFont(element, val) {
     let font_data = val.split(",");
-    element.find(".primary-font").css({"font-family": font_data[0], "font-size": font_data[1] + "pt"});
+    element.find(".primary-font").css({"font-family": '"' + font_data[0] + '"', "font-size": font_data[1] + "pt"});
 }
 
 function setSecondaryFont(element, val) {
     let font_data = val.split(",");
-    element.find(".secondary-font").css({"font-family": font_data[0], "font-size": font_data[1] + "pt"});
+    element.find(".secondary-font").css({"font-family": '"' + font_data[0] + '"', "font-size": font_data[1] + "pt"});
 }
 
 function attachToText(element, data_ref) {

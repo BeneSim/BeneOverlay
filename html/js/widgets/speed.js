@@ -25,8 +25,8 @@ function setupSpeed(data_refs) {
             "icon_size": data_refs["widget/speed/icon_size"],
             "primary_color": data_refs["widget/speed/primary_color"],
             "secondary_color": data_refs["widget/speed/secondary_color"],
-            "primary_font": data_refs["widget/speed/primary_font"],
-            "secondary_font": data_refs["widget/speed/secondary_font"]
+            "primary_font": '"' + data_refs["widget/speed/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/speed/secondary_font"] + '"'
         },
         data_refs
     );

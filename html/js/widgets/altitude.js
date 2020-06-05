@@ -25,8 +25,8 @@ function setupAltitude(data_refs) {
             "icon_size": data_refs["widget/altitude/icon_size"],
             "primary_color": data_refs["widget/altitude/primary_color"],
             "secondary_color": data_refs["widget/altitude/secondary_color"],
-            "primary_font": data_refs["widget/altitude/primary_font"],
-            "secondary_font": data_refs["widget/altitude/secondary_font"]
+            "primary_font": '"' + data_refs["widget/altitude/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/altitude/secondary_font"] + '"'
         },
         data_refs
     );

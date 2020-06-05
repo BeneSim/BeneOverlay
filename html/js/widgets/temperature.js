@@ -25,8 +25,8 @@ function setupTemperature(data_refs) {
             "icon_size": data_refs["widget/temperature/icon_size"],
             "primary_color": data_refs["widget/temperature/primary_color"],
             "secondary_color": data_refs["widget/temperature/secondary_color"],
-            "primary_font": data_refs["widget/temperature/primary_font"],
-            "secondary_font": data_refs["widget/temperature/secondary_font"]
+            "primary_font": '"' + data_refs["widget/temperature/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/temperature/secondary_font"] + '"'
         },
         data_refs
     );

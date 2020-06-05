@@ -25,8 +25,8 @@ function setupWind(data_refs) {
             "icon_size": data_refs["widget/wind/icon_size"],
             "primary_color": data_refs["widget/wind/primary_color"],
             "secondary_color": data_refs["widget/wind/secondary_color"],
-            "primary_font": data_refs["widget/wind/primary_font"],
-            "secondary_font": data_refs["widget/wind/secondary_font"]
+            "primary_font": '"' + data_refs["widget/wind/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/wind/secondary_font"] + '"'
         },
         data_refs
     );
