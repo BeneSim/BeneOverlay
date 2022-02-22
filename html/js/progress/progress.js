@@ -67,7 +67,7 @@ function setupProgress(data_refs) {
 
     function setProgressBarValue() {
         let ratio = getRatio(data_refs["flight/distance_to_destination"].data, data_refs["flight/route_distance"].data);
-        $("#progress-line").attr("x2", "calc((100% - 20) * " + (1 - ratio) + " + 10)");
+        $("#progress-line").attr("x2", "calc((100% - 20px) * " + (1 - ratio) + " + 10px)");
     }
 
     attachToFun(setProgressBarValue, data_refs["flight/distance_to_destination"]);
