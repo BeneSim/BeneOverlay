@@ -25,8 +25,8 @@ function setupPerformance(data_refs) {
             "icon_size": data_refs["widget/performance/icon_size"],
             "primary_color": data_refs["widget/performance/primary_color"],
             "secondary_color": data_refs["widget/performance/secondary_color"],
-            "primary_font": data_refs["widget/performance/primary_font"],
-            "secondary_font": data_refs["widget/performance/secondary_font"]
+            "primary_font": '"' + data_refs["widget/performance/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["widget/performance/secondary_font"] + '"'
         },
         data_refs
     );

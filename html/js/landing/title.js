@@ -25,8 +25,8 @@ function setupTitle(data_refs) {
             "icon_size": data_refs["landing/title/icon_size"],
             "primary_color": data_refs["landing/title/primary_color"],
             "secondary_color": data_refs["landing/title/secondary_color"],
-            "primary_font": data_refs["landing/title/primary_font"],
-            "secondary_font": data_refs["landing/title/secondary_font"]
+            "primary_font": '"' + data_refs["landing/title/primary_font"] + '"',
+            "secondary_font": '"' + data_refs["landing/title/secondary_font"] + '"'
         },
         data_refs
     );
